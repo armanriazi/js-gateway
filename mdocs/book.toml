@@ -2,7 +2,7 @@
 authors = ["Arman Riazi"]
 language = "en"
 multilingual = false
-title = "workspace"
+title = "mdocs"
 src = "./"
 
 [rust]
