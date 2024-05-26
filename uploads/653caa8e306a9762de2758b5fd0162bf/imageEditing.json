@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "e63f31d4-8fee-480a-84a4-533f9e6fb0fa",
+		"name": "imageEditing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3058066"
+	},
+	"item": [
+		{
+			"name": "image editing Dev",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "2f632ed518a52e2b972a4a81f01f6f58fcd38f9ae324769ec2a5f1e9642ac7accac10f894eb2b7fd807a86934b8b4443f42c30f5decf54745d3d4e0716dacc5a",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/ali/Downloads/eunice-stahl-G7nRAIoAOg0.png"
+						},
+						{
+							"key": "mask",
+							"type": "file",
+							"src": "/home/ali/Downloads/eunice-stahl-G7nRAIoAOg0_mask.png"
+						},
+						{
+							"key": "prompt",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "final_stage",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "prompt",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "192.168.33.21:3002/service/imageEditing/files",
+					"host": [
+						"192",
+						"168",
+						"33",
+						"21"
+					],
+					"port": "3002",
+					"path": [
+						"service",
+						"imageEditing",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tracking file",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "2f632ed518a52e2b972a4a81f01f6f58fcd38f9ae324769ec2a5f1e9642ac7accac10f894eb2b7fd807a86934b8b4443f42c30f5decf54745d3d4e0716dacc5a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "192.168.33.21:3002/service/imageEditing/trackingFile/:id",
+					"host": [
+						"192",
+						"168",
+						"33",
+						"21"
+					],
+					"port": "3002",
+					"path": [
+						"service",
+						"imageEditing",
+						"trackingFile",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "85d5c03b-451e-4451-a0d8-0c8fe7f6b521"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check Server Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.33.21:4100/service/imageEditing/checkServerHealth",
+					"host": [
+						"192",
+						"168",
+						"33",
+						"21"
+					],
+					"port": "4100",
+					"path": [
+						"service",
+						"imageEditing",
+						"checkServerHealth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check file",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "2f632ed518a52e2b972a4a81f01f6f58fcd38f9ae324769ec2a5f1e9642ac7accac10f894eb2b7fd807a86934b8b4443f42c30f5decf54745d3d4e0716dacc5a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "192.168.33.21:3002/service/imageEditing/20240416_120017_011376_ryh/mask.jpg",
+					"host": [
+						"192",
+						"168",
+						"33",
+						"21"
+					],
+					"port": "3002",
+					"path": [
+						"service",
+						"imageEditing",
+						"20240416_120017_011376_ryh",
+						"mask.jpg"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
