@@ -31,7 +31,7 @@ git-repository-url = "https://github.com/armanriazi/js-gateway/tree/main/workspa
 edit-url-template = "https://github.com/armanriazi/js-gateway/edit/main/workspace/{path}"
 git-repository-icon = "fa-github"
 site-url = "/js-gateway/"
-cname = "main.rs"
+# cname = "main.rs"
 input-404 = "404.md"
 
 [output.html.print]
