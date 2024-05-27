@@ -8,8 +8,8 @@ Therefore, currently, there are two templates prepared for documentation, which 
 npm run docs
 ```
 
-## Index
+## Code Index
 
-- [Database](./db/CODE_DB)
-- [Source Code](./src/CODE_SRC)
-- [Tests](./test/CODE_TEST)
+* [Database](./db/CODE_DB)
+* [Source Code](./src/CODE_SRC)
+* [Tests](./test/CODE_TEST)

@@ -1,4 +1,4 @@
-**Notices**
+# Initialization
 
 ## Package.json
 

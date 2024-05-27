@@ -1,9 +1,9 @@
 
 ### Requirements
 
-- rabbitMq
-- redis
-- postgres
+- [x] RabbitMq
+- [x] Redis
+- [x] Postgres
 
 Sample of docker-compose
 
