@@ -1,6 +1,6 @@
 # Summary
 
-- [Intoductory](./INTRO)
+- [Introductory](./INTRO)
 - [Docker settings](./configuration/docker/DOCKER)
 - [Diagrams](./diagram/DIAGRAM)
 - [Logs](./logs/logs)

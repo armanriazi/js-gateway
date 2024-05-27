@@ -2,7 +2,7 @@
 authors = ["Arman Riazi"]
 language = "en"
 multilingual = false
-src = "/"
+src = "./workspace/"
 title = "API-Gateway(A.R)"
 
 [rust]
@@ -15,7 +15,7 @@ edition = "2021"   # the default edition for code blocks
 build-dir = "book"
 create-missing = true             # whether or not to create missing pages
 #use-default-preprocessors = true  # use the default preprocessors
-extra-watch-dirs = ["/uploads"]
+extra-watch-dirs = ["./workspace/uploads"]
 
 [output.html]
 # theme = "my-theme"
