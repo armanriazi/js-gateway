@@ -1,6 +1,6 @@
 # Contributing
 
-This book is developed using [MdBook](https://github.com/rust-lang/mdBook/releases/download/v0.4.14/mdbook-v0.4.14-x86_64-unknown-linux-gnu.tar.gz). Authored in Markdown files (I use [atom](http://atom.io)).
+This book is developed using [MdBook](https://github.com/rust-lang/mdBook/releases/download/v0.4.14/mdbook-v0.4.14-x86_64-unknown-linux-gnu.tar.gz). Authored in Markdown files (I use [vscode](http://vscode.com)).
 
 [Here's how to setup a Dev Environment](https://rust-lang.github.io/mdBook/index.html):
 

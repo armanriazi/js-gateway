@@ -112,5 +112,4 @@ const createRole = async (sequelize) => {
     process.exit(1);
   }
 })();
-
 ```

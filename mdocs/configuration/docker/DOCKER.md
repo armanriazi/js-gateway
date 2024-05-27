@@ -1,12 +1,11 @@
 
-
-### نیازمندی ها
+### Requirements
 
 - rabbitMq
 - redis
 - postgres
 
-نمونه داکر کامپوز :
+Sample of docker-compose
 
 ```yaml
 version: '3'
@@ -62,12 +61,14 @@ npm run db:run:seed
 
 ‍‍‍```
 
-##  (بدون ایمیج داکر) شروع به کار <a name = "getting_started"></a>
+## (بدون ایمیج داکر) شروع به کار <a name = "getting_started"></a>
+
 ابتدا مخزن کدها را با دستور زیر کپی کنید:
 
 ```bash
 git clone https://gitlab.partdp.ir/avanegar/avanegar-back.git
 ```
+
 ### نیازمندی‌ها
 
 نصب pm2
@@ -107,8 +108,7 @@ services:
               memory: 1G
 ```
 
-## کپی کردن فایل sample.env و ساخت فایل env.
-
+## کپی کردن فایل sample.env و ساخت فایل env
 
 ### نصب پکیج‌ها
 
@@ -207,9 +207,7 @@ def get_file(data):
 data = get_file(data)
 ```
 
-
 ## اضافه کردن ادرس فایل استوریج به env
-
 
 ```javascript
 FILE_STORAGE_IP='192.168.33.72:8090'

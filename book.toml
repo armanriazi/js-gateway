@@ -30,7 +30,7 @@ mathjax-support = true
 git-repository-url = "https://github.com/armanriazi/js-gateway/tree/main/workspace"
 edit-url-template = "https://github.com/armanriazi/js-gateway/edit/main/workspace/{path}"
 git-repository-icon = "fa-github"
-site-url = "/js-gateway/"
+site-url = "armanriazi.github.io/js-gateway/"
 # cname = "main.rs"
 input-404 = "404.md"
 
