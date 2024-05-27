@@ -2,7 +2,7 @@
 authors = ["Arman Riazi"]
 language = "en"
 multilingual = false
-src = "./workspace/mdocs"
+src = "./workspace/docs"
 title = "API-Gateway(A.R)"
 
 [rust]
