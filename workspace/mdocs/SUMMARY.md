@@ -1,4 +1,4 @@
-# Index
+# Summary
 
 - [Intoductory](./INTRO)
 - [Docker settings](./configuration/docker/DOCKER)

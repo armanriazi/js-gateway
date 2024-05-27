@@ -2,7 +2,7 @@
 authors = ["Arman Riazi"]
 language = "en"
 multilingual = false
-src = "./mdocs/"
+src = "./workspace/"
 title = "API-Gateway(A.R)"
 
 [rust]
@@ -15,7 +15,7 @@ edition = "2021"   # the default edition for code blocks
 build-dir = "book"
 create-missing = true             # whether or not to create missing pages
 #use-default-preprocessors = true  # use the default preprocessors
-extra-watch-dirs = ["./uploads"]
+extra-watch-dirs = ["./workspace/uploads"]
 
 [output.html]
 # theme = "my-theme"
@@ -30,9 +30,9 @@ mathjax-support = true
 git-repository-url = "https://github.com/armanriazi/js-gateway/tree/main/workspace"
 edit-url-template = "https://github.com/armanriazi/js-gateway/edit/main/workspace/{path}"
 git-repository-icon = "fa-github"
-site-url = "armanriazi.github.io/js-gateway/"
-# cname = "main.rs"
-input-404 = "404.md"
+site-url = "/js-gateway/"
+cname = "main.rs"
+input-404 = "workspace/mdocs/404.md"
 
 [output.html.print]
 enable = true    # include support for printable output
