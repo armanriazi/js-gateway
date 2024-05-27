@@ -2,7 +2,7 @@
 authors = ["Arman Riazi"]
 language = "en"
 multilingual = false
-src = "./docs/"
+src = "./workspace/"
 title = "API-Gateway(A.R)"
 
 [rust]
@@ -10,6 +10,8 @@ edition = "2021"   # the default edition for code blocks
 
 # [preprocessor.index]
 # [preprocessor.links]
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
 
 [build]
 build-dir = "book"
@@ -27,8 +29,8 @@ mathjax-support = true
 # additional-css = ["rust/assets/css/custom.css"]
 # additional-js = ["rust/assets/js/custom.js"]
 # no-section-label = false
-git-repository-url = "https://github.com/armanriazi/js-gateway/tree/main/docs"
-edit-url-template = "https://github.com/armanriazi/js-gateway/edit/main/docs/{path}"
+git-repository-url = "https://github.com/armanriazi/js-gateway/tree/main/workspace"
+edit-url-template = "https://github.com/armanriazi/js-gateway/edit/main/workspace/{path}"
 git-repository-icon = "fa-github"
 site-url = "/js-gateway/"
 # cname = "main.rs"
@@ -50,6 +52,9 @@ line-numbers = true     # displays line numbers for editable code
 runnable = true          # displays a run button for rust code
 
 
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 #[output.linkcheck]
 #optional = true
 
