@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main]
 env:
-  CARGO_TERM_COLOR: always    
+  CARGO_TERM_COLOR: always
 permissions:
   contents: write
 jobs:
@@ -22,7 +22,7 @@ jobs:
           - simd_backend
           - default
         os:
-          - ubuntu-22.04                    
+          - ubuntu-22.04
           - windows-2022
         exclude:
           - rust: stable
@@ -41,7 +41,6 @@ jobs:
           profile: minimal
           toolchain: ${{ matrix.rust }}
           override: true
-          components: rustfmt, clippy
       - name: Build
         uses: actions-rs/cargo@v1
         with:
