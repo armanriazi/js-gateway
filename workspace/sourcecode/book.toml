@@ -1,9 +1,0 @@
-[book]
-authors = ["Arman Riazi"]
-language = "en"
-multilingual = false
-title = "sourcecode"
-src = "./"
-
-[rust]
-edition = "2021"   # the default edition for code blocks
