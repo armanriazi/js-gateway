@@ -32,7 +32,7 @@ edit-url-template = "https://github.com/armanriazi/js-gateway/edit/main/workspac
 git-repository-icon = "fa-github"
 site-url = "/js-gateway/"
 cname = "main.rs"
-input-404 = "workspace/mdocs/404.md"
+input-404 = "404.md"
 
 [output.html.print]
 enable = true    # include support for printable output
