@@ -2,7 +2,7 @@
 authors = ["Arman Riazi"]
 language = "en"
 multilingual = false
-src = "/docs/"
+src = "./docs/"
 title = "API-Gateway(A.R)"
 
 [rust]
@@ -53,5 +53,5 @@ runnable = true          # displays a run button for rust code
 #[output.linkcheck]
 #optional = true
 
-[output.wordcount]
-optional = true
+# [output.wordcount]
+# optional = true
