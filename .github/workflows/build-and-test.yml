@@ -22,7 +22,7 @@ jobs:
           - simd_backend
           - default
         os:
-          - ubuntu-22.04
+          - ubuntu-24.04
           - windows-2022
         exclude:
           - rust: stable
