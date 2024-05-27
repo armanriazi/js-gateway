@@ -2,8 +2,6 @@
 authors = ["Arman Riazi"]
 language = "en"
 multilingual = false
-title = "workspace"
-src = "./"
 
 [rust]
 edition = "2021"   # the default edition for code blocks
