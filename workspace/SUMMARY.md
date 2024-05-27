@@ -1,6 +1,6 @@
 
 # SUMMERY
-* [Intoductory](./INTRO)
+* [Intoductory](./INTRO.md)
 * [Docker settings](./configuration/docker/DOCKER)
 * [Diagrams](./diagram/DIAGRAM)
 * [Logs](./logs/logs)
