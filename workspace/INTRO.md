@@ -131,6 +131,7 @@ Includes:
 By executing the list command, you can see a list of installed plugins. Keep in mind that due to the use of the amqplib library, the program currently does not require the installation of plugin version 1. However, if a need arises on the Rabbit tool side, it is better to activate the desired plugin based on your own needs.
 
 ‍`amqplib`
+
 > A library for making AMQP 0-9-1 clients for Node.JS, and an AMQP 0-9-1 client for Node.JS v10+. This library does not implement AMQP 1.0 or AMQP 0-10.
 
 ```bash
@@ -206,7 +207,7 @@ Arguments: correlation_id  or conversation_id
 When a request is sent from the API, you can take action in the message reception section of the main queue, which is named after the service. You can, for example, view the relevant message in the following format.
 
 ```md
-he server reported 0 messages remaining.
+the server reported 0 messages remaining.
 Exchange (AMQP default)
 Routing Key VisionQuestionAnswering
 Redelivered ○

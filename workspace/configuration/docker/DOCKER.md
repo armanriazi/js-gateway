@@ -51,14 +51,12 @@ services:
 
 ```
 
-Run commands after the first deployment
+Run commands after the first deployment:
 
 ‍‍‍‍‍‍```bash
-
 npm run db:init
 npm run db:migrate
 npm run db:run:seed
-
 ‍‍‍```
 
 ## Get-start with Docker
@@ -134,11 +132,8 @@ npm run lint:fix
 
 ```bash
 npm run db:init
-
 npm run db:migrate
-
 npm run db:run:seed
-
 npm run start
 ```
 
@@ -146,17 +141,14 @@ npm run start
 
 ```bash
 npm run db:init
-
 npm run db:migrate
-
 npm run db:run:seed
-
 npm run test or npm run test:watch
 ```
 
-## سایر دستورات
+## Others commands
 
-Create a new migrate
+Create a new migrate:
 
 ```bash
 npm run db:migrate:generate
@@ -202,7 +194,6 @@ def get_file(data):
             raise Exception("download failed")
     except Exception as error:
         raise error
-
 data = get_file(data)
 ```
 
