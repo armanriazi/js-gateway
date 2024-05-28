@@ -1,8 +1,5 @@
 
 ```javascript
-
-
-
 /** @module Logger */
 import Logger from "partbackendlogger";
 import "dotenv/config";

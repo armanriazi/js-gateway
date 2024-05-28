@@ -1,8 +1,5 @@
 
 ```javascript
-
-
-
 import responseMessage from "../common/responseMessage.js";
 
 /**

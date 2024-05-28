@@ -1,8 +1,5 @@
 
 ```javascript
-
-
-
 import Ajv from "ajv";
 import ajvErrors from "ajv-errors";
 
