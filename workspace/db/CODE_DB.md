@@ -1,6 +1,5 @@
 # Code
 
-* [HOME](../SUMMARY)
 * [ORM](./db)
   * [Drop](./drop)
   * [Init](./init)

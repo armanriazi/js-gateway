@@ -1,6 +1,6 @@
 # Code
 
-* [index](./index.test.md)
+* [Index](./index.test.md)
 * [mock](./mock.py.md)
 * [Unit Test](./unit_test.md)
   * [Helper](./unit_test/helper.md)
