@@ -102,7 +102,7 @@ Includes:
 ```
 
 
-## ساختار json بخش لاگ
+## Structure of log
 
 ```json
 {

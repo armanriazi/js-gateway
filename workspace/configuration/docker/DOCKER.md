@@ -51,7 +51,7 @@ services:
 
 ```
 
-پس از اولین دیپلوی ذیل دستورات باید وارد شود:
+Run commands after the first deployment
 
 ‍‍‍‍‍‍```bash
 
@@ -61,24 +61,23 @@ npm run db:run:seed
 
 ‍‍‍```
 
-## (بدون ایمیج داکر) شروع به کار <a name = "getting_started"></a>
+## Get-start with Docker
 
-ابتدا مخزن کدها را با دستور زیر کپی کنید:
+Copy of repo:
 
 ```bash
 git clone https://gitlab.partdp.ir/avanegar/avanegar-back.git
 ```
 
-### نیازمندی‌ها
+### Requirements
 
-نصب pm2
+Instamm pm2
 
 ```bash
  npm install pm2@latest -g
 ```
 
-استفاده از postgres, redis
-با استفاده از داکر کامپوز
+Install Redis & Postgres
 
 ```yaml
 version: '3'
@@ -108,15 +107,15 @@ services:
               memory: 1G
 ```
 
-## کپی کردن فایل sample.env و ساخت فایل env
+Copy of file sample env to a new file .env
 
-### نصب پکیج‌ها
+### Instal packages
 
 ```bash
 npm install
 ```
 
-### شروع توسعه
+### Start to develop code
 
 ```bash
 npm run db:init
@@ -125,13 +124,13 @@ npm run db:run:seed
 npm run dev
 ```
 
-### وقتی تغییرات انجام شد
+### When changes occured
 
 ```bash
 npm run lint:fix
 ```
 
-### در حالت پروداکشن
+### Production stage
 
 ```bash
 npm run db:init
@@ -143,7 +142,7 @@ npm run db:run:seed
 npm run start
 ```
 
-### در حالت تست
+### Test stage
 
 ```bash
 npm run db:init
@@ -157,31 +156,31 @@ npm run test or npm run test:watch
 
 ## سایر دستورات
 
-ساخت یک مایگریت جدید
+Create a new migrate
 
 ```bash
 npm run db:migrate:generate
 ```
 
-برگشتن به حالت اولیه ماگریت ها
+Rest mode:
 
 ```bash
 npm run db:migrate:undo
 ```
 
-ساخت دیتای اولیه
+Create seeder data
 
 ```bash
 npm run db:create:seed
 ```
 
-برگشتن به حالت اولیه دیتاها
+Revert to the initiated data
 
 ```bash
 npm run db:undo:seed
 ```
 
-## اضافه کردن به app.py
+## Add app.py
 
 ```python
 import requests
@@ -207,7 +206,7 @@ def get_file(data):
 data = get_file(data)
 ```
 
-## اضافه کردن ادرس فایل استوریج به env
+## Adding storage url to the env
 
 ```javascript
 FILE_STORAGE_IP='192.168.33.72:8090'
