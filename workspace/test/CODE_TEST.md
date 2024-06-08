@@ -76,4 +76,4 @@
     * [mockAINationalCardHC](./mockAI/mockAINationalCardHC.md)
     * [mockAiFaceDetection](./mockAI/mockAiFaceDetection.md)
     * [mockAiFaceVerification](./mockAI/mockAiFaceVerification.md)
-* [GLOSSARY](../GLOSSARY.md)
+* [GLOSSARY](./GLOSSARY.md)

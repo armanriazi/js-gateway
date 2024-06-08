@@ -84,4 +84,4 @@
   * [policy](./common/middlewares/policy.md)
   * [paginationHandler](./common/middlewares/paginationHandler.md)
   * [ajvValidator](./common/middlewares/ajvValidator.md)
-* [GLOSSARY](../GLOSSARY.md)
+* [GLOSSARY](./GLOSSARY.md)
