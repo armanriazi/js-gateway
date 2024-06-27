@@ -21,7 +21,7 @@
 
 برای استفاده از هر api که منجر به ایجاد، حذف، دریافت و یا به روز رسانی موجودیت ها میشود باید پیش از آن با استفاده از api login یک توکن دریافت کرد که با استفاده از **JWT** ایجاد شده و یک session expiration یک ساعته دارد. 
 
-[در مستندات اصلی گیت وی](https://gitlab.partdp.ir/apimarket/gateway/-/wikis/%D8%AF%D8%A7%DA%A9%DB%8C%D9%88%D9%85%D9%86%D8%AA-%DA%AF%DB%8C%D8%AA-%D9%88%DB%8C) درخصوص تمامی api های این سرویس به تفصیل توضیح داده شده است. 
+[در مستندات اصلی گیت وی](https://armanriazi.github.io/js-gateway/apimarket/gateway/-/wikis/%D8%AF%D8%A7%DA%A9%DB%8C%D9%88%D9%85%D9%86%D8%AA-%DA%AF%DB%8C%D8%AA-%D9%88%DB%8C) درخصوص تمامی api های این سرویس به تفصیل توضیح داده شده است. 
 
 
 برای نمونه: 
@@ -358,4 +358,4 @@ Headers:
 
 
 
-فرایند کامل استفاده از کنترلر های ارتباط با هوش [در این کامیونت](https://gitlab.partdp.ir/apimarket/gateway/-/wikis/gateway-UML-document) ذکر شده است.
+فرایند کامل استفاده از کنترلر های ارتباط با هوش [در این کامیونت](https://armanriazi.github.io/js-gateway/apimarket/gateway/-/wikis/gateway-UML-document) ذکر شده است.

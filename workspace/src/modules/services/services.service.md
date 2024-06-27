@@ -4,7 +4,7 @@ import models from "../models.js";
 
 import ServiceBase from '../../services/serviceBase'
 import models from '../models'
->>>>>>> origin/armanriazi
+
 
 /**
  * Class representing organizations services
@@ -25,7 +25,7 @@ export default new (class Service extends ServiceBase {
     });
 
     })
->>>>>>> origin/armanriazi
+
   }
 
   /**
@@ -38,7 +38,7 @@ export default new (class Service extends ServiceBase {
   async findService(name) {
 
    async findService(name) {
->>>>>>> origin/armanriazi
+
     return await this.model.findOne({
       where: { name },
       include: [
@@ -50,7 +50,7 @@ export default new (class Service extends ServiceBase {
     });
 
     })
->>>>>>> origin/armanriazi
+
 
     // return await this.model.findOne({ where: { username } })
   }
@@ -74,7 +74,7 @@ export default new (class Service extends ServiceBase {
       offset = (Number(offs) - 1) * limit
     } else {
       offset = null
->>>>>>> origin/armanriazi
+
     }
     return await this.model.findAll({
       where: clause,
@@ -93,4 +93,4 @@ export default new (class Service extends ServiceBase {
     })
   }
 })(models.Service)
->>>>>>> origin/armanriazi
+

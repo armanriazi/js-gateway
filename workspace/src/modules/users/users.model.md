@@ -10,7 +10,7 @@ const { genSaltSync, hashSync } = bcrypt;
 
 import { genSaltSync, hashSync } from 'bcryptjs'
 import { Model } from 'sequelize'
->>>>>>> origin/armanriazi
+
 
 export default (sequelize, DataTypes) => {
   class User extends Model {
@@ -35,7 +35,7 @@ export default (sequelize, DataTypes) => {
 
     static associate(models) {
       User.hasMany(models.ApiKey)
->>>>>>> origin/armanriazi
+
     }
   }
 
@@ -54,7 +54,7 @@ export default (sequelize, DataTypes) => {
         field: "username",
 
         field: 'username',
->>>>>>> origin/armanriazi
+
         unique: true,
       },
       password: {
@@ -64,7 +64,7 @@ export default (sequelize, DataTypes) => {
           this.setDataValue("password", hashSync(value, genSaltSync(12)));
 
           this.setDataValue('password', hashSync(value, genSaltSync(12)))
->>>>>>> origin/armanriazi
+
         },
       },
       role: {
@@ -82,7 +82,7 @@ export default (sequelize, DataTypes) => {
         field: "created_at",
 
         field: 'created_at',
->>>>>>> origin/armanriazi
+
         allowNull: false,
       },
       updatedAt: {
@@ -91,7 +91,7 @@ export default (sequelize, DataTypes) => {
         field: "updated_at",
 
         field: 'updated_at',
->>>>>>> origin/armanriazi
+
         allowNull: false,
       },
       deletedAt: {
@@ -100,7 +100,7 @@ export default (sequelize, DataTypes) => {
         field: "deleted_at",
 
         field: 'deleted_at',
->>>>>>> origin/armanriazi
+
       },
     },
     {
@@ -118,4 +118,4 @@ export default (sequelize, DataTypes) => {
   )
   return User
 }
->>>>>>> origin/armanriazi
+

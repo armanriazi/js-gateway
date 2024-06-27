@@ -42,7 +42,7 @@ router.get(
   '/:id',
   auth.check,
   auth.simpleCheckRoles(['superAdmin', 'admin', 'user']),
->>>>>>> origin/armanriazi
+
   auth.checkIdInParamsWithReqUserId,
   auth.checkAdminCanNotGetAdmins,
   generalValidator(validator.get),
@@ -131,4 +131,4 @@ router.delete(
 )
 
 export default router
->>>>>>> origin/armanriazi
+

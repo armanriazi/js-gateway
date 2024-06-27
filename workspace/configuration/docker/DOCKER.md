@@ -64,7 +64,7 @@ npm run db:run:seed
 Copy of repo:
 
 ```bash
-git clone https://gitlab.partdp.ir/avanegar/avanegar-back.git
+git clone https://armanriazi.github.io/js-gateway/avanegar/avanegar-back.git
 ```
 
 ### Requirements

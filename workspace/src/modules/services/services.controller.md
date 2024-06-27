@@ -10,7 +10,7 @@ import ControllerBase from '../../services/controllerBase'
 import responseMessage from '../../common/responseMessage'
 import messages from '../../common/messages'
 import utility from '../../common/helper/utility'
->>>>>>> origin/armanriazi
+
 
 /**
  * representive class of projects controllers
@@ -44,7 +44,7 @@ export default new (class Controller extends ControllerBase {
 
       if (type === 'proxy') {
         req.body.queue = 'null'
->>>>>>> origin/armanriazi
+
       }
 
       const insertedService = await this.service.create({
@@ -53,7 +53,7 @@ export default new (class Controller extends ControllerBase {
       });
 
       })
->>>>>>> origin/armanriazi
+
 
       responseMessage({
         res,
@@ -71,7 +71,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function index
@@ -96,7 +96,7 @@ export default new (class Controller extends ControllerBase {
           endTimeStamp,
         }),
         documents = await this.service.findAllServices(clause, limit, offs)
->>>>>>> origin/armanriazi
+
 
       responseMessage({
         res,
@@ -113,7 +113,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function updateService
@@ -142,7 +142,7 @@ export default new (class Controller extends ControllerBase {
       }
       if (serviceName) {
         throw global.error(400, messages.m.DUPLICATE_SERVICE_NAME)
->>>>>>> origin/armanriazi
+
       }
 
       const updatedDocument = await this.service.updateOne(
@@ -172,7 +172,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function getService
@@ -209,4 +209,4 @@ export default new (class Controller extends ControllerBase {
     }
   }
 })(service)
->>>>>>> origin/armanriazi
+

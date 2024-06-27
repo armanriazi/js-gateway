@@ -4,7 +4,7 @@ import messages from "../../common/messages.js";
 
 import Joi from 'joi'
 import messages from '../../common/messages'
->>>>>>> origin/armanriazi
+
 
 export default {
   create: Joi.object({
@@ -19,7 +19,7 @@ export default {
         'string.base': `${messages.c.SERVICE_NAME} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.SERVICE_NAME} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.SERVICE_NAME} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
 
     ProjectId: Joi.string()
@@ -36,7 +36,7 @@ export default {
         'string.guid': `${messages.c.PROJECT_ID} ${messages.m.PATTERN}`,
         'string.empty': `${messages.c.PROJECT_ID} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.PROJECT_ID} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
 
     validation: Joi.object()
@@ -50,7 +50,7 @@ export default {
         'object.base': `${messages.c.VALIDATION} ${messages.m.INCORRECT}`,
         'object.empty': `${messages.c.VALIDATION} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.VALIDATION} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
 
     apis: Joi.array()
@@ -90,7 +90,7 @@ export default {
               'array.includesRequiredUnknowns': `${messages.c.METHOD} ${messages.m.EMPTY}`,
               'any.required': `${messages.c.METHOD} ${messages.m.REQUIRED}`,
               'any.only': `${messages.m.METHOD_VALID_FORMAT}`,
->>>>>>> origin/armanriazi
+
             }),
           path: Joi.string()
             .required()
@@ -109,7 +109,7 @@ export default {
             }),
           files: Joi.array()
             .empty(['', null])
->>>>>>> origin/armanriazi
+
             .default(null)
             .items(
               Joi.object({
@@ -160,7 +160,7 @@ export default {
                     'string.empty': `${messages.c.HOWGET} ${messages.m.EMPTY}`,
                     'any.required': `${messages.c.HOWGET} ${messages.m.REQUIRED}`,
                     'any.only': messages.m.ENTRY_VALID_HOWGET,
->>>>>>> origin/armanriazi
+
                   }),
                 required: Joi.boolean()
                   .default(false)
@@ -189,7 +189,7 @@ export default {
         'array.base': `${messages.c.APIS} ${messages.m.MUST_BE_ARRAY}`,
         'array.empty': `${messages.c.APIS} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.APIS} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
 
     type: Joi.string()
@@ -218,7 +218,7 @@ export default {
     host: Joi.string()
       .when('type', {
         is: 'proxy',
->>>>>>> origin/armanriazi
+
         then: Joi.string().required(),
         otherwise: Joi.string().forbidden(),
       })
@@ -271,7 +271,7 @@ export default {
     rejectUnauthorized: Joi.boolean()
       .when('protocol', {
         is: 'https',
->>>>>>> origin/armanriazi
+
         then: Joi.boolean().required(),
         otherwise: Joi.boolean().forbidden(),
       })
@@ -298,7 +298,7 @@ export default {
     queue: Joi.string()
       .when('type', {
         is: 'direct',
->>>>>>> origin/armanriazi
+
         then: Joi.string().required(),
         otherwise: Joi.string().forbidden(),
       })
@@ -313,7 +313,7 @@ export default {
         'string.empty': `${messages.c.QUEUE} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.QUEUE} ${messages.m.REQUIRED}`,
         'any.unknown': `${messages.c.QUEUE} ${messages.m.IS_NOT_ALLOWED}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -329,7 +329,7 @@ export default {
         'number.base': `${messages.c.PAGE} ${messages.m.INCORRECT}`,
         'number.integer': `${messages.c.PAGE} ${messages.m.PATTERN}`,
         'number.empty': `${messages.c.PAGE} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
       }),
     limit: Joi.number()
       .integer()
@@ -358,7 +358,7 @@ export default {
     endTimeStamp: Joi.date().messages({
       'date.base': `${messages.c.END_TIMESTAMP} ${messages.m.INCORRECT}`,
       'date.empty': `${messages.c.END_TIMESTAMP} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
     }),
   }),
 
@@ -377,7 +377,7 @@ export default {
         'string.guid': `${messages.c.ID} ${messages.m.PATTERN}`,
         'string.empty': `${messages.c.ID} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.ID} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -406,7 +406,7 @@ export default {
     name: Joi.string().messages({
       'string.base': `${messages.c.SERVICE_NAME} ${messages.m.INCORRECT}`,
       'string.empty': `${messages.c.SERVICE_NAME} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
     }),
 
     apis: Joi.array()
@@ -445,7 +445,7 @@ export default {
               'array.includesRequiredUnknowns': `${messages.c.METHOD} ${messages.m.EMPTY}`,
               'any.required': `${messages.c.METHOD} ${messages.m.REQUIRED}`,
               'any.only': `${messages.m.METHOD_VALID_FORMAT}`,
->>>>>>> origin/armanriazi
+
             }),
           path: Joi.string()
             .required()
@@ -458,7 +458,7 @@ export default {
               'string.base': `${messages.c.PATH} ${messages.m.INCORRECT}`,
               'string.empty': `${messages.c.PATH} ${messages.m.EMPTY}`,
               'any.required': `${messages.c.PATH} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
             }),
           files: Joi.array().items(
             Joi.object({
@@ -509,7 +509,7 @@ export default {
                   'string.empty': `${messages.c.HOWGET} ${messages.m.EMPTY}`,
                   'any.required': `${messages.c.HOWGET} ${messages.m.REQUIRED}`,
                   'any.only': messages.m.ENTRY_VALID_HOWGET,
->>>>>>> origin/armanriazi
+
                 }),
               required: Joi.boolean()
                 .default(false)
@@ -536,7 +536,7 @@ export default {
       .messages({
         'array.base': `${messages.c.APIS} ${messages.m.MUST_BE_ARRAY}`,
         'array.empty': `${messages.c.APIS} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
       }),
 
     ProjectId: Joi.string()
@@ -570,7 +570,7 @@ export default {
     queue: Joi.string()
       .when('type', {
         is: 'direct',
->>>>>>> origin/armanriazi
+
         then: Joi.string().required(),
         otherwise: Joi.string(),
       })
@@ -593,7 +593,7 @@ export default {
     host: Joi.string()
       .when('type', {
         is: 'proxy',
->>>>>>> origin/armanriazi
+
         then: Joi.string().required(),
         otherwise: Joi.string(),
       })
@@ -658,7 +658,7 @@ export default {
     rejectUnauthorized: Joi.boolean()
       .when('protocol', {
         is: 'https',
->>>>>>> origin/armanriazi
+
         then: Joi.boolean().required(),
         otherwise: Joi.boolean().valid(false),
       })
@@ -673,7 +673,7 @@ export default {
         'boolean.empty': `${messages.c.REJECT_UNAUTHORIZED} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.REJECT_UNAUTHORIZED} ${messages.m.REQUIRED}`,
         'any.only': `${messages.c.REJECT_UNAUTHORIZED} ${messages.m.REJECT_UNAUTHORIZED_ERROR}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -695,4 +695,4 @@ export default {
       }),
   }),
 }
->>>>>>> origin/armanriazi
+

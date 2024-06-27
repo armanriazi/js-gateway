@@ -14,7 +14,7 @@ import messages from '../../common/messages'
 import bcrypt from '../../common/helper/bcrypt'
 import auth from '../../services/auth'
 import utility from '../../common/helper/utility'
->>>>>>> origin/armanriazi
+
 
 /**
  * representive class of users controllers
@@ -43,7 +43,7 @@ export default new (class Controller extends ControllerBase {
       })
 
       delete insertedUser.dataValues.password
->>>>>>> origin/armanriazi
+
 
       responseMessage({
         res,
@@ -61,7 +61,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function updatePassword
@@ -117,7 +117,7 @@ export default new (class Controller extends ControllerBase {
 
       if (!(await bcrypt.compareHashPass(currentPassword, password))) {
         throw global.error(400, messages.m.INVALID_LOGIN)
->>>>>>> origin/armanriazi
+
       }
 
       const updatedDocument = await this.service.updateOne(
@@ -129,7 +129,7 @@ export default new (class Controller extends ControllerBase {
       );
 
       )
->>>>>>> origin/armanriazi
+
 
       responseMessage({
         res,
@@ -146,7 +146,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function index
@@ -183,7 +183,7 @@ export default new (class Controller extends ControllerBase {
           limit,
           offs
         )
->>>>>>> origin/armanriazi
+
 
       responseMessage({
         res,
@@ -200,7 +200,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function login
@@ -240,7 +240,7 @@ export default new (class Controller extends ControllerBase {
         throw global.error(400, messages.m.INVALID_LOGIN)
 
       const token = await auth.generateToken({ ...user.dataValues })
->>>>>>> origin/armanriazi
+
 
       responseMessage({
         res,
@@ -257,7 +257,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function update
@@ -290,7 +290,7 @@ export default new (class Controller extends ControllerBase {
           user.dataValues.id !== req.user.id)
       ) {
         throw global.error(400, messages.m.USER_NOT_FOUND)
->>>>>>> origin/armanriazi
+
       }
 
       const updatedDocument = await this.service.updateOne(
@@ -320,7 +320,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function getUser
@@ -363,7 +363,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function getAllUsers
@@ -406,7 +406,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function removeUser
@@ -435,7 +435,7 @@ export default new (class Controller extends ControllerBase {
         (req.user.role === 'admin' && user.dataValues.id !== req.user.id)
       ) {
         throw global.error(400, messages.m.USER_NOT_FOUND)
->>>>>>> origin/armanriazi
+
       }
 
       const deletedDocument = await this.service.deleteOne({
@@ -444,7 +444,7 @@ export default new (class Controller extends ControllerBase {
       });
 
       })
->>>>>>> origin/armanriazi
+
 
       responseMessage({
         res,
@@ -463,4 +463,4 @@ export default new (class Controller extends ControllerBase {
     }
   }
 })(service)
->>>>>>> origin/armanriazi
+

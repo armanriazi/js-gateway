@@ -4,7 +4,7 @@ import models from "../models.js";
 
 import ServiceBase from '../../services/serviceBase'
 import models from '../models'
->>>>>>> origin/armanriazi
+
 
 /**
  * Class representing organizations projects
@@ -25,7 +25,7 @@ export default new (class Project extends ServiceBase {
     });
 
     })
->>>>>>> origin/armanriazi
+
   }
 
   /**
@@ -47,7 +47,7 @@ export default new (class Project extends ServiceBase {
       offset = (Number(offs) - 1) * limit
     } else {
       offset = null
->>>>>>> origin/armanriazi
+
     }
     return await this.model.findAll({
       where: clause,
@@ -66,4 +66,4 @@ export default new (class Project extends ServiceBase {
     })
   }
 })(models.Project)
->>>>>>> origin/armanriazi
+

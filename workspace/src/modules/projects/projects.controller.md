@@ -10,7 +10,7 @@ import ControllerBase from '../../services/controllerBase'
 import responseMessage from '../../common/responseMessage'
 import messages from '../../common/messages'
 import utility from '../../common/helper/utility'
->>>>>>> origin/armanriazi
+
 
 /**
  * representive class of projects controllers
@@ -40,7 +40,6 @@ export default new (class Controller extends ControllerBase {
           endTimeStamp,
         }),
         documents = await this.service.findAllProjects(clause, limit, offs)
->>>>>>> origin/armanriazi
 
       responseMessage({
         res,
@@ -57,7 +56,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function updateProject
@@ -78,7 +77,7 @@ export default new (class Controller extends ControllerBase {
 
       if (!storedProject) {
         throw global.error(400, messages.m.PROJECT_NOT_FOUND)
->>>>>>> origin/armanriazi
+
       }
 
       const updatedDocument = await this.service.updateOne(
@@ -108,7 +107,7 @@ export default new (class Controller extends ControllerBase {
       next(error)
     }
   }
->>>>>>> origin/armanriazi
+
 
   /**
    * @function getProject
@@ -145,4 +144,4 @@ export default new (class Controller extends ControllerBase {
     }
   }
 })(service)
->>>>>>> origin/armanriazi
+

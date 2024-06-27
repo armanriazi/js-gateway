@@ -4,7 +4,7 @@ import models from "../models.js";
 
 import ServiceBase from '../../services/serviceBase'
 import models from '../models'
->>>>>>> origin/armanriazi
+
 
 /**
  * Class representing organizations user
@@ -25,7 +25,7 @@ export default new (class User extends ServiceBase {
         exclude: ["password"],
 
         exclude: ['password'],
->>>>>>> origin/armanriazi
+
       },
       include: [
         {
@@ -37,7 +37,7 @@ export default new (class User extends ServiceBase {
     });
 
     })
->>>>>>> origin/armanriazi
+
   }
 
   /**
@@ -63,7 +63,7 @@ export default new (class User extends ServiceBase {
       offset = (Number(offs) - 1) * limit
     } else {
       offset = null
->>>>>>> origin/armanriazi
+
     }
 
     return await this.model.findAll({
@@ -73,7 +73,7 @@ export default new (class User extends ServiceBase {
         exclude: ["password"],
 
         exclude: ['password'],
->>>>>>> origin/armanriazi
+
       },
       include: [
         {
@@ -91,7 +91,7 @@ export default new (class User extends ServiceBase {
       offset,
       limit,
     })
->>>>>>> origin/armanriazi
+
   }
 
   /**
@@ -113,4 +113,4 @@ export default new (class User extends ServiceBase {
     })
   }
 })(models.User)
->>>>>>> origin/armanriazi
+

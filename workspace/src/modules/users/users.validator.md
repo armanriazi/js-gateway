@@ -4,7 +4,7 @@ import messages from "../../common/messages.js";
 
 import Joi from 'joi'
 import messages from '../../common/messages'
->>>>>>> origin/armanriazi
+
 
 export default {
   create: Joi.object({
@@ -25,7 +25,7 @@ export default {
         'any.required': `${messages.c.USERNAME} ${messages.m.REQUIRED}`,
         'string.min': `${messages.c.USERNAME} ${messages.m.MINMAXLENGTH}`,
         'string.max': `${messages.c.USERNAME} ${messages.m.MINMAXLENGTH}`,
->>>>>>> origin/armanriazi
+
       }),
     password: Joi.string()
       .pattern(
@@ -79,7 +79,7 @@ export default {
       lastName: Joi.string().messages({
         'string.base': `${messages.c.LAST_NAME} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.LAST_NAME} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
       }),
       email: Joi.string()
         .email()
@@ -92,7 +92,7 @@ export default {
           'string.base': `${messages.c.EMAIL} ${messages.m.INCORRECT}`,
           'string.email': `${messages.c.EMAIL} ${messages.m.PATTERN}`,
           'string.empty': `${messages.c.EMAIL} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
         }),
       phoneNumber: Joi.string()
         .pattern(/^(0)(9)[0-9]{9}$/)
@@ -113,7 +113,7 @@ export default {
         }),
     }).messages({
       'object.base': `${messages.c.PROFILE} ${messages.m.INCORRECT}`,
->>>>>>> origin/armanriazi
+
     }),
   }),
 
@@ -129,7 +129,7 @@ export default {
         'number.base': `${messages.c.PAGE} ${messages.m.INCORRECT}`,
         'number.integer': `${messages.c.PAGE} ${messages.m.PATTERN}`,
         'number.empty': `${messages.c.PAGE} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
       }),
     limit: Joi.number()
       .integer()
@@ -158,7 +158,7 @@ export default {
     endTimeStamp: Joi.date().messages({
       'date.base': `${messages.c.END_TIMESTAMP} ${messages.m.INCORRECT}`,
       'date.empty': `${messages.c.END_TIMESTAMP} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
     }),
   }),
 
@@ -175,7 +175,7 @@ export default {
         'string.guid': `${messages.c.ID} ${messages.m.PATTERN}`,
         'string.empty': `${messages.c.ID} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.ID} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -194,7 +194,7 @@ export default {
         'string.guid': `${messages.c.ID} ${messages.m.PATTERN}`,
         'string.empty': `${messages.c.ID} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.ID} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
     currentPassword: Joi.string()
       .required()
@@ -207,7 +207,7 @@ export default {
         'string.base': `${messages.c.CURRENT_PASSWORD} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.CURRENT_PASSWORD} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.CURRENT_PASSWORD} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
     newPassword: Joi.string()
       .pattern(
@@ -243,7 +243,7 @@ export default {
         'string.empty': `${messages.c.CONFIRM_PASSWORD} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.CONFIRM_PASSWORD} ${messages.m.REQUIRED}`,
         'any.only': `${messages.m.INCORRECT_CONFIRM_PASSWORD}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -276,7 +276,7 @@ export default {
         'string.base': `${messages.c.ROLE} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.ROLE} ${messages.m.EMPTY}`,
         'any.only': 'role باید یکی از مقادیر  "admin", "user" باشد',
->>>>>>> origin/armanriazi
+
       }),
     username: Joi.string()
       .min(5)
@@ -310,7 +310,7 @@ export default {
       lastName: Joi.string().messages({
         'string.base': `${messages.c.LAST_NAME} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.LAST_NAME} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
       }),
       email: Joi.string()
         .email()
@@ -323,7 +323,7 @@ export default {
           'string.base': `${messages.c.EMAIL} ${messages.m.INCORRECT}`,
           'string.email': `${messages.c.EMAIL} ${messages.m.PATTERN}`,
           'string.empty': `${messages.c.EMAIL} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
         }),
       phoneNumber: Joi.string()
         .pattern(/^(0)(9)[0-9]{9}$/)
@@ -342,7 +342,7 @@ export default {
         }),
     }).messages({
       'object.base': `${messages.c.PROFILE} ${messages.m.INCORRECT}`,
->>>>>>> origin/armanriazi
+
     }),
   }),
 
@@ -361,7 +361,7 @@ export default {
         'string.guid': `${messages.c.ID} ${messages.m.PATTERN}`,
         'string.empty': `${messages.c.ID} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.ID} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -377,7 +377,7 @@ export default {
         'string.base': `${messages.c.USERNAME} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.USERNAME} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.USERNAME} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
     password: Joi.string()
       .required()
@@ -396,4 +396,4 @@ export default {
       }),
   }),
 }
->>>>>>> origin/armanriazi
+

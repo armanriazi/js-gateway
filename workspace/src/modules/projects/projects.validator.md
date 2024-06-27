@@ -4,7 +4,7 @@ import messages from "../../common/messages.js";
 
 import Joi from 'joi'
 import messages from '../../common/messages'
->>>>>>> origin/armanriazi
+
 
 export default {
   create: Joi.object({
@@ -19,7 +19,7 @@ export default {
         'string.base': `${messages.c.PROJECT_NAME} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.PROJECT_NAME} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.PROJECT_NAME} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -35,7 +35,7 @@ export default {
         'number.base': `${messages.c.PAGE} ${messages.m.INCORRECT}`,
         'number.integer': `${messages.c.PAGE} ${messages.m.PATTERN}`,
         'number.empty': `${messages.c.PAGE} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
       }),
     limit: Joi.number()
       .integer()
@@ -64,7 +64,7 @@ export default {
     endTimeStamp: Joi.date().messages({
       'date.base': `${messages.c.END_TIMESTAMP} ${messages.m.INCORRECT}`,
       'date.empty': `${messages.c.END_TIMESTAMP} ${messages.m.EMPTY}`,
->>>>>>> origin/armanriazi
+
     }),
   }),
 
@@ -83,7 +83,7 @@ export default {
         'string.guid': `${messages.c.ID} ${messages.m.PATTERN}`,
         'string.empty': `${messages.c.ID} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.ID} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -102,7 +102,7 @@ export default {
         'string.guid': `${messages.c.ID} ${messages.m.PATTERN}`,
         'string.empty': `${messages.c.ID} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.ID} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
     name: Joi.string()
       .required()
@@ -115,7 +115,7 @@ export default {
         'string.base': `${messages.c.PROJECT_NAME} ${messages.m.INCORRECT}`,
         'string.empty': `${messages.c.PROJECT_NAME} ${messages.m.EMPTY}`,
         'any.required': `${messages.c.PROJECT_NAME} ${messages.m.REQUIRED}`,
->>>>>>> origin/armanriazi
+
       }),
   }),
 
@@ -140,4 +140,4 @@ export default {
       }),
   }),
 }
->>>>>>> origin/armanriazi
+

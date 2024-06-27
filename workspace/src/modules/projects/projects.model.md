@@ -6,7 +6,7 @@ import { Model } from "sequelize";
 'use strict'
 
 import { Model } from 'sequelize'
->>>>>>> origin/armanriazi
+
 
 export default (sequelize, DataTypes) => {
   class Project extends Model {
@@ -15,7 +15,7 @@ export default (sequelize, DataTypes) => {
       Project.hasMany(models.Service);
 
       Project.hasMany(models.Service)
->>>>>>> origin/armanriazi
+
     }
   }
 
@@ -34,7 +34,7 @@ export default (sequelize, DataTypes) => {
         field: "name",
 
         field: 'name',
->>>>>>> origin/armanriazi
+
         unique: true,
       },
       createdAt: {
@@ -43,7 +43,7 @@ export default (sequelize, DataTypes) => {
         field: "created_at",
 
         field: 'created_at',
->>>>>>> origin/armanriazi
+
         allowNull: false,
       },
       updatedAt: {
@@ -52,7 +52,7 @@ export default (sequelize, DataTypes) => {
         field: "updated_at",
 
         field: 'updated_at',
->>>>>>> origin/armanriazi
+
         allowNull: false,
       },
     },
@@ -71,4 +71,4 @@ export default (sequelize, DataTypes) => {
   )
   return Project
 }
->>>>>>> origin/armanriazi
+
