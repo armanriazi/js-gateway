@@ -125,6 +125,19 @@ Includes:
 }
 ```
 
+# DB
+## Relations
+### Cascades
+
+- [x] If a ApiKey remove from ApiKeys then {only remove related records in the Apis}
+
+- [x] If a Service remove from Services then {only remove related records in the Apis}
+
+- [x] If a Project remove from Projects then {only remove related records in the Services}
+
+- [x] If a User remove from Users then {only remove related records in the ApiKeys and Apis}
+
+- [x] If a Api remove from Apis then will not affect on any tables.
 
 # RabbitMq
 
@@ -248,4 +261,5 @@ If you create a message for testing on the random queue with the mentioned ID, y
 
 ---
 
-- [GitHub Rabbitmq](https://www.gitgub.com/armanriazi/rabbitmq)
+* [MDBook Message Brokers](https://www.armanriazi.github.io/messagebrokers)
+* [GitHub Message Brokers](https://www.github.com/armanriazi/messagebrokers)
