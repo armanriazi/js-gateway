@@ -6,7 +6,7 @@ export const policyTest = () => {
       files = [
         {
           originalname: 'thumb-raw-05e710ca-9c1d-48d4-94c0-22ac02294908.png',
-          path: '/home/ali/Desktop/gateway/uploads/gateway-file-81c7b752-a387-47cf-b874-3236ed1bb114.png',
+          path: '/home/ali/Desktop/gateway/assets/uploads/gateway-file-81c7b752-a387-47cf-b874-3236ed1bb114.png',
           encoding: '7bit',
           mimeType: 'image/png',
           newName: 'gateway-file-81c7b752-a387-47cf-b874-3236ed1bb114.png',

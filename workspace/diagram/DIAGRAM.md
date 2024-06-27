@@ -7,7 +7,7 @@ For better display and zoom capabilities, it is recommended to place the written
 In more complex diagrams where it is necessary to follow connections, it is better to remove parts of the code written as 'note' and then review the relevant diagram. This technique is solely for a better and simpler display of the diagram.
 
 * [Main Flowchar](./Chart.md)
-* [How to use APIs](./apis/APIS.md)
+* [How to use APIs](./apis/APIs.md)
   * [How to use Gateway (1.md)](./apis/Call_GW_APIs.md)
   * [How to use Gateway (2.md)](./apis/Call_GW_APIs_2.md)  
 * [ER](./er/ER.md)

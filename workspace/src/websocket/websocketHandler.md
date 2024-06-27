@@ -109,7 +109,7 @@ export const webSocketHandler = () => {
 
           if (imageExtension) {
             const filename = `gateway-socket-${randomUUID()}${imageExtension}`;
-            const filePath = `${process.cwd()}/uploads/${filename}`;
+            const filePath = `${process.cwd()}/assets/uploads/${filename}`;
 
             // Save the image data to a file
             fs.writeFile(filePath, receivedData, async (err) => {

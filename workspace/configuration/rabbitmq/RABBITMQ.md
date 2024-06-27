@@ -6,4 +6,6 @@ Port 15672: HTTP/HTTPS protocol, used for web management interface
 curl -u guest:guest localhost:15672/api/overview
 ‍‍‍```
 
-- [GitHub Rabbitmq](https://github.com/armanriazi/rabbitmq)
+* [MDBook Message Brokers](https://armanriazi.github.io/messagebrokers)
+* [GitHub Message Brokers](https://github.com/armanriazi/messagebrokers)
+

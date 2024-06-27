@@ -17,7 +17,7 @@ export default new (class {
     this.multer = multer({
       storage: multer.diskStorage({
         destination: (req, file, cb) => {
-          cb(null, `${process.cwd()}/uploads`);
+          cb(null, `${process.cwd()}/assets/uploads`);
         },
         filename: (req, file, cb) => {
           cb(null, `${crypto.randomUUID()}${path.extname(file.originalname)}`);
@@ -86,7 +86,7 @@ export default new (class {
 
   /**
    * @function uploader
-   * @description uploads form-data input files on server disk
+   * @description assets/uploads form-data input files on server disk
    * @param {object} req - express request object
    * @param {object} res - express response object
    * @param {function} next - function that sends request to the next middleware

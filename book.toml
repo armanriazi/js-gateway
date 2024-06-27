@@ -15,7 +15,7 @@ edition = "2021"   # the default edition for code blocks
 build-dir = "book"
 create-missing = true             # whether or not to create missing pages
 #use-default-preprocessors = true  # use the default preprocessors
-extra-watch-dirs = ["./workspace", "./uploads"]
+extra-watch-dirs = ["./workspace", "./assets/uploads"]
 
 [output.html]
 # theme = "my-theme"

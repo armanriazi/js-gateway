@@ -219,7 +219,7 @@ traceparent: 00-d4a5db06430b944a1081030e47b3ae28-e532db78b29aaa7d-01
 Payload
 126 bytes
 Encoding: string
-{"imagePath":"/home/armanriazi/partdp-projects/gateway/gateway/uploads/gateway-file-95233335-f649-44bd-be89-9b0c7a166472.png"}
+{"imagePath":"/home/armanriazi/partdp-projects/gateway/gateway/assets/uploads/gateway-file-95233335-f649-44bd-be89-9b0c7a166472.png"}
 ```
 
 If you create a message for testing on the random queue with the mentioned ID, your program, which acts as the consumer of this queue, will enter the getMessageFromQueue method. However, if you publish a message in the main service queue, it will not go into your program, but you can see the messages inside this queue, unlike the random queue. The main reason is that your program is in the random queue state and consumes the published message, so you can no longer monitor it in the management UI section. But regarding the main queue named after your service, you are no longer a consumer, and you can view the message through the management section, where it may still be in the queue.

@@ -16,7 +16,7 @@
 - Gateway Logs (لاگ‌های گیت‌وی): این موجودیت نمایانگر لاگ‌های پاسخ‌های API است.
 
 
-![entities](uploads/371ed5f54566e751ca593601d17ad3fe/entities.png)
+![entities](assets/uploads/371ed5f54566e751ca593601d17ad3fe/entities.png)
 
 
 برای استفاده از هر api که منجر به ایجاد، حذف، دریافت و یا به روز رسانی موجودیت ها میشود باید پیش از آن با استفاده از api login یک توکن دریافت کرد که با استفاده از **JWT** ایجاد شده و یک session expiration یک ساعته دارد. 
@@ -45,7 +45,7 @@
 * password: Required. یک رشته که باید با استفاده از عبارت منظم خاصی الگویی را دنبال کند. رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ، یک رقم و یک کاراکتر ویژه باشد. رشته باید حداقل طول ۸ کاراکتر داشته باشد. این ویژگی اجباری است.
 
 
-![Clipboard_-_April_5__2023_4_35_PM](uploads/f07fa3b910078f0cd276899865c213f8/Clipboard_-_April_5__2023_4_35_PM.png)
+![Clipboard_-_April_5__2023_4_35_PM](assets/uploads/f07fa3b910078f0cd276899865c213f8/Clipboard_-_April_5__2023_4_35_PM.png)
 
 
 و پاسخ این api یک توکن است:
@@ -257,12 +257,12 @@ Headers:
 
 
 
-![image](uploads/19e98644989d1cbd1d47726d64e44c7e/image.jpg)
+![image](assets/uploads/19e98644989d1cbd1d47726d64e44c7e/image.jpg)
 
 
 - اگر سرویس مورد نظر مبتنی بر ارسال فایل بود باید در این بخش(files) ذکر شود که فایل آن چه نامی خواهد داشت، چه نوعی است(video, image, voice) اجباری است یا خیر، ...
 
-![image_file](uploads/36f49f7251655b36ee68d719c1fd5022/image_file.jpg)
+![image_file](assets/uploads/36f49f7251655b36ee68d719c1fd5022/image_file.jpg)
 
 
 در غیر اینصورت اگر سرویس nlp بود، بدون این فیلد باید سرویس را تعریف کرد.
@@ -271,11 +271,11 @@ Headers:
 
 اگر تایپ سرویس direct باشد یعنی درخواست از طریق rabbitMQ و صف با AI در ارتباط خواهد بود و باید اسم صف آن ذکر شود. در این حالت فایل از طریق **busboy** آپلود میشود.
 
-![image](uploads/8d97f471c5c6f6b291842bf4abf6d09c/image.png)
+![image](assets/uploads/8d97f471c5c6f6b291842bf4abf6d09c/image.png)
 
 و اگر proxy باشد یعنی درخواست های این سرویس به api ریموت دیگری پراکسی میشود و باید host, protocol و rejectUnauthorized(که بیانگر secure بودن/نبودن آن است) در تعریف سرویس بیان شود.
 
-![image](uploads/3558b41883a40f6b6383c90b7feb93d6/image.png)
+![image](assets/uploads/3558b41883a40f6b6383c90b7feb93d6/image.png)
 
 
 - در تعریف سرویس میتوان برای آن validation ورودی آن سرویس را نیز تعریف کرد که در بکند با **ajv validator **پیاده سازی شده است.
@@ -319,7 +319,7 @@ Headers:
 گیت‌وی عملکرد خود را بر اساس نام سرویس (serviceName) که دومین المان از URL درخواستی میباشد، تعیین می‌کند. بر اساس این نام سرویس، گیت‌وی اطلاعات مربوط به سرویس مورد نظر را استخراج می‌کند تا بداند با درخواست به چه نحوی باید رفتار کند.
 
 
-![image__1_](uploads/f6fa5f8ca673c637724fdd02f3044a84/image__1_.jpg)
+![image__1_](assets/uploads/f6fa5f8ca673c637724fdd02f3044a84/image__1_.jpg)
 
 
 

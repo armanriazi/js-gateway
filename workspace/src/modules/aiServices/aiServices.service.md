@@ -411,7 +411,7 @@ const saveBase64 = ({ req, type, required, name }) => {
         break;
     }
     const fileName = `gateway-base64-${randomUUID()}${extension}`;
-    const filePath = `${process.cwd()}/uploads/${fileName}`;
+    const filePath = `${process.cwd()}/assets/uploads/${fileName}`;
     const buffer = Buffer.from(dataBase64, "base64");
     const size = buffer.length;
     const readable = new Readable();
@@ -460,7 +460,7 @@ const saveLink = async ({ req, name, required, next }) => {
     const { data } = response;
     if (data) {
       const fileName = `gateway-link-${randomUUID()}${extension}`;
-      const filePath = `${process.cwd()}/uploads/${fileName}`;
+      const filePath = `${process.cwd()}/assets/uploads/${fileName}`;
       const fileWriter = createWriteStream(filePath);
       const fileInfo = await writeFileStream({
         fileWriter,

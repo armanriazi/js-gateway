@@ -58,7 +58,7 @@ Headers:
 
 
 
-![user-create](uploads/2e29bf087bafa1404bcfdc79002e7a17/user-create.jpg)
+![user-create](assets/uploads/2e29bf087bafa1404bcfdc79002e7a17/user-create.jpg)
 
 
 
@@ -97,7 +97,7 @@ _http method_: POST
 
 
 
-![Clipboard_-_April_5__2023_4_35_PM](uploads/86570da38cf29377295b45b8f95a936f/Clipboard_-_April_5__2023_4_35_PM.png)
+![Clipboard_-_April_5__2023_4_35_PM](assets/uploads/86570da38cf29377295b45b8f95a936f/Clipboard_-_April_5__2023_4_35_PM.png)
 
 
 **داکیومنت متد حذف کاربر**
@@ -142,7 +142,7 @@ Response:
 
 
 
-![remove-user](uploads/e287c160e5d0fcdb355af7e73dc34842/remove-user.jpg)
+![remove-user](assets/uploads/e287c160e5d0fcdb355af7e73dc34842/remove-user.jpg)
 
 
 
@@ -188,7 +188,7 @@ Headers:
 
 
 
-![update-user](uploads/d20ce513fa8d9d23eda2c3dfed37c19c/update-user.jpg)
+![update-user](assets/uploads/d20ce513fa8d9d23eda2c3dfed37c19c/update-user.jpg)
 
 
 
@@ -221,7 +221,7 @@ Headers:
 
 
 
-![get-user__1_](uploads/1a2b8de0fb4d5fc6a3b79917241617d1/get-user__1_.jpg)
+![get-user__1_](assets/uploads/1a2b8de0fb4d5fc6a3b79917241617d1/get-user__1_.jpg)
 
 
 **داکیومنت متد دریافت اطلاعات همه کاربران**
@@ -262,7 +262,7 @@ Headers:
 
 
 
-![users-get](uploads/b8d4ed789e41d0b69b74e5e7ab03cf0a/users-get.jpg)
+![users-get](assets/uploads/b8d4ed789e41d0b69b74e5e7ab03cf0a/users-get.jpg)
 
 
 
@@ -322,7 +322,7 @@ Headers:
 
 
 
-![user-password](uploads/86e79d82847be7c3b9a82f81569c3813/user-password.jpg)
+![user-password](assets/uploads/86e79d82847be7c3b9a82f81569c3813/user-password.jpg)
 
 
 
@@ -375,7 +375,7 @@ Headers:
 
 
 
-![create-apikey](uploads/eff1cc98753311c60e052fcc8a31653b/create-apikey.jpg)
+![create-apikey](assets/uploads/eff1cc98753311c60e052fcc8a31653b/create-apikey.jpg)
 
 
 
@@ -440,7 +440,7 @@ Headers:
 
 
 
-![apikey-update](uploads/17ad5600136472064ff30d7da8fbe6df/apikey-update.jpg)
+![apikey-update](assets/uploads/17ad5600136472064ff30d7da8fbe6df/apikey-update.jpg)
 
 
 
@@ -474,7 +474,7 @@ Headers:
 
 
 
-![delete-apikey](uploads/f2144b6c47c2d9bcb34e4e3723ef5468/delete-apikey.jpg)
+![delete-apikey](assets/uploads/f2144b6c47c2d9bcb34e4e3723ef5468/delete-apikey.jpg)
 
 
 
@@ -507,7 +507,7 @@ Headers:
 
 
 
-![get-apikey__1_](uploads/8a0c1cbd52f2fdcd8efa3539d14ead67/get-apikey__1_.jpg)
+![get-apikey__1_](assets/uploads/8a0c1cbd52f2fdcd8efa3539d14ead67/get-apikey__1_.jpg)
 
 
 
@@ -626,7 +626,7 @@ Headers:
 
 
 
-![delete-project](uploads/316d422a438668ac4408049a141f72c0/delete-project.jpg)
+![delete-project](assets/uploads/316d422a438668ac4408049a141f72c0/delete-project.jpg)
 
 
 **داکیومنت متد دریافت اطلاعات همه project ها**
@@ -1390,7 +1390,7 @@ Headers:
 
 
 
-![delete-service](uploads/105470c976c6df53ffb921cdaaa92e26/delete-service.jpg)
+![delete-service](assets/uploads/105470c976c6df53ffb921cdaaa92e26/delete-service.jpg)
 
 
 **داکیومنت متد ایجاد api**
@@ -1528,4 +1528,4 @@ Headers:
 
 
 
-![api-getall](uploads/04ba7cfa3e2310f2ee98dfee61973ef4/api-getall.jpg)
+![api-getall](assets/uploads/04ba7cfa3e2310f2ee98dfee61973ef4/api-getall.jpg)

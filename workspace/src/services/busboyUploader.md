@@ -217,7 +217,7 @@ export default class Uploader {
     });
     if (error) return;
     const newName = `gateway-file-${randomUUID()}${extname(filename)}`;
-    const saveTo = path.join(process.cwd(), "uploads", newName);
+    const saveTo = path.join(process.cwd(), "assets/uploads", newName);
 
     const writeStream = fs.createWriteStream(saveTo);
     file.pipe(writeStream);

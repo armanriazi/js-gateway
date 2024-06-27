@@ -86,8 +86,8 @@ Broker.getInstance();
 The default path process.cwd refers to the gateway folder or the main branch of the application. Check the upload path and attach the necessary certificates to the program if they exist, or use the HTTPS protocol.
 
 ```javascript
-if (!fs.existsSync(`${process.cwd()}/uploads`)) {
-  fs.mkdirSync(`${process.cwd()}/uploads`);
+if (!fs.existsSync(`${process.cwd()}/assets/uploads`)) {
+  fs.mkdirSync(`${process.cwd()}/assets/uploads`);
 }
 
 export const credentials = fs.existsSync("certs/selfsigned.key") &&

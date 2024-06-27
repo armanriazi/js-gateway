@@ -83,8 +83,8 @@ state Request {
         if_link --> saveLink: howGet == link
         saveLink --> save : axios.sendRequest
         saveBase64 --> save  : Buffer.from(req.body[name], 'base64')      
-        save --> uploads : Write To path of uploads 
-        uploads --> next
+        save --> assets/uploads : Write To path of assets/uploads 
+        assets/uploads --> next
 } 
 handleSRTProxyRequest --> proxyRequest : axios.sendRequest(config)
 handleSRTProxyRequest --> Response

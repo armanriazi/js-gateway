@@ -107,7 +107,7 @@ services:
         container_name: postgres
         volumes:
           - ./postgres-data:/var/lib/postgresql/data
-          - /home/Projects/recommenderengine-back/uploads:/home/Projects/
+          - /home/Projects/recommenderengine-back/assets/uploads:/home/Projects/
         environment:
           - POSTGRES_USER=
           - POSTGRES_PASSWORD=
@@ -207,10 +207,10 @@ def get_file(data):
     try:
         url = "http://{FILE_STORAGE_IP}/download/{filePath}".format(
                 FILE_STORAGE_IP=os.environ.get('FILE_STORAGE_IP'), filePath=data["filePath"])
-        newFilePath = "uploads/"+data["filePath"].split("/")[-1]
+        newFilePath = "assets/uploads/"+data["filePath"].split("/")[-1]
         response = requests.get(url)
         if response.status_code == 200:
-            Path("./uploads").mkdir(parents=True, exist_ok=True)
+            Path("./assets/uploads").mkdir(parents=True, exist_ok=True)
             with open(newFilePath , "wb") as file:
                 file.write(response.content)
             data["filePath"] = newFilePath
