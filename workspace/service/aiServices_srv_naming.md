@@ -1,37 +1,33 @@
-# نامگذاری سرویس و مسیر آدرس APIs
+## Naming Service APIs and Routing
 
-## SRT
+### SRT
 
-جهت استفاده از سرویس های نوع srt میبایست به آخر نام سرویس srt افزوده شود کما اینکه در بخش کد قرار است عملیاتی روی ان انجام شود.
-
+To use SRT services, 'srt' must be appended to the end of the service name, just as operations will be performed on it in the code section.
 
 ‍‍‍‍‍```javascript
 req.srtProxy = serviceName.toLowerCase().includes('srt')
 ```
 
-## File
+### File
 
-برنامه زمانی متوجه می شود که آدرس Api درخواستی مورد تقاضا برای فایل است که در مسیر مشخص شده ذیل اسامی ذیل در این بخش از ادرس موجود باشد.
+The program realizes that the requested API address is intended for a file when it finds the names listed below in the specified path within this part of the address.
 
 
-> `ip:port/service/imageEditing/{{X}}/ok`
+`ip:port/service/imageEditing/{{X}}/ok`
 
-> like
+like:
 
-```
+```md
 ‍ip:port/service/imageEditing/file/ok
-
 ‍ip:port/service/imageEditing/files/ok
-
 ‍ip:port/service/imageEditing/mp3/ok
-
 ```
 
-ServiceName
+#### ServiceName
 
-> `‍ip:port/service/keywordsExtraction/files/ok`
+‍ip:port/service/keywordsExtraction/files/ok`
 
-> Main code
+#### Main code
 
 ‍‍‍‍‍```javascript
 const isFileRequest = (absolutePath, serviceName) => {

@@ -1,5 +1,5 @@
 
-زمانی می توانیم از درخواست های پروکسی استفاده نماییم که مقصد سرویس باشد و نه Api لذا چون قرار است پروکسی به سرویس ارسال شود لذا باید سرویسی انتخاب گردد که بخش queue خالی باشد. در نهایت سایر مشخصات پروکسی را باید تکمیل شده دید مثل ادرس هاست و نام سرویس. نمونه تکمیلی:
+At a time we can use proxy requests where the destination is a service and not an API. Therefore, since the proxy will be sent to the service, a service should be chosen that has an empty queue. Finally, other proxy details such as host address and service name should be completed. Compeleted example:
 
 ```‍‍‍json
 {
