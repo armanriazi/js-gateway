@@ -1,4 +1,4 @@
-![image](assets/uploads/c1e00097a61988649bcb613e256c6ba8/image.png)
+![image](../../assets/uploads/c1e00097a61988649bcb613e256c6ba8/image.png)
 
 
 **Users:**

@@ -1,16 +1,18 @@
+
+## Index of Sequential Diagram
+
+* [Diagram with notes](./)
+  * [aiServices_ctrl](./Sequential_Diagram_Auth_noted.md)
+* [Diagram without notes](./)
+  * [aiServices_ctrl](./Sequential_Diagram_Auth.md)
+  
 ## Sequential
 
-Occasionally, function names may be visible in diagrams. This section of functions in sequence diagrams could be converted into state/activity diagrams, but for the sake of coherence, this part has not been removed from the sequence diagram. This is because it has been requested that other entities be seen alongside the calls. Therefore, we have established our own standard for the Auth sequence diagram and are aware of it. For example, OpenConnect has also used functions specifically and customized in its explanatory sections.
+In some diagrams, function names may appear. This part of functions can be converted into a status/activity diagram, but to maintain the integrity of this part of the sequential diagram, it has not been removed. This is because it was intended for other entities to be visible alongside the calls. Therefore, we have determined our standard sequential diagram for Auth and are aware of it. For example, OpenConnect also uses functions specifically and sequentially in its explanatory sections.
 
 ### Shortforms
 
-> For example, in our auth class, we have a method called check that is invoked and repeated at the beginning of all other methods.
+R: Repeater, G: Get, P: Post, O: Object
 
-> G: Get, P: Post, O: Object, R: Repeater
+For example, 'R' in the auth class, we have a method called check, which is called and repeated at the beginning of all other methods.
 
-## Index of Sequential Diagrams
-
-- [Diagram with Notes](./)
-  - [aiServices_ctrl](./Sequential_Diagram_Auth_noted)
-- [Diagram without Notes](./)
-  - [aiServices_ctrl](./Sequential_Diagram_Auth)
