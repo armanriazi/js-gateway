@@ -14,4 +14,4 @@ export const mockPrjName4 = 'prj_mock4'
 export const mockPrjName5 = 'prj_mock5'
 
 
-export const projectName = 'sahab'
+export const projectName = 'sgw'

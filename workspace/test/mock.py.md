@@ -26,7 +26,7 @@ def main():
         connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
         channel = connection.channel()
 
-        queue = 'vision_image_segmentation_sahab'
+        queue = 'vision_image_segmentation_sgw'
         channel.queue_declare(queue=queue, durable=True)
         channel.basic_qos(prefetch_count=1)
 

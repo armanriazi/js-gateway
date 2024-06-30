@@ -122,7 +122,7 @@ Headers:
 
 **Parameters**
 
-```{ "name": "sahab" }```
+```{ "name": "sgw" }```
 
 4- سپس سرویس را تعریف میکنیم.
 
@@ -141,12 +141,12 @@ Headers:
 
 ```
 {
-    "name": "pr-speech-asr-sahab-largefile-srt",
+    "name": "pr-speech-asr-sgw-largefile-srt",
     "ProjectId": "b565741c-ec21-4463-90e0-0f7a77efe59f",
     "validation": {},
     "apis": [
         {
-            "path": "pr-speech-asr-sahab-largefile-srt/largeFile",
+            "path": "pr-speech-asr-sgw-largefile-srt/largeFile",
             "files": [
                 {
                     "name": "file",
@@ -160,7 +160,7 @@ Headers:
             ]
         },
         {
-            "path": "pr-speech-asr-sahab-largefile-srt/largeFile/*",
+            "path": "pr-speech-asr-sgw-largefile-srt/largeFile/*",
             "method": [
                 "get"
             ]

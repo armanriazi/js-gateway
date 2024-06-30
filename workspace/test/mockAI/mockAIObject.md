@@ -1,7 +1,7 @@
 const amqplib = require('amqplib/callback_api')
 
 amqplib.connect('amqp://localhost', function (error0, connection) {
-  const queue = 'vision_object_detection_sahab'
+  const queue = 'vision_object_detection_sgw'
   if (error0) {
     throw error0
   }

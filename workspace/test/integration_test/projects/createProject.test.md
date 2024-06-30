@@ -105,7 +105,7 @@ export const projectCreate = () => {
 
     it('admins can create projects', (done) => {
       try {
-        project.name = 'sahab_2'
+        project.name = 'sgw_2'
 
         request
           .post('/api/projects')

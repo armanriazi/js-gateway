@@ -3,7 +3,7 @@
 
 **Users:**
 
-*Description:* Represents the users of system. such as: sahab
+*Description:* Represents the users of system. such as: sgw
 
 *Relationships:*
 - One user can have multiple apikeys.

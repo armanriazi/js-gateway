@@ -23,7 +23,7 @@ export const mockApi = [
   },
 ]
 export const mockMaxCount = 50
-export const mockQueue = 'sahab'
+export const mockQueue = 'sgw'
 export const mockValidation = {}
 export const mockProjectId = '869f4acc-dbdd-475f-915f-fad52d42388a'
 export const mockName = 'service_10'
