@@ -1,4 +1,12 @@
-# Initialization
+
+# API-Gateway
+## Architecture
+
+![image](./assets/images/architecture.png)
+
+![Process Diagram](./assets/images/process-diagram.png)
+
+## Initialization
 
 ## Package.json
 
@@ -125,9 +133,9 @@ Includes:
 }
 ```
 
-# DB
-## Relations
-### Cascades
+## DB
+### Relations
+#### Cascades
 
 - [x] If a ApiKey remove from ApiKeys then {only remove related records in the Apis}
 - [x] If a Service remove from Services then {only remove related records in the Apis}
@@ -135,7 +143,7 @@ Includes:
 - [x] If a User remove from Users then {only remove related records in the ApiKeys and Apis}
 - [x] If a Api remove from Apis then will not affect on any tables.
 
-# RabbitMq
+## RabbitMq
 
 By executing the list command, you can see a list of installed plugins. Keep in mind that due to the use of the amqplib library, the program currently does not require the installation of plugin version 1. However, if a need arises on the Rabbit tool side, it is better to activate the desired plugin based on your own needs.
 
@@ -187,7 +195,7 @@ Listing plugins with pattern ".*" ...
 [  ] rabbitmq_web_stomp_examples        (pending upgrade to 3.13.1)
 ```
 
-## Relation of web-app and AMQP
+### Relation of web-app and AMQP
 
 The project uses the AMQP protocol version 0-9-1 and has not utilized version one.
 
@@ -197,7 +205,7 @@ In addition to the random queue created by our program, we have something called
 
 `amq.ctag-*`
 
-### Policy
+#### Policy
 
 1. Create a durable queue as a name of your service
 
