@@ -2,6 +2,10 @@
 # API-Gateway
 ## Architecture
 
+Based on below image, instead of AI services can be every kind of Service or API on your desire business logic like: carbon market, cloud services, bank, or feeds and etc,.
+
+The significant feature of the Gateway is no vendor lock-in and for looking at another features please keep going and go through, you will find it.
+
 ![image](./assets/images/architecture.png)
 
 ![Process Diagram](./assets/images/process-diagram.png)
