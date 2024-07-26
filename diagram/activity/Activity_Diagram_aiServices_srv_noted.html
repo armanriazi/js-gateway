@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>aiServices_srv_noted - API-Gateway(A.R)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="../../INTRO.html"><strong aria-hidden="true">2.</strong> Intoductory</a></li><li class="chapter-item expanded "><a href="../../configuration/docker/DOCKER.html"><strong aria-hidden="true">3.</strong> Docker_Setting</a></li><li class="chapter-item expanded "><a href="../../configuration/rabbitmq/RABBITMQ.html"><strong aria-hidden="true">4.</strong> RabbitMQ_Setting</a></li><li class="chapter-item expanded "><a href="../../diagram/DIAGRAM.html"><strong aria-hidden="true">5.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Chart.html"><strong aria-hidden="true">5.1.</strong> Main Flowchar</a></li><li class="chapter-item "><a href="../../diagram/apis/APIs.html"><strong aria-hidden="true">5.2.</strong> How to use APIs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/apis/Call_GW_APIs.html"><strong aria-hidden="true">5.2.1.</strong> How to use Gateway_1</a></li><li class="chapter-item "><a href="../../diagram/apis/Call_GW_APIs_2.html"><strong aria-hidden="true">5.2.2.</strong> How to use Gateway 2</a></li></ol></li><li class="chapter-item "><a href="../../diagram/er/ER.html"><strong aria-hidden="true">5.3.</strong> ER</a></li><li class="chapter-item "><a href="../../diagram/class/CLASS.html"><strong aria-hidden="true">5.4.</strong> Class</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Auth.html"><strong aria-hidden="true">5.4.1.</strong> Auth</a></li><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Controller.html"><strong aria-hidden="true">5.4.2.</strong> Controller</a></li><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Service.html"><strong aria-hidden="true">5.4.3.</strong> Service</a></li></ol></li><li class="chapter-item "><a href="../../diagram/flowchart/FLOWCHART.html"><strong aria-hidden="true">5.5.</strong> Flowchart</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/flowchart/Flowchart_User.html"><strong aria-hidden="true">5.5.1.</strong> User</a></li></ol></li><li class="chapter-item "><a href="../../diagram/sequential/SEQUENTIAL.html"><strong aria-hidden="true">5.6.</strong> Seuential</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth_noted.html"><strong aria-hidden="true">5.6.2.</strong> aiServices_ctr_notedl</a></li><li class="chapter-item "><a href="../../diagram/sequential/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.3.</strong> Auth</a></li></ol></li><li class="chapter-item expanded "><a href="../../diagram/activity/ACTIVITY.html"><strong aria-hidden="true">5.7.</strong> Activity</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.2.</strong> aiServices_srv</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_Logs.html"><strong aria-hidden="true">5.7.3.</strong> logs</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.4.</strong> aiServices controller</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.5.</strong> aiServices service</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_naming.html"><strong aria-hidden="true">5.7.6.</strong> aiServices serviceNaming</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_type.html"><strong aria-hidden="true">5.7.7.</strong> Type of service</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl_noted.html"><strong aria-hidden="true">5.7.8.</strong> aiServices_ctrl_noted</a></li><li class="chapter-item expanded "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv_noted.html" class="active"><strong aria-hidden="true">5.7.9.</strong> aiServices_srv_noted</a></li><li class="chapter-item "><a href="../../diagram/Activity_Diagram_Logs_notes.html"><strong aria-hidden="true">5.7.10.</strong> logs_noted</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../logs/logs.html"><strong aria-hidden="true">6.</strong> Logs</a></li><li class="chapter-item expanded "><a href="../../ClientCode.html"><strong aria-hidden="true">7.</strong> Codes</a></li><li class="chapter-item expanded "><a href="../../analyze/ANALYZE.html"><strong aria-hidden="true">8.</strong> Analysis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../analyze/Stress_1.html"><strong aria-hidden="true">8.1.</strong> Stress(1)</a></li><li class="chapter-item "><a href="../../analyze/Stress_2.html"><strong aria-hidden="true">8.2.</strong> Stress(2)</a></li></ol></li><li class="chapter-item expanded "><a href="../../GLOSSARY.html"><strong aria-hidden="true">9.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">API-Gateway(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/edit/main/workspace/./workspace//diagram/activity/Activity_Diagram_aiServices_srv_noted.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <pre><code class="language-mermaid">---
+title: modules/aiServices/service | proxy | file
+---
+stateDiagram            
+state if_IsNotAllowedIP &lt;&lt;choice&gt;&gt;
+state if_NotExistApiKey &lt;&lt;choice&gt;&gt;
+state if_NotExistServiceName &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiService &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiApiKey &lt;&lt;choice&gt;&gt;
+state if_ApiKey_MaxCount &lt;&lt;choice&gt;&gt;
+state if_ApiKey_ExpireDate &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_Result_IsValid_APIs &lt;&lt;choice&gt;&gt;
+state if_accessAiService_maxCount &lt;&lt;choice&gt;&gt;
+state if_accessAiService_TPM &lt;&lt;choice&gt;&gt;
+state if_saveFile &lt;&lt;choice&gt;&gt;
+state if_base64 &lt;&lt;choice&gt;&gt;
+state if_link &lt;&lt;choice&gt;&gt;
+
+[*] --&gt; request
+request --&gt; Request: HandleRequestOfFile
+state ErrorBox { 
+    exceptions --&gt; if_IsNotAllowedIP: IsNotAllowedIP 
+    if_IsNotAllowedIP --&gt; API_KEY_REQUIRED 
+    if_IsNotAllowedIP --&gt; if_NotExistApiKey: IsNotAllowedIP 
+    if_NotExistApiKey --&gt; API_KEY_REQUIRED
+    exceptions --&gt; if_NotExistServiceName: NotExistServiceName 
+    if_NotExistServiceName --&gt; SERVICE_NOT_FOUND
+}
+state Handlers {
+handleFileRequest 
+handleNonFileRequest 
+handleSRTProxyRequest 
+grpcHandler
+websocketHandler
+}
+Handlers --&gt; Request
+state Request {
+    checkApi --&gt; adjustServiceAndBaseName : 1 
+    note right of checkApi            
+                Proxy | Simple Api
+    end note
+    note right of adjustServiceAndBaseName            
+              { originalURL, baseName, serviceName, absolutePath }
+    end note
+    adjustServiceAndBaseName --&gt; ErrorBox: CheckUp
+    checkApi --&gt; getAccessAiService : 2 
+    getAccessAiService --&gt; validateAccessAiService : 2-1
+    validateAccessAiService --&gt; validateApiMethods : 2-2
+    validateApiMethods --&gt; checkValidApis    
+    checkValidApis --&gt; ResultOfCheckValidApis : EQ Result With isValidApi 
+        if_NotExistValidApiService --&gt; NOT_FOUND_ROUTE_ERROR : NotExistValidApiService
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiService : 2-3
+        if_NotExistValidApiApiKey --&gt; NOT_ALLOW_API : NotExistValidApiApiKey
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiApiKey : 2-4
+    checkValidApis --&gt; validateAccessAiService : 2-5
+        validateAccessAiService --&gt; ApiKey
+        ApiKey --&gt; if_ApiKey_MaxCount
+        if_ApiKey_MaxCount --&gt; COUNT_API_KEY_ZERO : maxCount&lt; 1   
+        ApiKey --&gt; if_ApiKey_ExpireDate
+        if_ApiKey_ExpireDate --&gt; API_KEY_EXPIRE  : expireDate &lt; dateNow
+        ApiKey --&gt; if_ApiKey_IsValid 
+        if_ApiKey_IsValid --&gt; API_KEY_INVALID : IsNotValid
+        checkValidApis --&gt; validateApiMethods
+        checkValidApis --&gt; checkValidApis : for(api of apis) &amp;&amp; isValidApi
+    checkApi --&gt; getServiceInfo : 3
+    getServiceInfo --&gt; checkValidServices : only POSTs 
+    checkValidServices --&gt; Files: accessAiService.files = Result of checking
+    note right of checkValidServices            
+                After refactoring it could be checkValidApis
+    end note
+    checkApi --&gt; isFileRequest : 4
+    checkApi --&gt; validateMaxCountTpm : 5
+        validateMaxCountTpm --&gt; if_accessAiService_maxCount: 5-1    
+        validateMaxCountTpm --&gt; if_accessAiService_TPM  : 5-2      
+        if_accessAiService_maxCount --&gt; COUNT_API_MAX_COUNT_ZERO : accessAiService.maxCount == 0    
+        validateMaxCountTpm --&gt; getCountTmp
+        getCountTmp --&gt; redis : Filter count 10 of '{accessAiService.id} *' Else 0
+        getCountTmp --&gt; if_accessAiService_TPM : countTpm
+        if_accessAiService_TPM --&gt; MAX_COUNT_TPM_INVALID : countTpm &gt;= accessAiService.TPM        
+    checkApi --&gt; saveFile : 6     
+        saveFile --&gt; if_saveFile : for (file of files)
+        if_saveFile --&gt; next : req.requestType == 'proxy'
+        next --&gt; [*]
+        if_saveFile --&gt; saveFile : req.requestType == 'file'        
+        if_saveFile --&gt; if_base64 
+        if_base64 --&gt; saveBase64: howGet == base64
+        if_saveFile --&gt; if_link 
+        if_link --&gt; saveLink: howGet == link
+        saveLink --&gt; save : axios.sendRequest
+        saveBase64 --&gt; save  : Buffer.from(req.body[name], 'base64')      
+        saveBase64 --&gt; createWriteStream
+        save --&gt; assets/uploads : Write To path of assets/uploads 
+        assets/uploads --&gt; next
+} 
+handleSRTProxyRequest --&gt; proxyRequest : axios.sendRequest(config)
+handleSRTProxyRequest --&gt; Response
+handleNonFileRequest --&gt; Response
+handleFileRequest --&gt; Response
+proxyRequest --&gt; buildRequestOptions
+handleNonFileRequest --&gt; buildRequestOptions
+handleFileRequest --&gt; buildRequestOptions
+grpcHandler --&gt; RemoteService
+RemoteService --&gt; sendFileSpeech
+RemoteService --&gt; checkServerHealth
+note left of RemoteService            
+        rabbitMQ.sendRpcMessage({ msg, queue }))
+        rabbitMQ.messageCount(queue)
+end note
+websocketHandler --&gt; createMessage
+Request --&gt; Response 
+state Response {
+aiTimeProcessing --&gt;  SaveToGatewayLogData: 1 aiTimeProcessing=res-req
+updateCounts
+note left of updateCounts            
+            resultCode &gt;= 200 &amp;&amp; resultCode &lt; 300, max_count - = 1
+end note
+}
+state redis{
+    generateRedisKey --&gt; setRedisKey : key of ApiIdPluseRandom of val New Data
+}
+Response --&gt; redis
+Response --&gt; [*]
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../diagram/activity/Activity_Diagram_aiServices_ctrl_noted.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../diagram/Activity_Diagram_Logs_notes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../diagram/activity/Activity_Diagram_aiServices_ctrl_noted.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../diagram/Activity_Diagram_Logs_notes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

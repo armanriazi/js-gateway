@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>How to use Gateway 2 - API-Gateway(A.R)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="../../INTRO.html"><strong aria-hidden="true">2.</strong> Intoductory</a></li><li class="chapter-item expanded "><a href="../../configuration/docker/DOCKER.html"><strong aria-hidden="true">3.</strong> Docker_Setting</a></li><li class="chapter-item expanded "><a href="../../configuration/rabbitmq/RABBITMQ.html"><strong aria-hidden="true">4.</strong> RabbitMQ_Setting</a></li><li class="chapter-item expanded "><a href="../../diagram/DIAGRAM.html"><strong aria-hidden="true">5.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Chart.html"><strong aria-hidden="true">5.1.</strong> Main Flowchar</a></li><li class="chapter-item expanded "><a href="../../diagram/apis/APIs.html"><strong aria-hidden="true">5.2.</strong> How to use APIs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/apis/Call_GW_APIs.html"><strong aria-hidden="true">5.2.1.</strong> How to use Gateway_1</a></li><li class="chapter-item expanded "><a href="../../diagram/apis/Call_GW_APIs_2.html" class="active"><strong aria-hidden="true">5.2.2.</strong> How to use Gateway 2</a></li></ol></li><li class="chapter-item "><a href="../../diagram/er/ER.html"><strong aria-hidden="true">5.3.</strong> ER</a></li><li class="chapter-item "><a href="../../diagram/class/CLASS.html"><strong aria-hidden="true">5.4.</strong> Class</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Auth.html"><strong aria-hidden="true">5.4.1.</strong> Auth</a></li><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Controller.html"><strong aria-hidden="true">5.4.2.</strong> Controller</a></li><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Service.html"><strong aria-hidden="true">5.4.3.</strong> Service</a></li></ol></li><li class="chapter-item "><a href="../../diagram/flowchart/FLOWCHART.html"><strong aria-hidden="true">5.5.</strong> Flowchart</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/flowchart/Flowchart_User.html"><strong aria-hidden="true">5.5.1.</strong> User</a></li></ol></li><li class="chapter-item "><a href="../../diagram/sequential/SEQUENTIAL.html"><strong aria-hidden="true">5.6.</strong> Seuential</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth_noted.html"><strong aria-hidden="true">5.6.2.</strong> aiServices_ctr_notedl</a></li><li class="chapter-item "><a href="../../diagram/sequential/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.3.</strong> Auth</a></li></ol></li><li class="chapter-item "><a href="../../diagram/activity/ACTIVITY.html"><strong aria-hidden="true">5.7.</strong> Activity</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.2.</strong> aiServices_srv</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_Logs.html"><strong aria-hidden="true">5.7.3.</strong> logs</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.4.</strong> aiServices controller</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.5.</strong> aiServices service</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_naming.html"><strong aria-hidden="true">5.7.6.</strong> aiServices serviceNaming</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_type.html"><strong aria-hidden="true">5.7.7.</strong> Type of service</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl_noted.html"><strong aria-hidden="true">5.7.8.</strong> aiServices_ctrl_noted</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv_noted.html"><strong aria-hidden="true">5.7.9.</strong> aiServices_srv_noted</a></li><li class="chapter-item "><a href="../../diagram/Activity_Diagram_Logs_notes.html"><strong aria-hidden="true">5.7.10.</strong> logs_noted</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../logs/logs.html"><strong aria-hidden="true">6.</strong> Logs</a></li><li class="chapter-item expanded "><a href="../../ClientCode.html"><strong aria-hidden="true">7.</strong> Codes</a></li><li class="chapter-item expanded "><a href="../../analyze/ANALYZE.html"><strong aria-hidden="true">8.</strong> Analysis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../analyze/Stress_1.html"><strong aria-hidden="true">8.1.</strong> Stress(1)</a></li><li class="chapter-item "><a href="../../analyze/Stress_2.html"><strong aria-hidden="true">8.2.</strong> Stress(2)</a></li></ol></li><li class="chapter-item expanded "><a href="../../GLOSSARY.html"><strong aria-hidden="true">9.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">API-Gateway(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/edit/main/workspace/./workspace//diagram/apis/Call_GW_APIs_2.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>گیت‌وی یک سرویس نوشته شده با استفاده از فریم‌ورک Express بر روی محیط Node.js  است که به منظور مدیریت و پیاده‌سازی  API Gateway به کار می‌رود. این سرویس از پایگاه داده PostgreSQL برای ذخیره‌سازی اطلاعات اصلی خود استفاده می‌کند و پنج موجودیت اصلی را به نمایندگی از مفاهیم مختلف در در برنامه ی ما دارد. این موجودیت‌ها عبارتند از:</p>
+<ol>
+<li>
+<p>Users (کاربران): این موجودیت نمایانگر کاربران سیستم است. هر کاربر می‌تواند چندین کلید API (API Keys) داشته باشد.</p>
+</li>
+<li>
+<p>API Keys (کلیدهای API): این موجودیت نمایانگر کلیدهای API است که برای کاربران تولید می‌شود. هر کلید API به یک کاربر (user_id) تعلق دارد و می‌تواند به یک یا چندین سرویس (service_id) اختصاص داده شود.</p>
+</li>
+<li>
+<p>Projects (پروژه‌ها): این موجودیت نمایانگر پروژه‌های موجود در سیستم است و می‌تواند شامل چندین سرویس باشد.</p>
+</li>
+<li>
+<p>Services (سرویس‌ها): این موجودیت نمایانگر سرویس‌های موجود در پروژه‌ها است و به یک پروژه (project_id) تعلق دارد. همچنین می‌تواند به یک کلید API (apikeyId) در جدول APIs اختصاص داده شود.</p>
+</li>
+<li>
+<p>APIs: این موجودیت نمایانگر API‌هاست که به یک سرویس (service_id) و یک کلید API متعلق می‌شود. هر apiKey به یک service تعلق خواهد داشت.</p>
+</li>
+</ol>
+<p>این سرویس همچنین دارای یه موجودیت برای لاگ است که نتایج درخواست و پاسخ آن ها را ذخیره میکند.</p>
+<ul>
+<li>Gateway Logs (لاگ‌های گیت‌وی): این موجودیت نمایانگر لاگ‌های پاسخ‌های API است.</li>
+</ul>
+<p><img src="../../assets/uploads/371ed5f54566e751ca593601d17ad3fe/entities.png" alt="entities" /></p>
+<p>برای استفاده از هر api که منجر به ایجاد، حذف، دریافت و یا به روز رسانی موجودیت ها میشود باید پیش از آن با استفاده از api login یک توکن دریافت کرد که با استفاده از <strong>JWT</strong> ایجاد شده و یک session expiration یک ساعته دارد. </p>
+<p><a href="https://armanriazi.github.io/js-gateway/apimarket/gateway/-/wikis/%D8%AF%D8%A7%DA%A9%DB%8C%D9%88%D9%85%D9%86%D8%AA-%DA%AF%DB%8C%D8%AA-%D9%88%DB%8C">در مستندات اصلی گیت وی</a> درخصوص تمامی api های این سرویس به تفصیل توضیح داده شده است. </p>
+<p>برای نمونه: </p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/users/login</code></p>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد کاربر، یک شیء با ویژگی های زیر است:</p>
+<p><strong>Attributes:</strong></p>
+<ul>
+<li>username: Required. یک رشته با حداقل طول ۵ کاراکتر و حداکثر طول ۳۶ کاراکتر. این ویژگی اجباری است.</li>
+<li>password: Required. یک رشته که باید با استفاده از عبارت منظم خاصی الگویی را دنبال کند. رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ، یک رقم و یک کاراکتر ویژه باشد. رشته باید حداقل طول ۸ کاراکتر داشته باشد. این ویژگی اجباری است.</li>
+</ul>
+<p><img src="../../assets/uploads/f07fa3b910078f0cd276899865c213f8/Clipboard_-_April_5__2023_4_35_PM.png" alt="Clipboard_-_April_5__2023_4_35_PM" /></p>
+<p>و پاسخ این api یک توکن است:</p>
+<pre><code>Response:
+  {
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: {
+            &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1Y2EyNzYzLTIyYzctNDkzOC05ZGYwLTIyMTFkOTliN2U4NiIsImlhdCI6MTY5OTY4MzA4OH0.i1v0YZfKWaDZ3_uvNeelUoXPlr_qUy9UINaJTWfURP0&quot;
+        }
+    }
+</code></pre>
+<p><em><strong>پیش از هر درخواست میدل وری ابتدا وجود توکن در هدر درخواست را چک کند سپس payload آن توکن را اعتبارسنجی کرده که یک توکن معتبر باشد.</strong></em></p>
+<p>برای تعریف و تنظیم یک سرویس پشت گیت وی باید مراحل زیر را انجام داد:</p>
+<p>1- ابتدا باید user ای تعریف گردد.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/users</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot;, &quot;role&quot;: &quot;user&quot; }</code></p>
+<p>2- سپس برای آن user یک apiKey ایجاد کرد.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apikeys</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<pre><code>{ 
+     &quot;UserId&quot;: &quot;2b721c8f-523e-4cc9-91d1-7a8eefd0c810&quot;, 
+     &quot;maxCount&quot;: 1000, 
+     &quot;expireDate&quot;: &quot;24h&quot; 
+}
+</code></pre>
+<p>3- در این مرحله یک پروژه تعریف میشود که سرویس مد نظر را به آن تخصیص داد.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/projects</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;sgw&quot; }</code></p>
+<p>4- سپس سرویس را تعریف میکنیم.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/services</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<pre><code>{
+    &quot;name&quot;: &quot;pr-speech-asr-sgw-largefile-srt&quot;,
+    &quot;ProjectId&quot;: &quot;b565741c-ec21-4463-90e0-0f7a77efe59f&quot;,
+    &quot;validation&quot;: {},
+    &quot;apis&quot;: [
+        {
+            &quot;path&quot;: &quot;pr-speech-asr-sgw-largefile-srt/largeFile&quot;,
+            &quot;files&quot;: [
+                {
+                    &quot;name&quot;: &quot;file&quot;,
+                    &quot;type&quot;: &quot;voice&quot;,
+                    &quot;howGet&quot;: &quot;file&quot;,
+                    &quot;required&quot;: true
+                }
+            ],
+            &quot;method&quot;: [
+                &quot;post&quot;
+            ]
+        },
+        {
+            &quot;path&quot;: &quot;pr-speech-asr-sgw-largefile-srt/largeFile/*&quot;,
+            &quot;method&quot;: [
+                &quot;get&quot;
+            ]
+        }
+    ],
+    &quot;type&quot;: &quot;direct&quot;,
+    &quot;host&quot;: &quot;192.168.65.1:82/backend-selfhost/service/v4-speechRecognition&quot;,
+    &quot;protocol&quot;: &quot;https&quot;,
+    &quot;rejectUnauthorized&quot;: false
+}
+
+</code></pre>
+<p>5- در نهایت apiKey را به service تعریف شده تخصیص میدهیم.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apis</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<pre><code>[
+    {
+        &quot;ApiKeyId&quot;: &quot;24b10a67-cf89-4d49-8225-8c9727caf818&quot;,
+        &quot;ServiceId&quot;: &quot;3dca6624-624c-48bc-975c-ea9bdb16dac8&quot;,
+        &quot;apis&quot;: [
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/speech-synthesys&quot;,
+                &quot;method&quot;: [
+                    &quot;post&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/*&quot;,
+                &quot;method&quot;: [
+                    &quot;get&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/download/*&quot;,
+                &quot;method&quot;: [
+                    &quot;get&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/longText&quot;,
+                &quot;method&quot;: [
+                    &quot;post&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/trackingFile/*&quot;,
+                &quot;method&quot;: [
+                    &quot;get&quot;
+                ]
+            }
+        ],
+        &quot;maxCount&quot;: 10000,
+        &quot;TPM&quot;: 100
+    }
+]
+</code></pre>
+<p><strong>در تعریف هر apiKey باید expireDate و maxCount آن را مشخص کنیم</strong></p>
+<pre><code>{
+    &quot;UserId&quot;: &quot;a8a5e0a1-3b82-45be-9fa2-54885bf64920&quot;,
+    &quot;maxCount&quot;: 20000,
+    &quot;expireDate&quot;: &quot;90d&quot;
+}
+</code></pre>
+<p><strong>در تعریف هر سرویس باید نوع آن را مشخص کنیم</strong></p>
+<p><em><strong>نکات:</strong></em> </p>
+<p>− در شرایط فعلی ۲ نوع درخواست برای هر سرویس مشخص کردیم که میتواند <strong>direct</strong> و یا <strong>proxy</strong> باشد.</p>
+<p>− <strong>نام سرویس باید حتما با path تعریف شده در apis یکسان باشند</strong> چون این دو با هم مقایسه میشوند.</p>
+<p><img src="../../assets/uploads/19e98644989d1cbd1d47726d64e44c7e/image.jpg" alt="image" /></p>
+<ul>
+<li>اگر سرویس مورد نظر مبتنی بر ارسال فایل بود باید در این بخش(files) ذکر شود که فایل آن چه نامی خواهد داشت، چه نوعی است(video, image, voice) اجباری است یا خیر، …</li>
+</ul>
+<p><img src="../../assets/uploads/36f49f7251655b36ee68d719c1fd5022/image_file.jpg" alt="image_file" /></p>
+<p>در غیر اینصورت اگر سرویس nlp بود، بدون این فیلد باید سرویس را تعریف کرد.</p>
+<ul>
+<li>نوع سرویس و درخواست های آن نیز باید در تعریف سرویس ذکر گردد و این تعیین کننده نحوه ی پاسخ گیت وی به درخواست های ورودی است.</li>
+</ul>
+<p>اگر تایپ سرویس direct باشد یعنی درخواست از طریق rabbitMQ و صف با AI در ارتباط خواهد بود و باید اسم صف آن ذکر شود. در این حالت فایل از طریق <strong>busboy</strong> آپلود میشود.</p>
+<p><img src="../../assets/uploads/8d97f471c5c6f6b291842bf4abf6d09c/image.png" alt="image" /></p>
+<p>و اگر proxy باشد یعنی درخواست های این سرویس به api ریموت دیگری پراکسی میشود و باید host, protocol و rejectUnauthorized(که بیانگر secure بودن/نبودن آن است) در تعریف سرویس بیان شود.</p>
+<p><img src="../../assets/uploads/3558b41883a40f6b6383c90b7feb93d6/image.png" alt="image" /></p>
+<ul>
+<li>در تعریف سرویس میتوان برای آن validation ورودی آن سرویس را نیز تعریف کرد که در بکند با **ajv validator **پیاده سازی شده است.</li>
+</ul>
+<pre><code> &quot;validation&quot;: {
+                    &quot;type&quot;: &quot;object&quot;,
+                    &quot;required&quot;: [
+                        &quot;srt&quot;
+                    ],
+                    &quot;properties&quot;: {
+                        &quot;srt&quot;: {
+                            &quot;enum&quot;: [
+                                &quot;1&quot;,
+                                &quot;true&quot;,
+                                &quot;True&quot;,
+                                true,
+                                false,
+                                1,
+                                0,
+                                &quot;false&quot;,
+                                &quot;False&quot;,
+                                &quot;0&quot;
+                            ]
+                        }
+                    },
+                    &quot;errorMessage&quot;: {
+                        &quot;type&quot;: &quot;نوع ورودی نادرست است&quot;,
+                        &quot;required&quot;: {
+                            &quot;srt&quot;: &quot;srt الزامی است&quot;
+                        },
+                        &quot;properties&quot;: {
+                            &quot;srt&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;
+                        }
+                    },
+                    &quot;additionalProperties&quot;: true
+                }
+</code></pre>
+<p>گیت‌وی عملکرد خود را بر اساس نام سرویس (serviceName) که دومین المان از URL درخواستی میباشد، تعیین می‌کند. بر اساس این نام سرویس، گیت‌وی اطلاعات مربوط به سرویس مورد نظر را استخراج می‌کند تا بداند با درخواست به چه نحوی باید رفتار کند.</p>
+<p><img src="../../assets/uploads/f6fa5f8ca673c637724fdd02f3044a84/image__1_.jpg" alt="image__1_" /></p>
+<p><em><strong>همه درخواست ها به سرویس ها باید حاوی apikey باشد مگر ip های استثنا</strong></em></p>
+<p><em><strong>در تعریف apis میتوان maxCount,  (transaction per minute)TPM و policies را تعریف کرد.</strong></em></p>
+<ul>
+<li>شمای تعریف policies به صورت زیر است: </li>
+</ul>
+<pre><code>{
+  &quot;image&quot;: {
+    &quot;size&quot;: 1200000
+  },
+  &quot;video&quot;: {
+    &quot;size&quot;: 100000,
+    &quot;duration&quot;: 14
+  },
+  &quot;voice&quot;: {
+    &quot;size&quot;: 16,
+    &quot;duration&quot;: 10
+  },
+  &quot;character&quot;: {
+    &quot;counter&quot;: 6000
+  }
+}
+</code></pre>
+<p><em><strong>گیت وی همچنین قابلیت استفاده از Grpc و Websocket را نیز دارد.</strong></em></p>
+<p>فرایند کامل استفاده از کنترلر های ارتباط با هوش <a href="https://armanriazi.github.io/js-gateway/apimarket/gateway/-/wikis/gateway-UML-document">در این کامیونت</a> ذکر شده است.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../diagram/apis/Call_GW_APIs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../diagram/er/ER.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../diagram/apis/Call_GW_APIs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../diagram/er/ER.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

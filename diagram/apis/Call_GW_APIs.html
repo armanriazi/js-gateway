@@ -1,0 +1,751 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>How to use Gateway_1 - API-Gateway(A.R)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="../../INTRO.html"><strong aria-hidden="true">2.</strong> Intoductory</a></li><li class="chapter-item expanded "><a href="../../configuration/docker/DOCKER.html"><strong aria-hidden="true">3.</strong> Docker_Setting</a></li><li class="chapter-item expanded "><a href="../../configuration/rabbitmq/RABBITMQ.html"><strong aria-hidden="true">4.</strong> RabbitMQ_Setting</a></li><li class="chapter-item expanded "><a href="../../diagram/DIAGRAM.html"><strong aria-hidden="true">5.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Chart.html"><strong aria-hidden="true">5.1.</strong> Main Flowchar</a></li><li class="chapter-item expanded "><a href="../../diagram/apis/APIs.html"><strong aria-hidden="true">5.2.</strong> How to use APIs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../diagram/apis/Call_GW_APIs.html" class="active"><strong aria-hidden="true">5.2.1.</strong> How to use Gateway_1</a></li><li class="chapter-item "><a href="../../diagram/apis/Call_GW_APIs_2.html"><strong aria-hidden="true">5.2.2.</strong> How to use Gateway 2</a></li></ol></li><li class="chapter-item "><a href="../../diagram/er/ER.html"><strong aria-hidden="true">5.3.</strong> ER</a></li><li class="chapter-item "><a href="../../diagram/class/CLASS.html"><strong aria-hidden="true">5.4.</strong> Class</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Auth.html"><strong aria-hidden="true">5.4.1.</strong> Auth</a></li><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Controller.html"><strong aria-hidden="true">5.4.2.</strong> Controller</a></li><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Service.html"><strong aria-hidden="true">5.4.3.</strong> Service</a></li></ol></li><li class="chapter-item "><a href="../../diagram/flowchart/FLOWCHART.html"><strong aria-hidden="true">5.5.</strong> Flowchart</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/flowchart/Flowchart_User.html"><strong aria-hidden="true">5.5.1.</strong> User</a></li></ol></li><li class="chapter-item "><a href="../../diagram/sequential/SEQUENTIAL.html"><strong aria-hidden="true">5.6.</strong> Seuential</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth_noted.html"><strong aria-hidden="true">5.6.2.</strong> aiServices_ctr_notedl</a></li><li class="chapter-item "><a href="../../diagram/sequential/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.3.</strong> Auth</a></li></ol></li><li class="chapter-item "><a href="../../diagram/activity/ACTIVITY.html"><strong aria-hidden="true">5.7.</strong> Activity</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.2.</strong> aiServices_srv</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_Logs.html"><strong aria-hidden="true">5.7.3.</strong> logs</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.4.</strong> aiServices controller</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.5.</strong> aiServices service</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_naming.html"><strong aria-hidden="true">5.7.6.</strong> aiServices serviceNaming</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_type.html"><strong aria-hidden="true">5.7.7.</strong> Type of service</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl_noted.html"><strong aria-hidden="true">5.7.8.</strong> aiServices_ctrl_noted</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv_noted.html"><strong aria-hidden="true">5.7.9.</strong> aiServices_srv_noted</a></li><li class="chapter-item "><a href="../../diagram/Activity_Diagram_Logs_notes.html"><strong aria-hidden="true">5.7.10.</strong> logs_noted</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../logs/logs.html"><strong aria-hidden="true">6.</strong> Logs</a></li><li class="chapter-item expanded "><a href="../../ClientCode.html"><strong aria-hidden="true">7.</strong> Codes</a></li><li class="chapter-item expanded "><a href="../../analyze/ANALYZE.html"><strong aria-hidden="true">8.</strong> Analysis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../analyze/Stress_1.html"><strong aria-hidden="true">8.1.</strong> Stress(1)</a></li><li class="chapter-item "><a href="../../analyze/Stress_2.html"><strong aria-hidden="true">8.2.</strong> Stress(2)</a></li></ol></li><li class="chapter-item expanded "><a href="../../GLOSSARY.html"><strong aria-hidden="true">9.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">API-Gateway(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/edit/main/workspace/./workspace//diagram/apis/Call_GW_APIs.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><strong>داکیومنت متد ایجاد کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/users</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot;, &quot;role&quot;: &quot;user&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد کاربر، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>
+<p>username: Required.  یک رشته با حداقل طول ۵ کاراکتر و حداکثر طول ۳۶ کاراکتر. این ویژگی اجباری است.</p>
+</li>
+<li>
+<p>password: Required.  یک رشته که باید با استفاده از عبارت منظم خاصی الگویی را دنبال کند. رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ، یک رقم و یک کاراکتر ویژه باشد. رشته باید حداقل طول ۸ کاراکتر داشته باشد. این ویژگی اجباری است.</p>
+</li>
+<li>
+<p>role: Required. نقش کاربر جدید. یک رشته که باید یا ‘user’ یا ‘admin’ باشد. این ویژگی اجباری است.</p>
+</li>
+<li>
+<p>profile: Optional.    یک شیء اختیاری شامل اطلاعات کاربر با ویژگی های زیر: </p>
+</li>
+</ul>
+<ol>
+<li>firstName: نام کاربر جدید. یک رشته که نام کوچک کاربر را نشان می دهد.</li>
+<li>lastName: نام خانوادگی کاربر جدید. یک رشته که نام خانوادگی کاربر را نشان می دهد.</li>
+<li>email: یک رشته که آدرس ایمیل کاربر را نشان می دهد. رشته باید الگوی استاندارد ایمیل را دنبال کند. </li>
+<li>phoneNumber: یک رشته که شماره تلفن کاربر را نشان می دهد. رشته باید الگوی یک شماره تلفن ایرانی را دنبال کند که با ‘۰۹’ شروع می شود و در کل ۱۱ رقم است</li>
+</ol>
+<p>تمامی ویژگی های فوق دارای پیام های خطای مربوط به خود هستند، در صورتی که قوانین اعتبارسنجی مربوط به آنها برآورده نشوند.</p>
+<p><strong>Return Value</strong></p>
+<p>این متد ریسپانسی به کلاینت که شامل اطلاعات کاربر ایجاد شده است بازمیگرداند.</p>
+<p><strong>Errors</strong></p>
+<p>اگر اروری در طی عملیات ایجاد کاربر اتفاق بیفتد، فانکشن next فراخوانی میگردد. این ارور میتواند شامل:</p>
+<ul>
+<li>ValidationError (زمانی رخ میدهد که اطلاعات ورودی مطابق ساختار مورد نظر نباشد)</li>
+<li>DatabaseError (زمانی رخ میدهد مشکلی در ارتباط با دیتابیس در حین ایجاد کاربر رخ دهد)
+باشد.</li>
+</ul>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند کاربران را ایجاد کنند.</p>
+<p><img src="assets/uploads/2e29bf087bafa1404bcfdc79002e7a17/user-create.jpg" alt="user-create" /></p>
+<p><strong>داکیومنت متد لاگین LOGIN</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/users/login</code></p>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد کاربر، یک شیء با ویژگی های زیر است:</p>
+<p><strong>Attributes:</strong></p>
+<ul>
+<li>username: Required.  یک رشته با حداقل طول ۵ کاراکتر و حداکثر طول ۳۶ کاراکتر. این ویژگی اجباری است.</li>
+<li>password: Required.  یک رشته که باید با استفاده از عبارت منظم خاصی الگویی را دنبال کند. رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ، یک رقم و یک کاراکتر ویژه باشد. رشته باید حداقل طول ۸ کاراکتر داشته باشد. این ویژگی اجباری است.</li>
+</ul>
+<p><strong>Return Value</strong></p>
+<p>در صورت موفقیت آمیز بودن این فرایند، ریسپانسی شامل توکن اعتبارسنجی به کلاینت ارسال میگردد.</p>
+<p><img src="assets/uploads/86570da38cf29377295b45b8f95a936f/Clipboard_-_April_5__2023_4_35_PM.png" alt="Clipboard_-_April_5__2023_4_35_PM" /></p>
+<p><strong>داکیومنت متد حذف کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<pre><code>Response:
+  {
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;User deleted successfully&quot;,
+    &quot;data&quot;: {
+      &quot;id&quot;: &quot;12345&quot;,
+      &quot;name&quot;: &quot;John Doe&quot;,
+      &quot;email&quot;: &quot;johndoe@example.com&quot;,
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;createdAt&quot;: &quot;2022-03-31T14:23:06.000Z&quot;,
+      &quot;updatedAt&quot;: &quot;2022-04-01T10:07:19.000Z&quot;
+    }
+  }
+</code></pre>
+<p>اگر کاربر مجاز به حذف کاربر مورد نظر باشد، این متد کاربر با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف کاربر مورد نظر باشد، متد کاربر را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند کاربران را حذف کنند.</p>
+<p><img src="assets/uploads/e287c160e5d0fcdb355af7e73dc34842/remove-user.jpg" alt="remove-user" /></p>
+<p><strong>داکیومنت متد آپدیت اطلاعات کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;role&quot;: &quot;user&quot;, &quot;profile&quot;: { &quot;firstName&quot;: &quot;alii&quot; } }</code></p>
+<p><strong>Behavior</strong></p>
+<p>این متد برای بروزرسانی اطلاعات یک کاربر استفاده می‌شود. درخواست مربوطه باید شامل اطلاعات کاربری که قرار است به روزرسانی شود، شامل نام کاربری، نقش کاربری و پروفایل کاربری باشد. در صورتی که کاربر مشخص شده با شناسه داده شده در درخواست پیدا نشود یا کاربری که درخواست را ارسال کرده است مجوز مورد نیاز برای انجام این کار را ندارد، پیغام خطا به عنوان پاسخ ارسال می‌شود.</p>
+<p>درخواست با استفاده از توکن مجوز دسترسی در هدر Authorization تأیید می‌شود. اگر کاربری که درخواست را ارسال کرده است مجوز لازم برای بروزرسانی کاربر مورد نظر را داشته باشد، متد کاربر مورد نظر را با استفاده از اطلاعات ارسالی درخواست به روزرسانی کرده و سپس  سند به‌روز شده به عنوان پاسخ ارسال می‌شود.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات کاربران را آپدیت کنند.</p>
+<p><img src="assets/uploads/d20ce513fa8d9d23eda2c3dfed37c19c/update-user.jpg" alt="update-user" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات کاربر را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات کاربران را دریافت کنند.</p>
+<p><img src="assets/uploads/1a2b8de0fb4d5fc6a3b79917241617d1/get-user__1_.jpg" alt="get-user__1_" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه کاربران</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/password/users</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات کاربر را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات کاربران را دریافت کنند.</p>
+<p><img src="assets/uploads/b8d4ed789e41d0b69b74e5e7ab03cf0a/users-get.jpg" alt="users-get" /></p>
+<p><strong>داکیومنت متد آپدیت پسوورد کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;currentPassword&quot;: &quot;testA123@A&quot;, &quot;newPassword&quot;: &quot;testA123@B&quot;, &quot;confirmNewPassword&quot;: &quot;testA123@B&quot; }</code></p>
+<p><strong>Response</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td>data</td><td>Object</td><td>The updated user object</td></tr>
+</tbody></table>
+</div>
+<p><strong>Error Responses</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Status Code</th><th>Description</th></tr></thead><tbody>
+<tr><td>400</td><td>One of the following conditions is met: <ul><li>The user is not found.</li><li>The confirm password doesn’t match the new password.</li><li>The current password is invalid.</li></ul></td></tr>
+<tr><td>401</td><td>The user is not authenticated.</td></tr>
+<tr><td>403</td><td>The user does not have sufficient privileges to update the password.</td></tr>
+<tr><td>500</td><td>An unexpected error occurred.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات کاربر را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند پسوورد کاربران را آپدیت کنند.</p>
+<p><img src="assets/uploads/86e79d82847be7c3b9a82f81569c3813/user-password.jpg" alt="user-password" /></p>
+<p><strong>داکیومنت متد ایجاد apiKey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apikeys</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;UserId&quot;: &quot;2b721c8f-523e-4cc9-91d1-7a8eefd0c810&quot;, &quot;maxCount&quot;: 1000, &quot;expireDate&quot;: &quot;24h&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد ApiKey، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>
+<p>expireDate: (ضروری): یک رشته که تاریخ انقضای کلید API را نشان می‌دهد. فرمت این رشته باید به صورت /^([0-9]+)([dhDH])$/ باشد که بخش اول آن تعداد واحدهای زمانی (ساعت یا روز) و بخش دوم آن شناسه واحد زمانی (d برای روزها و h برای ساعت‌ها) را مشخص می‌کند.</p>
+</li>
+<li>
+<p>UserId (ضروری): یک رشته که شناسه کاربر مرتبط با کلید API را نشان می‌دهد. این رشته باید یک رشته UUID معتبر باشد.</p>
+</li>
+<li>
+<p>maxCount: یک پارامتر اختیاری که تعداد حداکثر بار استفاده از کلید API را نشان می‌دهد. اگر مشخص نشود، تعداد بارهای استفاده از کلید API محدودیت نخواهد داشت.</p>
+</li>
+</ul>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;value&quot;: &quot;55a41dfe248ae04d72bc7a94c4daa1c2a4d4f70ef5c5...&quot;, &quot;UserId&quot;: &quot;2b721c8f-523e-4cc9-91d1-7a8eefd0c810&quot;, &quot;expireDate&quot;: &quot;2023-04-09T10:02:56.000Z&quot;, &quot;maxCount&quot;: 1000 }</code></p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند ApiKey را ایجاد کنند.</p>
+<p><img src="assets/uploads/eff1cc98753311c60e052fcc8a31653b/create-apikey.jpg" alt="create-apikey" /></p>
+<p><strong>داکیومنت متد آپدیت apiKey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;maxCount&quot;: 1000, &quot;expireDate&quot;: &quot;1d&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی آپدیت apiKey، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>
+<p>expireDate: یک رشته که تاریخ انقضای کلید API را نشان می‌دهد. فرمت این رشته باید به صورت /^([0-9]+)([dhDH])$/ باشد که بخش اول آن تعداد واحدهای زمانی (ساعت یا روز) و بخش دوم آن شناسه واحد زمانی (d برای روزها و h برای ساعت‌ها) را مشخص می‌کند.</p>
+</li>
+<li>
+<p>id (ضروری): یک رشته که شناسه apiKey مورد نظر برای به‌روزرسانی کلید API را نشان می‌دهد. این رشته باید یک رشته UUID معتبر باشد.</p>
+</li>
+<li>
+<p>maxCount: یک پارامتر اختیاری که تعداد حداکثر بار استفاده از کلید API را نشان می‌دهد. اگر مشخص نشود، تعداد بارهای استفاده از کلید API محدودیت نخواهد داشت.</p>
+</li>
+<li>
+<p>isValid: یک پارامتر اختیاری که برای اعتبارسنجی کلید API استفاده می‌شود. اگر این پارامتر مقدار true باشد، کلید API فعال باقی می‌ماند و در غیر این صورت غیرفعال می‌شود.</p>
+</li>
+</ul>
+<p>متد آپدیت apikey شناسه apikey را میگیرد. 
+اگر کاربر مجاز به آپدیت apikey مورد نظر باشد، این متد apikey با شناسه ارائه شده را از پایگاه داده آپدیت کرده و سند آپدیت شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز آپدیت کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به آپدیت apikey مورد نظر باشد، متد apikey را از پایگاه داده آپدیت کرده و ریسپانس موفقیت آمیزی با سند آپدیت شده را باز می گرداند.</p>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;01234567-89ab-cdef-0123-456789abcdef&quot;, &quot;userId&quot;: &quot;01234567-89ab-cdef-0123-456789abcdef&quot;, &quot;value&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;, &quot;expireDate&quot;: &quot;2023-04-09T00:10:00.000Z&quot;, &quot;maxCount&quot;: 1000, &quot;isValid&quot;: true, &quot;createdAt&quot;: &quot;2023-04-08T00:00:00.000Z&quot;, &quot;updatedAt&quot;: &quot;2023-04-08T01:23:45.000Z&quot; }</code></p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند ApiKey را آپدیت کنند.</p>
+<p><img src="assets/uploads/17ad5600136472064ff30d7da8fbe6df/apikey-update.jpg" alt="apikey-update" /></p>
+<p><strong>داکیومنت متد حذف apiKey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف apikey شناسه apikey را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف apikey مورد نظر باشد، این متد apikey با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف apikey مورد نظر باشد، متد apikey را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند apiKey را حذف کنند.</p>
+<p><img src="assets/uploads/f2144b6c47c2d9bcb34e4e3723ef5468/delete-apikey.jpg" alt="delete-apikey" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات apikey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه apikey وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه apikey وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات apikey را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات apikey را دریافت کنند.</p>
+<p><img src="assets/uploads/8a0c1cbd52f2fdcd8efa3539d14ead67/get-apikey__1_.jpg" alt="get-apikey__1_" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه apikey ها</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات apikey ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات apikey ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد ایجاد project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/projects</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;sgw&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد project، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: (ضروری): یک رشته که نام پروژه را نشان میدهد</li>
+</ul>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;7670da1a-2f6d-4214-babb-8b4ddawsasda5&quot;, &quot;name&quot;: &quot;dasfsdfsdf&quot;, &quot;updatedAt&quot;: &quot;2023-04-08T06:57:21.984Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T06:57:21.984Z&quot; }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات project ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات project ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد حذف project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف project شناسه project را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف project مورد نظر باشد، این متد project با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف project مورد نظر باشد، متد project را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند project را حذف کنند.</p>
+<p><img src="assets/uploads/316d422a438668ac4408049a141f72c0/delete-project.jpg" alt="delete-project" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه project ها</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات project ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات project ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه project وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه project وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات project را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات project را دریافت کنند.</p>
+<p><strong>داکیومنت متد آپدیت project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;fsdfsdf&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی آپدیت project، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: (ضروری): یک رشته که نام پروژه را نشان میدهد</li>
+</ul>
+<p>متد آپدیت project شناسه project را میگیرد. 
+اگر کاربر مجاز به آپدیت project مورد نظر باشد، این متد project با شناسه ارائه شده را از پایگاه داده آپدیت کرده و سند آپدیت شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز آپدیت کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به آپدیت project مورد نظر باشد، متد project را از پایگاه داده آپدیت کرده و ریسپانس موفقیت آمیزی با سند آپدیت شده را باز می گرداند.</p>
+<p><strong>Response</strong></p>
+<p><code>&quot;message&quot;:[ 1 ]</code></p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند project را آپدیت کنند.</p>
+<p><strong>داکیومنت متد ایجاد service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/services</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;id&quot;: &quot;851d6d91-fb0d-4e72-b5ea-b901tyutyu657b9&quot;, &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد service، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: یک رشته ضروری که نمایانگر نام سرویس است</li>
+<li>ProjectId: یک رشته ضروری که نمایانگر شناسه پروژه است.</li>
+<li>validation: یک شیء ضروری است.</li>
+<li>queue: یک رشته ضروری که نام صف را نشان می دهد.</li>
+<li>apis: یک آرایه ضروری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</li>
+<li></li>
+</ul>
+<p>1- method: یک آرایه از رشته ها که نشان دهنده متد های HTTP پشتیبانی شده توسط API است. تنها مقادیر get و post مجاز هستند.</p>
+<p>2- path: یک رشته که نشان دهنده مسیر URL API است.</p>
+<p>3- files: یک آرایه اختیاری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</p>
+<p>4- name: یک رشته ضروری که نام فایل را نشان می دهد.</p>
+<p>5- type: یک رشته ضروری که نوع فایل را نشان می دهد. تنها مقادیر تصویر، ویدئو و صدا مجاز هستند.</p>
+<p>6- howGet: یک رشته ضروری که نشان دهنده روش استفاده شده برای دریافت فایل است. تنها مقادیر فایل، لینک و بیس ۶۴ مجاز هستند.</p>
+<p>7- required: یک بولین اختیاری که نشان می دهد آیا فایل لازم است یا خیر. اگر مشخص نشده باشد، به صورت پیش فرض به false تنظیم می شود.</p>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;851d6d91-fb0d-4e72-b5ea-b901tyutyu657b9&quot;, &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service ها را ایجاد کنند.</p>
+<p><strong>داکیومنت متد آپدیت service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد service، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: یک رشته ضروری که نمایانگر نام سرویس است</li>
+<li>ProjectId: یک رشته ضروری که نمایانگر شناسه پروژه است.</li>
+<li>validation: یک شیء ضروری است.</li>
+<li>queue: یک رشته ضروری که نام صف را نشان می دهد.</li>
+<li>apis: یک آرایه ضروری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</li>
+<li></li>
+</ul>
+<p>1- method: یک آرایه از رشته ها که نشان دهنده متد های HTTP پشتیبانی شده توسط API است. تنها مقادیر get و post مجاز هستند.</p>
+<p>2- path: یک رشته که نشان دهنده مسیر URL API است.</p>
+<p>3- files: یک آرایه اختیاری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</p>
+<p>4- name: یک رشته ضروری که نام فایل را نشان می دهد.</p>
+<p>5- type: یک رشته ضروری که نوع فایل را نشان می دهد. تنها مقادیر تصویر، ویدئو و صدا مجاز هستند.</p>
+<p>6- howGet: یک رشته ضروری که نشان دهنده روش استفاده شده برای دریافت فایل است. تنها مقادیر فایل، لینک و بیس ۶۴ مجاز هستند.</p>
+<p>7- required: یک بولین اختیاری که نشان می دهد آیا فایل لازم است یا خیر. اگر مشخص نشده باشد، به صورت پیش فرض به false تنظیم می شود.</p>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;851d6d91-fb0d-4e72-b5ea-b901tyutyu657b9&quot;, &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service ها را آپدیت کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service را دریافت کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه service ها</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد حذف service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف service شناسه service را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف service مورد نظر باشد، این متد service با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف service مورد نظر باشد، متد service را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند service را حذف کنند.</p>
+<p><img src="assets/uploads/105470c976c6df53ffb921cdaaa92e26/delete-service.jpg" alt="delete-service" /></p>
+<p><strong>داکیومنت متد ایجاد api</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apis</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;ApiKeyId&quot;: &quot;ed7f7ffe-745c-4f0a-9ce7-c859asdaa474&quot;, &quot;ServiceId&quot;: &quot;f2955049-10a3-40a7-8dda-9472asdads0a6eb&quot;, &quot;apis&quot;: [ { &quot;path&quot;: &quot;vehicleIDCardRecognition/file&quot;, &quot;method&quot;: [ &quot;post&quot; ] }, { &quot;path&quot;: &quot;vehicleIDCardRecognition/*&quot;, &quot;method&quot;: [ &quot;get&quot; ] } ], &quot;TPM&quot;: 200, &quot;policies&quot;: {} }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد api، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>apiKeyId: یک رشته اجباری که نشان دهنده شناسه apiKey است. مقدار باید یک GUID باشد.</li>
+<li>serviceId: یک رشته اجباری که نشان دهنده شناسه سرویس است. مقدار باید یک GUID باشد.</li>
+<li>apis: یک آرایه اجباری از شیء ها که شامل ویژگی های زیر است:
+1- method: یک آرایه از رشته ها که نشان دهنده روش های HTTP است که API پشتیبانی می کند. تنها مقادیر “get” و “post” مجاز هستند.
+2- path: یک رشته که نشان دهنده مسیر URL API است.</li>
+<li>TPM: یک عدد صحیح اجباری که حداکثر تعداد تراکنش های مجاز در دقیقه را نشان می دهد.</li>
+<li>maxCount: یک عدد صحیح اختیاری که حداکثر تعداد تراکنش های مجاز را نشان می دهد.</li>
+<li>policies: یک شیء اختیاری که شامل دو خصوصیت اختیاری است:
+1- image: یک شیء که یک خصوصیت اختیاری دارد:
+2- size: یک عدد که حداکثر اندازه مجاز یک تصویر را نشان می دهد.</li>
+<li>video: یک شیء که دو خصوصیت اختیاری دارد:
+1- size: یک عدد که حداکثر اندازه مجاز یک ویدئو را نشان می دهد.
+2- duration: یک عدد که حداکثر مدت زمان مجاز یک ویدئو را نشان می دهد.</li>
+</ul>
+<p>تمامی ویژگی های فوق دارای پیام های خطای مربوط به خود هستند، در صورتی که قوانین اعتبارسنجی مربوط به آنها برآورده نشوند.</p>
+<p><strong>Return Value</strong></p>
+<p>این متد ریسپانسی به کلاینت که شامل اطلاعات api ایجاد شده است بازمیگرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند api را ایجاد کنند.</p>
+<p><strong>داکیومنت متد حذف api</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/apis/{apiID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف api شناسه api را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف api مورد نظر باشد، این متد api با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف api مورد نظر باشد، متد api را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند api را حذف کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات api</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/apis/{apiID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه api وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه api وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات api را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات api را دریافت کنند.</p>
+<p><img src="assets/uploads/04ba7cfa3e2310f2ee98dfee61973ef4/api-getall.jpg" alt="api-getall" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../diagram/apis/APIs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../diagram/apis/Call_GW_APIs_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../diagram/apis/APIs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../diagram/apis/Call_GW_APIs_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

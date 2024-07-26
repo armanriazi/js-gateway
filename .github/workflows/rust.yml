@@ -1,0 +1,23 @@
+name: Rust
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-24.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install mdbook-mermaid
+      run: cargo install mdbook-mermaid
+    - name: Build
+      run: cargo build --verbose      
+    - name: Run Program
+      run: cargo run

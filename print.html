@@ -1,0 +1,2721 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>API-Gateway(A.R)</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="INTRO.html"><strong aria-hidden="true">2.</strong> Intoductory</a></li><li class="chapter-item expanded "><a href="configuration/docker/DOCKER.html"><strong aria-hidden="true">3.</strong> Docker_Setting</a></li><li class="chapter-item expanded "><a href="configuration/rabbitmq/RABBITMQ.html"><strong aria-hidden="true">4.</strong> RabbitMQ_Setting</a></li><li class="chapter-item expanded "><a href="diagram/DIAGRAM.html"><strong aria-hidden="true">5.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="diagram/Chart.html"><strong aria-hidden="true">5.1.</strong> Main Flowchar</a></li><li class="chapter-item "><a href="diagram/apis/APIs.html"><strong aria-hidden="true">5.2.</strong> How to use APIs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="diagram/apis/Call_GW_APIs.html"><strong aria-hidden="true">5.2.1.</strong> How to use Gateway_1</a></li><li class="chapter-item "><a href="diagram/apis/Call_GW_APIs_2.html"><strong aria-hidden="true">5.2.2.</strong> How to use Gateway 2</a></li></ol></li><li class="chapter-item "><a href="diagram/er/ER.html"><strong aria-hidden="true">5.3.</strong> ER</a></li><li class="chapter-item "><a href="diagram/class/CLASS.html"><strong aria-hidden="true">5.4.</strong> Class</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="diagram/class/Class_Diagram_Auth.html"><strong aria-hidden="true">5.4.1.</strong> Auth</a></li><li class="chapter-item "><a href="diagram/class/Class_Diagram_Controller.html"><strong aria-hidden="true">5.4.2.</strong> Controller</a></li><li class="chapter-item "><a href="diagram/class/Class_Diagram_Service.html"><strong aria-hidden="true">5.4.3.</strong> Service</a></li></ol></li><li class="chapter-item "><a href="diagram/flowchart/FLOWCHART.html"><strong aria-hidden="true">5.5.</strong> Flowchart</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="diagram/flowchart/Flowchart_User.html"><strong aria-hidden="true">5.5.1.</strong> User</a></li></ol></li><li class="chapter-item "><a href="diagram/sequential/SEQUENTIAL.html"><strong aria-hidden="true">5.6.</strong> Seuential</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="diagram/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="diagram/Sequential_Diagram_Auth_noted.html"><strong aria-hidden="true">5.6.2.</strong> aiServices_ctr_notedl</a></li><li class="chapter-item "><a href="diagram/sequential/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.3.</strong> Auth</a></li></ol></li><li class="chapter-item "><a href="diagram/activity/ACTIVITY.html"><strong aria-hidden="true">5.7.</strong> Activity</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.2.</strong> aiServices_srv</a></li><li class="chapter-item "><a href="diagram/activity/Activity_Diagram_Logs.html"><strong aria-hidden="true">5.7.3.</strong> logs</a></li><li class="chapter-item "><a href="diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.4.</strong> aiServices controller</a></li><li class="chapter-item "><a href="diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.5.</strong> aiServices service</a></li><li class="chapter-item "><a href="service/aiServices_srv_naming.html"><strong aria-hidden="true">5.7.6.</strong> aiServices serviceNaming</a></li><li class="chapter-item "><a href="service/aiServices_srv_type.html"><strong aria-hidden="true">5.7.7.</strong> Type of service</a></li><li class="chapter-item "><a href="diagram/activity/Activity_Diagram_aiServices_ctrl_noted.html"><strong aria-hidden="true">5.7.8.</strong> aiServices_ctrl_noted</a></li><li class="chapter-item "><a href="diagram/activity/Activity_Diagram_aiServices_srv_noted.html"><strong aria-hidden="true">5.7.9.</strong> aiServices_srv_noted</a></li><li class="chapter-item "><a href="diagram/Activity_Diagram_Logs_notes.html"><strong aria-hidden="true">5.7.10.</strong> logs_noted</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="logs/logs.html"><strong aria-hidden="true">6.</strong> Logs</a></li><li class="chapter-item expanded "><a href="ClientCode.html"><strong aria-hidden="true">7.</strong> Codes</a></li><li class="chapter-item expanded "><a href="analyze/ANALYZE.html"><strong aria-hidden="true">8.</strong> Analysis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="analyze/Stress_1.html"><strong aria-hidden="true">8.1.</strong> Stress(1)</a></li><li class="chapter-item "><a href="analyze/Stress_2.html"><strong aria-hidden="true">8.2.</strong> Stress(2)</a></li></ol></li><li class="chapter-item expanded "><a href="GLOSSARY.html"><strong aria-hidden="true">9.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">API-Gateway(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="api-gateway-mdbook"><a class="header" href="#api-gateway-mdbook">API-Gateway MDBook</a></h1>
+<p>This book is completely Free and Open Source.</p>
+<p>If you found this API-Gateway book valuable and wish to contribute, consider supporting my efforts via cryptocurrency. Thanks!</p>
+<pre><code class="language-md">0xde5D732a5AB44832E1c69b18be30834639F44A2c
+</code></pre>
+<h2 id="downloads"><a class="header" href="#downloads">Downloads</a></h2>
+<p>You can also download the Epub version here:</p>
+<p><a href="https://github.com/armanriazi/js-gateway/tree/main/downloads">https://github.com/armanriazi/js-gateway/tree/main/downloads</a></p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Welcome to The Concise API-Gateway Book! This guide equips you with essential knowledge and practical skills for effective NodeJs development. Discover key concepts and techniques to write clean, robust code. Whether you’re a beginner or an experienced developer, this book serves as both a comprehensive guide and a handy reference for leveraging Gateway-Api power in your projects.</p>
+<h2 id="about-the-author"><a class="header" href="#about-the-author">About the Author</a></h2>
+<p>Arman Riazi is an experienced Senior Backend-end Developer with a passion for Rust, R&amp;D and Blockchain since 2012.
+You can reach Arman Riazi on the following platforms:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+LinkedIn: <a href="https://www.linkedin.com/showcase/armanriazi">https://www.linkedin.com/showcase/armanriazi</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+GitHub: <a href="https://github.com/armanriazi">https://github.com/armanriazi</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+Twitter: <a href="https://twitter.com/armanriazi.meta">https://twitter.com/armanriazi.meta</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+Email: armanriyazi.github.io📧gmail.com</li>
+</ul>
+<!-- - [x] Instagram: <https://instagram.com/armanriazi_meta>-->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="api-gateway"><a class="header" href="#api-gateway">API-Gateway</a></h1>
+<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
+<p>Based on below image, instead of AI services can be every kind of Service or API on your desire business logic like: carbon market, cloud services, bank, or feeds and etc,.</p>
+<p>The significant feature of the Gateway is no vendor lock-in and for looking at another features please keep going and go through, you will find it.</p>
+<p><img src="./assets/images/architecture.png" alt="image" /></p>
+<p><img src="./assets/images/process-diagram.png" alt="Process Diagram" /></p>
+<h2 id="initialization"><a class="header" href="#initialization">Initialization</a></h2>
+<h2 id="packagejson"><a class="header" href="#packagejson">Package.json</a></h2>
+<p>During the initial package installation, be sure to use <code>npm</code> to carry out the installation process and strictly avoid using pnpm, as it will lead to several errors. However, it is possible that after installing with npm, you can execute the work and run scripts using pnpm. Therefore, in this section, several suitable commands have been provided for use, especially one of the most important ones is <code>pnpm:clean</code>.</p>
+<pre><code class="language-bash">    &quot;pnpm:version&quot;: &quot;pnpm --version&quot;,
+    &quot;pnpm:yourpackage&quot;: &quot;pnpm view yourpackage versions&quot;,
+    &quot;pnpm:clean&quot;: &quot;find ./ -name node_modules -type d -exec rm -rf {} +&quot;,
+    &quot;pnpm:update&quot;: &quot;pnpm -r update -i -L&quot;,
+    &quot;pnpm:dedupe&quot;: &quot;pnpm dedupe --check&quot;,
+    &quot;pnpm:check&quot;: &quot;pnpm run lint:md &amp;&amp; pnpm run lint:fix &amp;&amp; pnpm run compile&quot;,
+    &quot;pnpm:dev&quot;: &quot;nodemon src/index.js&quot;,
+    &quot;deps&quot;: &quot;pnpm update -i --latest -r&quot;,
+    &quot;pnpm:start&quot;: &quot;pnpm run build:live&quot;,
+    &quot;debug&quot;: &quot;DEBUG=http,express:*,app:* nodemon index.js&quot;,
+    &quot;node:dev&quot;: &quot;cross-env NODE_ENV=development node -r esm ./src/index&quot;,
+    &quot;node:inspect&quot;: &quot;cross-env NODE_ENV=development &amp;&amp; cross-env NODE_INSPECT_RESUME_ON_START=1 node inspect ./src/modules/users/users.controller.js&quot;,
+    &quot;node:inspect:9223&quot;: &quot;cross-env NODE_ENV=development &amp;&amp; cross-env NODE_INSPECT_RESUME_ON_START=1 node --inspect=9223 ./src/modules/users/users.controller.js&quot;    
+</code></pre>
+<h2 id="docker"><a class="header" href="#docker">Docker</a></h2>
+<p>Occocionally, To set the correct time for the time_log variable in Docker, which sometimes can be problematic, you can use the following command inside your Dockerfile:</p>
+<p><code>RUN echo &quot;date '+%Y-%m-%d %H:%M:%S'&quot; &gt; /etc/timezone</code></p>
+<p>This command will set the system’s timezone to match the local timezone, which should help with populating the time_log variable correctly. Remember to replace the timezone format and value according to your specific needs.</p>
+<blockquote>
+<p><code>ENV TZ=&quot;Asia/Tehran&quot;</code></p>
+</blockquote>
+<h2 id="expressjs"><a class="header" href="#expressjs">ExpressJS</a></h2>
+<p>The two main objects, namely request and response, undergo changes throughout all sections of the program. Therefore, paying attention to the components of this section can be helpful to you.</p>
+<h3 id="request"><a class="header" href="#request">Request</a></h3>
+<p>Includes:</p>
+<pre><code class="language-json">{
+    &quot;req&quot; :  {
+        &quot;body&quot;: {
+            &quot;type&quot;: {},
+            &quot;userId&quot;: {},
+            &quot;occlusion&quot;: {},
+        },
+        &quot;headers&quot;: {},
+        &quot;originalUrl&quot;: {},
+        &quot;method&quot; : {
+            &quot;get&quot;: {},
+            &quot;post&quot;: {},
+        },        
+        &quot;requestType&quot; : {},
+        &quot;srtProxy&quot; : {},        
+        &quot;projectName&quot;: {},
+        &quot;accessAiService&quot;: {
+            &quot;Service&quot; : {
+                &quot;host&quot;: {},
+                &quot;protocol&quot;: {},
+                &quot;rejectUnauthorized&quot;: {},
+            }
+        },
+        &quot;serviceName&quot; : {},
+        &quot;path&quot;: {},
+        &quot;hasFile&quot; : {},
+        &quot;filePath&quot; : {},
+        &quot;file&quot;: {
+            &quot;howGet&quot; : {},
+        },
+        &quot;files&quot;: {},
+        &quot;ip&quot;: {},
+        &quot;query&quot;: {},
+        &quot;params&quot;: {},
+        &quot;user&quot;: {},        
+        &quot;clause&quot;: {},
+        &quot;isAllowedIP&quot; : {},
+        &quot;gatewayLogData&quot;:{},
+    }
+}
+</code></pre>
+<h3 id="response"><a class="header" href="#response">Response</a></h3>
+<pre><code class="language-json">{
+    &quot;res&quot;: {
+        &quot;locals&quot;: {},
+        &quot;requestId&quot; : {},
+        &quot;sendFile&quot;: {},
+        &quot;json&quot;: {},
+        &quot;data&quot;: {
+            &quot;status&quot;:{},
+            &quot;message&quot;: {
+                &quot;data&quot; : {}
+            }
+       },
+    }
+}
+</code></pre>
+<h2 id="structure-of-log"><a class="header" href="#structure-of-log">Structure of log</a></h2>
+<pre><code class="language-json">{
+    &quot;log&quot; : {
+       &quot;requestId&quot;:{},
+        &quot;meta&quot;: {
+          &quot;userAgent&quot;: {},
+          &quot;ip&quot;: {},
+          &quot;method&quot;: {},
+          &quot;originalUrl&quot;: {},
+          &quot;path&quot;: {},
+        },
+        &quot;data&quot;: {
+          &quot;status&quot; : {},
+          &quot;message&quot; : {},
+          &quot;request&quot; : {},
+          &quot;response&quot; : {},
+        },
+    }
+}
+</code></pre>
+<h2 id="db"><a class="header" href="#db">DB</a></h2>
+<h3 id="relations"><a class="header" href="#relations">Relations</a></h3>
+<h4 id="cascades"><a class="header" href="#cascades">Cascades</a></h4>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+If a ApiKey remove from ApiKeys then {only remove related records in the Apis}</li>
+<li><input disabled="" type="checkbox" checked=""/>
+If a Service remove from Services then {only remove related records in the Apis}</li>
+<li><input disabled="" type="checkbox" checked=""/>
+If a Project remove from Projects then {only remove related records in the Services}</li>
+<li><input disabled="" type="checkbox" checked=""/>
+If a User remove from Users then {only remove related records in the ApiKeys and Apis}</li>
+<li><input disabled="" type="checkbox" checked=""/>
+If a Api remove from Apis then will not affect on any tables.</li>
+</ul>
+<h2 id="rabbitmq"><a class="header" href="#rabbitmq">RabbitMq</a></h2>
+<p>By executing the list command, you can see a list of installed plugins. Keep in mind that due to the use of the amqplib library, the program currently does not require the installation of plugin version 1. However, if a need arises on the Rabbit tool side, it is better to activate the desired plugin based on your own needs.</p>
+<p>‍<code>amqplib</code></p>
+<blockquote>
+<p>A library for making AMQP 0-9-1 clients for Node.JS, and an AMQP 0-9-1 client for Node.JS v10+. This library does not implement AMQP 1.0 or AMQP 0-10.</p>
+</blockquote>
+<pre><code class="language-bash">rabbitmq-plugins list
+Listing plugins with pattern &quot;.*&quot; ...
+ Configured: E = explicitly enabled; e = implicitly enabled
+ | Status: * = running on rabbit@451f4ab695e9
+ |/
+[E*] rabbitmq_amqp1_0                  3.13.1
+[  ] rabbitmq_auth_backend_cache        (pending upgrade to 3.13.1)
+[  ] rabbitmq_auth_backend_http         (pending upgrade to 3.13.1)
+[  ] rabbitmq_auth_backend_ldap         (pending upgrade to 3.13.1)
+[  ] rabbitmq_auth_backend_oauth2       (pending upgrade to 3.13.1)
+[  ] rabbitmq_auth_mechanism_ssl        (pending upgrade to 3.13.1)
+[  ] rabbitmq_consistent_hash_exchange  (pending upgrade to 3.13.1)
+[E*] rabbitmq_event_exchange           3.13.1
+[e*] rabbitmq_federation               3.13.1
+[  ] rabbitmq_federation_management     (pending upgrade to 3.13.1)
+[  ] rabbitmq_jms_topic_exchange        (pending upgrade to 3.13.1)
+[E*] rabbitmq_management               3.13.1
+[e*] rabbitmq_management_agent         3.13.1
+[  ] rabbitmq_mqtt                      (pending upgrade to 3.13.1)
+[  ] rabbitmq_peer_discovery_aws        (pending upgrade to 3.13.1)
+[  ] rabbitmq_peer_discovery_common     (pending upgrade to 3.13.1)
+[  ] rabbitmq_peer_discovery_consul     (pending upgrade to 3.13.1)
+[  ] rabbitmq_peer_discovery_etcd       (pending upgrade to 3.13.1)
+[  ] rabbitmq_peer_discovery_k8s        (pending upgrade to 3.13.1)
+[E*] rabbitmq_prometheus               3.13.1
+[  ] rabbitmq_random_exchange           (pending upgrade to 3.13.1)
+[  ] rabbitmq_recent_history_exchange   (pending upgrade to 3.13.1)
+[  ] rabbitmq_sharding                  (pending upgrade to 3.13.1)
+[  ] rabbitmq_shovel                    (pending upgrade to 3.13.1)
+[  ] rabbitmq_shovel_management         (pending upgrade to 3.13.1)
+[E*] rabbitmq_stomp                    3.13.1
+[E*] rabbitmq_stream                   3.13.1
+[  ] rabbitmq_stream_management         (pending upgrade to 3.13.1)
+[  ] rabbitmq_top                       (pending upgrade to 3.13.1)
+[E*] rabbitmq_tracing                  3.13.1
+[  ] rabbitmq_trust_store               (pending upgrade to 3.13.1)
+[e*] rabbitmq_web_dispatch             3.13.1
+[  ] rabbitmq_web_mqtt                  (pending upgrade to 3.13.1)
+[  ] rabbitmq_web_mqtt_examples         (pending upgrade to 3.13.1)
+[  ] rabbitmq_web_stomp                 (pending upgrade to 3.13.1)
+[  ] rabbitmq_web_stomp_examples        (pending upgrade to 3.13.1)
+</code></pre>
+<h3 id="relation-of-web-app-and-amqp"><a class="header" href="#relation-of-web-app-and-amqp">Relation of web-app and AMQP</a></h3>
+<p>The project uses the AMQP protocol version 0-9-1 and has not utilized version one.</p>
+<p>When you intend to use a service, first create a queue with the service’s name. Then, when you make a post request with the name of that service, you will see that the request will go to this queue. In the library present in the project, named broker, a random queue is created during initialization, and this is done by the program itself. Then, when sending an API request, the response is supposed to be received by the random queue and then sent to the main queue, which is named after the service. Note that if the message in the main queue is consumed, the API is deleted, and the execution of the program moves on to other codes. Therefore, if there is no consumption, the API remains in ‘sending’ status.
+If you intend to track messages in RabbitMQ, it is best to follow the steps below.
+In addition to the random queue created by our program, we have something called a tag, which is created by Rabbit as follows: This tag is actually related to the consumer of the random queue, and even if we have thousands of consumers from the queue, we will still have the same name format at the beginning of the tag.</p>
+<p><code>amq.ctag-*</code></p>
+<h4 id="policy"><a class="header" href="#policy">Policy</a></h4>
+<ol>
+<li>
+<p>Create a durable queue as a name of your service</p>
+</li>
+<li>
+<p>Create a new policy as  <code>amq.gen-*</code></p>
+</li>
+<li>
+<p>Binding</p>
+</li>
+</ol>
+<pre><code class="language-md">From exchange: amq.direct
+Routing key: VisionQuestionAnswering
+Arguments: correlation_id  or conversation_id 
+// correlation_id/conversation_id(equal) are attributes of message
+// if you use grafana you can only find conversation_id inthe section of search -&gt; net.peer.port
+</code></pre>
+<p>When a request is sent from the API, you can take action in the message reception section of the main queue, which is named after the service. You can, for example, view the relevant message in the following format.</p>
+<pre><code class="language-md">the server reported 0 messages remaining.
+Exchange (AMQP default)
+Routing Key VisionQuestionAnswering
+Redelivered ○
+Properties 
+reply_to: amq.gen-diLPs219ZPQ7rpZ5ewmAtQ
+correlation_id: 4de512fe-c252-4456-9783-f7f820fd8875
+headers: 
+traceparent: 00-d4a5db06430b944a1081030e47b3ae28-e532db78b29aaa7d-01
+Payload
+126 bytes
+Encoding: string
+{&quot;imagePath&quot;:&quot;/home/armanriazi/gw-projects/gateway/gateway/assets/uploads/gateway-file-95233335-f649-44bd-be89-9b0c7a166472.png&quot;}
+</code></pre>
+<p>If you create a message for testing on the random queue with the mentioned ID, your program, which acts as the consumer of this queue, will enter the getMessageFromQueue method. However, if you publish a message in the main service queue, it will not go into your program, but you can see the messages inside this queue, unlike the random queue. The main reason is that your program is in the random queue state and consumes the published message, so you can no longer monitor it in the management UI section. But regarding the main queue named after your service, you are no longer a consumer, and you can view the message through the management section, where it may still be in the queue.</p>
+<pre><code class="language-md">  traceId: '147280a3b91ebaf616adc777dd9152e4',
+  parentId: undefined,
+  traceState: undefined,
+  name: 'amq.gen-3CrgyivK8a-NV6sz3DxhdQ process',
+  id: '93cc7688d63127dd',
+  kind: 4,
+  timestamp: 1716273604511000,
+  duration: 41770071.963,
+  attributes: {
+    'messaging.protocol_version': '0.9.1',
+    'messaging.protocol': 'AMQP',
+    'net.peer.name': '0.0.0.0',
+    'net.peer.port': 5672,
+    'messaging.system': 'rabbitmq',
+    'messaging.destination': '',
+    'messaging.destination_kind': 'topic',
+    'messaging.rabbitmq.routing_key': 'amq.gen-3CrgyivK8a-NV6sz3DxhdQ',
+    'messaging.operation': 'process',
+    'messaging.conversation_id': '0b06889b-d952-43ec-b453-839c6c23b22c'
+</code></pre>
+<hr />
+<ul>
+<li><a href="https://www.armanriazi.github.io/messagebrokers">MDBook Message Brokers</a></li>
+<li><a href="https://www.github.com/armanriazi/messagebrokers">GitHub Message Brokers</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h3 id="requirements"><a class="header" href="#requirements">Requirements</a></h3>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+RabbitMq</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Redis</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Postgres</li>
+</ul>
+<p>Sample of docker-compose</p>
+<pre><code class="language-yaml">version: '3'
+services:
+    postgres:
+        restart: always
+        image: postgres
+        container_name: postgres
+        network_mode: host
+        volumes:
+          - ./postgres-data:/var/lib/postgresql/data
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+          - POSTGRES_DB=postgres
+    rabbitmq:
+        restart: always
+        image: rabbitmq
+        container_name: rabbitmq
+        network_mode: host
+        healthcheck:
+            test: [&quot;CMD&quot;, &quot;rabbitmqctl&quot;, &quot;status&quot;]
+            interval: 5s
+            timeout: 10s
+            retries: 3
+    redis:
+        restart: always
+        command: redis-server --appendonly yes --requirepass &quot;SBFo0'rR9LpqY5%GZiZp&quot;
+        image: redis
+        container_name: redis
+        network_mode: host
+    api:
+        build: .
+        depends_on:
+          - postgres
+          - rabbitmq
+          - redis
+        env_file:
+          - ./.env
+        restart: on-failure
+        network_mode: host
+        container_name: api
+
+</code></pre>
+<p>Run commands after the first deployment:</p>
+<p>‍‍‍‍‍‍<code>bash npm run db:init npm run db:migrate npm run db:run:seed ‍‍‍</code></p>
+<h2 id="get-start-with-docker"><a class="header" href="#get-start-with-docker">Get-start with Docker</a></h2>
+<p>Copy of repo:</p>
+<pre><code class="language-bash">git clone https://armanriazi.github.io/js-gateway/avanegar/avanegar-back.git
+</code></pre>
+<h3 id="requirements-1"><a class="header" href="#requirements-1">Requirements</a></h3>
+<p>Instamm pm2</p>
+<pre><code class="language-bash"> npm install pm2@latest -g
+</code></pre>
+<p>Install Redis &amp; Postgres</p>
+<pre><code class="language-yaml">version: '3'
+services:
+    postgres:
+        restart: always
+        image: postgres
+        container_name: postgres
+        volumes:
+          - ./postgres-data:/var/lib/postgresql/data
+          - /home/Projects/recommenderengine-back/assets/uploads:/home/Projects/
+        environment:
+          - POSTGRES_USER=
+          - POSTGRES_PASSWORD=
+          - POSTGRES_DB=
+        network_mode: host
+    redis:
+        restart: always
+        image: redis
+        container_name: redis
+        ports:
+            - 6379:6379
+        network_mode: host
+        deploy:
+          resources:
+            limits:
+              memory: 1G
+</code></pre>
+<p>Copy of file sample env to a new file .env</p>
+<h3 id="instal-packages"><a class="header" href="#instal-packages">Instal packages</a></h3>
+<pre><code class="language-bash">npm install
+</code></pre>
+<h3 id="start-to-develop-code"><a class="header" href="#start-to-develop-code">Start to develop code</a></h3>
+<pre><code class="language-bash">npm run db:init
+npm run db:migrate
+npm run db:run:seed
+npm run dev
+</code></pre>
+<h3 id="when-changes-occured"><a class="header" href="#when-changes-occured">When changes occured</a></h3>
+<pre><code class="language-bash">npm run lint:fix
+</code></pre>
+<h3 id="production-stage"><a class="header" href="#production-stage">Production stage</a></h3>
+<pre><code class="language-bash">npm run db:init
+npm run db:migrate
+npm run db:run:seed
+npm run start
+</code></pre>
+<h3 id="test-stage"><a class="header" href="#test-stage">Test stage</a></h3>
+<pre><code class="language-bash">npm run db:init
+npm run db:migrate
+npm run db:run:seed
+npm run test or npm run test:watch
+</code></pre>
+<h2 id="others-commands"><a class="header" href="#others-commands">Others commands</a></h2>
+<p>Create a new migrate:</p>
+<pre><code class="language-bash">npm run db:migrate:generate
+</code></pre>
+<p>Rest mode:</p>
+<pre><code class="language-bash">npm run db:migrate:undo
+</code></pre>
+<p>Create seeder data</p>
+<pre><code class="language-bash">npm run db:create:seed
+</code></pre>
+<p>Revert to the initiated data</p>
+<pre><code class="language-bash">npm run db:undo:seed
+</code></pre>
+<h2 id="add-apppy"><a class="header" href="#add-apppy">Add app.py</a></h2>
+<pre><code class="language-python">import requests
+import os
+from pathlib import Path
+def get_file(data):
+    try:
+        url = &quot;http://{FILE_STORAGE_IP}/download/{filePath}&quot;.format(
+                FILE_STORAGE_IP=os.environ.get('FILE_STORAGE_IP'), filePath=data[&quot;filePath&quot;])
+        newFilePath = &quot;assets/uploads/&quot;+data[&quot;filePath&quot;].split(&quot;/&quot;)[-1]
+        response = requests.get(url)
+        if response.status_code == 200:
+            Path(&quot;./assets/uploads&quot;).mkdir(parents=True, exist_ok=True)
+            with open(newFilePath , &quot;wb&quot;) as file:
+                file.write(response.content)
+            data[&quot;filePath&quot;] = newFilePath
+            return data
+        else:
+            raise Exception(&quot;download failed&quot;)
+    except Exception as error:
+        raise error
+data = get_file(data)
+</code></pre>
+<h2 id="adding-storage-url-to-the-env"><a class="header" href="#adding-storage-url-to-the-env">Adding storage url to the env</a></h2>
+<pre><code class="language-javascript">FILE_STORAGE_IP='192.168.33.72:8090'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>Port 5672: AMQP 0-9-1 protocol, used for client-broker communication
+Port 15672: HTTP/HTTPS protocol, used for web management interface</p>
+<p>‍‍‍<code>bash curl -u guest:guest localhost:15672/api/overview ‍‍‍</code></p>
+<ul>
+<li><a href="https://armanriazi.github.io/messagebrokers">MDBook Message Brokers</a></li>
+<li><a href="https://github.com/armanriazi/messagebrokers">GitHub Message Brokers</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="diagrams"><a class="header" href="#diagrams">Diagrams</a></h1>
+<p>For better display and zoom capabilities, it is recommended to place the written mermaid codes on the following website and use them.</p>
+<p><a href="https://mermaid.live/edit">Mermaid Zoomable Digram</a></p>
+<p>In more complex diagrams where it is necessary to follow connections, it is better to remove parts of the code written as ‘note’ and then review the relevant diagram. This technique is solely for a better and simpler display of the diagram.</p>
+<ul>
+<li><a href="diagram/./Chart.html">Main Flowchar</a></li>
+<li><a href="diagram/./apis/APIs.html">How to use APIs</a>
+<ul>
+<li><a href="diagram/./apis/Call_GW_APIs.html">How to use Gateway (1.md)</a></li>
+<li><a href="diagram/./apis/Call_GW_APIs_2.html">How to use Gateway (2.md)</a></li>
+</ul>
+</li>
+<li><a href="diagram/./er/ER.html">ER</a></li>
+<li><a href="diagram/./class/CLASS.html">Class</a>
+<ul>
+<li><a href="diagram/./class/Class_Diagram_Auth.html">Auth</a></li>
+<li><a href="diagram/./class/Class_Diagram_Controller.html">Controller</a></li>
+<li><a href="diagram/./class/Class_Diagram_Service.html">Service</a></li>
+</ul>
+</li>
+<li><a href="diagram/./flowchart/FLOWCHART.html">Flowchart</a>
+<ul>
+<li><a href="diagram/./flowchart/Flowchart_User.html">User</a></li>
+</ul>
+</li>
+<li><a href="diagram/./sequential/SEQUENTIAL.html">Seuential</a>
+<ul>
+<li><a href="diagram/./sequential/Sequential_Diagram_Auth.html">Auth</a></li>
+</ul>
+</li>
+<li><a href="diagram/./activity/ACTIVITY.html">Activity</a>
+<ul>
+<li><a href="diagram/./activity/Activity_Diagram_aiServices_ctrl.html">aiServices controller</a></li>
+<li><a href="diagram/./activity/Activity_Diagram_aiServices_srv.html">aiServices service</a>
+<ul>
+<li><a href="diagram/../service/aiServices_srv_naming.html">aiServices serviceNaming</a></li>
+<li><a href="diagram/../service/aiServices_srv_type.html">Type of service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="chart"><a class="header" href="#chart">Chart</a></h2>
+<pre><code class="language-mermaid">flowchart RL
+   Client == GRPC | WS | Http ==&gt; Gateway
+   Gateway == AMQP ==&gt; Rabbitmq
+   Rabbitmq &lt;--&gt; AIService1
+   Rabbitmq &lt;--&gt; AIServiceN
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p><strong>داکیومنت متد ایجاد کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/users</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot;, &quot;role&quot;: &quot;user&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد کاربر، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>
+<p>username: Required.  یک رشته با حداقل طول ۵ کاراکتر و حداکثر طول ۳۶ کاراکتر. این ویژگی اجباری است.</p>
+</li>
+<li>
+<p>password: Required.  یک رشته که باید با استفاده از عبارت منظم خاصی الگویی را دنبال کند. رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ، یک رقم و یک کاراکتر ویژه باشد. رشته باید حداقل طول ۸ کاراکتر داشته باشد. این ویژگی اجباری است.</p>
+</li>
+<li>
+<p>role: Required. نقش کاربر جدید. یک رشته که باید یا ‘user’ یا ‘admin’ باشد. این ویژگی اجباری است.</p>
+</li>
+<li>
+<p>profile: Optional.    یک شیء اختیاری شامل اطلاعات کاربر با ویژگی های زیر: </p>
+</li>
+</ul>
+<ol>
+<li>firstName: نام کاربر جدید. یک رشته که نام کوچک کاربر را نشان می دهد.</li>
+<li>lastName: نام خانوادگی کاربر جدید. یک رشته که نام خانوادگی کاربر را نشان می دهد.</li>
+<li>email: یک رشته که آدرس ایمیل کاربر را نشان می دهد. رشته باید الگوی استاندارد ایمیل را دنبال کند. </li>
+<li>phoneNumber: یک رشته که شماره تلفن کاربر را نشان می دهد. رشته باید الگوی یک شماره تلفن ایرانی را دنبال کند که با ‘۰۹’ شروع می شود و در کل ۱۱ رقم است</li>
+</ol>
+<p>تمامی ویژگی های فوق دارای پیام های خطای مربوط به خود هستند، در صورتی که قوانین اعتبارسنجی مربوط به آنها برآورده نشوند.</p>
+<p><strong>Return Value</strong></p>
+<p>این متد ریسپانسی به کلاینت که شامل اطلاعات کاربر ایجاد شده است بازمیگرداند.</p>
+<p><strong>Errors</strong></p>
+<p>اگر اروری در طی عملیات ایجاد کاربر اتفاق بیفتد، فانکشن next فراخوانی میگردد. این ارور میتواند شامل:</p>
+<ul>
+<li>ValidationError (زمانی رخ میدهد که اطلاعات ورودی مطابق ساختار مورد نظر نباشد)</li>
+<li>DatabaseError (زمانی رخ میدهد مشکلی در ارتباط با دیتابیس در حین ایجاد کاربر رخ دهد)
+باشد.</li>
+</ul>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند کاربران را ایجاد کنند.</p>
+<p><img src="diagram/apis/assets/uploads/2e29bf087bafa1404bcfdc79002e7a17/user-create.jpg" alt="user-create" /></p>
+<p><strong>داکیومنت متد لاگین LOGIN</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/users/login</code></p>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد کاربر، یک شیء با ویژگی های زیر است:</p>
+<p><strong>Attributes:</strong></p>
+<ul>
+<li>username: Required.  یک رشته با حداقل طول ۵ کاراکتر و حداکثر طول ۳۶ کاراکتر. این ویژگی اجباری است.</li>
+<li>password: Required.  یک رشته که باید با استفاده از عبارت منظم خاصی الگویی را دنبال کند. رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ، یک رقم و یک کاراکتر ویژه باشد. رشته باید حداقل طول ۸ کاراکتر داشته باشد. این ویژگی اجباری است.</li>
+</ul>
+<p><strong>Return Value</strong></p>
+<p>در صورت موفقیت آمیز بودن این فرایند، ریسپانسی شامل توکن اعتبارسنجی به کلاینت ارسال میگردد.</p>
+<p><img src="diagram/apis/assets/uploads/86570da38cf29377295b45b8f95a936f/Clipboard_-_April_5__2023_4_35_PM.png" alt="Clipboard_-_April_5__2023_4_35_PM" /></p>
+<p><strong>داکیومنت متد حذف کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<pre><code>Response:
+  {
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;User deleted successfully&quot;,
+    &quot;data&quot;: {
+      &quot;id&quot;: &quot;12345&quot;,
+      &quot;name&quot;: &quot;John Doe&quot;,
+      &quot;email&quot;: &quot;johndoe@example.com&quot;,
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;createdAt&quot;: &quot;2022-03-31T14:23:06.000Z&quot;,
+      &quot;updatedAt&quot;: &quot;2022-04-01T10:07:19.000Z&quot;
+    }
+  }
+</code></pre>
+<p>اگر کاربر مجاز به حذف کاربر مورد نظر باشد، این متد کاربر با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف کاربر مورد نظر باشد، متد کاربر را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند کاربران را حذف کنند.</p>
+<p><img src="diagram/apis/assets/uploads/e287c160e5d0fcdb355af7e73dc34842/remove-user.jpg" alt="remove-user" /></p>
+<p><strong>داکیومنت متد آپدیت اطلاعات کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;role&quot;: &quot;user&quot;, &quot;profile&quot;: { &quot;firstName&quot;: &quot;alii&quot; } }</code></p>
+<p><strong>Behavior</strong></p>
+<p>این متد برای بروزرسانی اطلاعات یک کاربر استفاده می‌شود. درخواست مربوطه باید شامل اطلاعات کاربری که قرار است به روزرسانی شود، شامل نام کاربری، نقش کاربری و پروفایل کاربری باشد. در صورتی که کاربر مشخص شده با شناسه داده شده در درخواست پیدا نشود یا کاربری که درخواست را ارسال کرده است مجوز مورد نیاز برای انجام این کار را ندارد، پیغام خطا به عنوان پاسخ ارسال می‌شود.</p>
+<p>درخواست با استفاده از توکن مجوز دسترسی در هدر Authorization تأیید می‌شود. اگر کاربری که درخواست را ارسال کرده است مجوز لازم برای بروزرسانی کاربر مورد نظر را داشته باشد، متد کاربر مورد نظر را با استفاده از اطلاعات ارسالی درخواست به روزرسانی کرده و سپس  سند به‌روز شده به عنوان پاسخ ارسال می‌شود.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات کاربران را آپدیت کنند.</p>
+<p><img src="diagram/apis/assets/uploads/d20ce513fa8d9d23eda2c3dfed37c19c/update-user.jpg" alt="update-user" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات کاربر را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات کاربران را دریافت کنند.</p>
+<p><img src="diagram/apis/assets/uploads/1a2b8de0fb4d5fc6a3b79917241617d1/get-user__1_.jpg" alt="get-user__1_" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه کاربران</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/password/users</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات کاربر را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات کاربران را دریافت کنند.</p>
+<p><img src="diagram/apis/assets/uploads/b8d4ed789e41d0b69b74e5e7ab03cf0a/users-get.jpg" alt="users-get" /></p>
+<p><strong>داکیومنت متد آپدیت پسوورد کاربر</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/users/{userID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;currentPassword&quot;: &quot;testA123@A&quot;, &quot;newPassword&quot;: &quot;testA123@B&quot;, &quot;confirmNewPassword&quot;: &quot;testA123@B&quot; }</code></p>
+<p><strong>Response</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td>data</td><td>Object</td><td>The updated user object</td></tr>
+</tbody></table>
+</div>
+<p><strong>Error Responses</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Status Code</th><th>Description</th></tr></thead><tbody>
+<tr><td>400</td><td>One of the following conditions is met: <ul><li>The user is not found.</li><li>The confirm password doesn’t match the new password.</li><li>The current password is invalid.</li></ul></td></tr>
+<tr><td>401</td><td>The user is not authenticated.</td></tr>
+<tr><td>403</td><td>The user does not have sufficient privileges to update the password.</td></tr>
+<tr><td>500</td><td>An unexpected error occurred.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات کاربر را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند پسوورد کاربران را آپدیت کنند.</p>
+<p><img src="diagram/apis/assets/uploads/86e79d82847be7c3b9a82f81569c3813/user-password.jpg" alt="user-password" /></p>
+<p><strong>داکیومنت متد ایجاد apiKey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apikeys</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;UserId&quot;: &quot;2b721c8f-523e-4cc9-91d1-7a8eefd0c810&quot;, &quot;maxCount&quot;: 1000, &quot;expireDate&quot;: &quot;24h&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد ApiKey، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>
+<p>expireDate: (ضروری): یک رشته که تاریخ انقضای کلید API را نشان می‌دهد. فرمت این رشته باید به صورت /^([0-9]+)([dhDH])$/ باشد که بخش اول آن تعداد واحدهای زمانی (ساعت یا روز) و بخش دوم آن شناسه واحد زمانی (d برای روزها و h برای ساعت‌ها) را مشخص می‌کند.</p>
+</li>
+<li>
+<p>UserId (ضروری): یک رشته که شناسه کاربر مرتبط با کلید API را نشان می‌دهد. این رشته باید یک رشته UUID معتبر باشد.</p>
+</li>
+<li>
+<p>maxCount: یک پارامتر اختیاری که تعداد حداکثر بار استفاده از کلید API را نشان می‌دهد. اگر مشخص نشود، تعداد بارهای استفاده از کلید API محدودیت نخواهد داشت.</p>
+</li>
+</ul>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;value&quot;: &quot;55a41dfe248ae04d72bc7a94c4daa1c2a4d4f70ef5c5...&quot;, &quot;UserId&quot;: &quot;2b721c8f-523e-4cc9-91d1-7a8eefd0c810&quot;, &quot;expireDate&quot;: &quot;2023-04-09T10:02:56.000Z&quot;, &quot;maxCount&quot;: 1000 }</code></p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند ApiKey را ایجاد کنند.</p>
+<p><img src="diagram/apis/assets/uploads/eff1cc98753311c60e052fcc8a31653b/create-apikey.jpg" alt="create-apikey" /></p>
+<p><strong>داکیومنت متد آپدیت apiKey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;maxCount&quot;: 1000, &quot;expireDate&quot;: &quot;1d&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی آپدیت apiKey، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>
+<p>expireDate: یک رشته که تاریخ انقضای کلید API را نشان می‌دهد. فرمت این رشته باید به صورت /^([0-9]+)([dhDH])$/ باشد که بخش اول آن تعداد واحدهای زمانی (ساعت یا روز) و بخش دوم آن شناسه واحد زمانی (d برای روزها و h برای ساعت‌ها) را مشخص می‌کند.</p>
+</li>
+<li>
+<p>id (ضروری): یک رشته که شناسه apiKey مورد نظر برای به‌روزرسانی کلید API را نشان می‌دهد. این رشته باید یک رشته UUID معتبر باشد.</p>
+</li>
+<li>
+<p>maxCount: یک پارامتر اختیاری که تعداد حداکثر بار استفاده از کلید API را نشان می‌دهد. اگر مشخص نشود، تعداد بارهای استفاده از کلید API محدودیت نخواهد داشت.</p>
+</li>
+<li>
+<p>isValid: یک پارامتر اختیاری که برای اعتبارسنجی کلید API استفاده می‌شود. اگر این پارامتر مقدار true باشد، کلید API فعال باقی می‌ماند و در غیر این صورت غیرفعال می‌شود.</p>
+</li>
+</ul>
+<p>متد آپدیت apikey شناسه apikey را میگیرد. 
+اگر کاربر مجاز به آپدیت apikey مورد نظر باشد، این متد apikey با شناسه ارائه شده را از پایگاه داده آپدیت کرده و سند آپدیت شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز آپدیت کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به آپدیت apikey مورد نظر باشد، متد apikey را از پایگاه داده آپدیت کرده و ریسپانس موفقیت آمیزی با سند آپدیت شده را باز می گرداند.</p>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;01234567-89ab-cdef-0123-456789abcdef&quot;, &quot;userId&quot;: &quot;01234567-89ab-cdef-0123-456789abcdef&quot;, &quot;value&quot;: &quot;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&quot;, &quot;expireDate&quot;: &quot;2023-04-09T00:10:00.000Z&quot;, &quot;maxCount&quot;: 1000, &quot;isValid&quot;: true, &quot;createdAt&quot;: &quot;2023-04-08T00:00:00.000Z&quot;, &quot;updatedAt&quot;: &quot;2023-04-08T01:23:45.000Z&quot; }</code></p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند ApiKey را آپدیت کنند.</p>
+<p><img src="diagram/apis/assets/uploads/17ad5600136472064ff30d7da8fbe6df/apikey-update.jpg" alt="apikey-update" /></p>
+<p><strong>داکیومنت متد حذف apiKey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف apikey شناسه apikey را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف apikey مورد نظر باشد، این متد apikey با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف apikey مورد نظر باشد، متد apikey را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند apiKey را حذف کنند.</p>
+<p><img src="diagram/apis/assets/uploads/f2144b6c47c2d9bcb34e4e3723ef5468/delete-apikey.jpg" alt="delete-apikey" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات apikey</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه apikey وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه apikey وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات apikey را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات apikey را دریافت کنند.</p>
+<p><img src="diagram/apis/assets/uploads/8a0c1cbd52f2fdcd8efa3539d14ead67/get-apikey__1_.jpg" alt="get-apikey__1_" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه apikey ها</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/apikeys/{apikeyID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات apikey ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات apikey ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد ایجاد project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/projects</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;sgw&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد project، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: (ضروری): یک رشته که نام پروژه را نشان میدهد</li>
+</ul>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;7670da1a-2f6d-4214-babb-8b4ddawsasda5&quot;, &quot;name&quot;: &quot;dasfsdfsdf&quot;, &quot;updatedAt&quot;: &quot;2023-04-08T06:57:21.984Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T06:57:21.984Z&quot; }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات project ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات project ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد حذف project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف project شناسه project را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف project مورد نظر باشد، این متد project با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف project مورد نظر باشد، متد project را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند project را حذف کنند.</p>
+<p><img src="diagram/apis/assets/uploads/316d422a438668ac4408049a141f72c0/delete-project.jpg" alt="delete-project" /></p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه project ها</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات project ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات project ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه project وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه project وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات project را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات project را دریافت کنند.</p>
+<p><strong>داکیومنت متد آپدیت project</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/projects/{projectID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;fsdfsdf&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی آپدیت project، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: (ضروری): یک رشته که نام پروژه را نشان میدهد</li>
+</ul>
+<p>متد آپدیت project شناسه project را میگیرد. 
+اگر کاربر مجاز به آپدیت project مورد نظر باشد، این متد project با شناسه ارائه شده را از پایگاه داده آپدیت کرده و سند آپدیت شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز آپدیت کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به آپدیت project مورد نظر باشد، متد project را از پایگاه داده آپدیت کرده و ریسپانس موفقیت آمیزی با سند آپدیت شده را باز می گرداند.</p>
+<p><strong>Response</strong></p>
+<p><code>&quot;message&quot;:[ 1 ]</code></p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند project را آپدیت کنند.</p>
+<p><strong>داکیومنت متد ایجاد service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/services</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;id&quot;: &quot;851d6d91-fb0d-4e72-b5ea-b901tyutyu657b9&quot;, &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد service، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: یک رشته ضروری که نمایانگر نام سرویس است</li>
+<li>ProjectId: یک رشته ضروری که نمایانگر شناسه پروژه است.</li>
+<li>validation: یک شیء ضروری است.</li>
+<li>queue: یک رشته ضروری که نام صف را نشان می دهد.</li>
+<li>apis: یک آرایه ضروری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</li>
+<li></li>
+</ul>
+<p>1- method: یک آرایه از رشته ها که نشان دهنده متد های HTTP پشتیبانی شده توسط API است. تنها مقادیر get و post مجاز هستند.</p>
+<p>2- path: یک رشته که نشان دهنده مسیر URL API است.</p>
+<p>3- files: یک آرایه اختیاری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</p>
+<p>4- name: یک رشته ضروری که نام فایل را نشان می دهد.</p>
+<p>5- type: یک رشته ضروری که نوع فایل را نشان می دهد. تنها مقادیر تصویر، ویدئو و صدا مجاز هستند.</p>
+<p>6- howGet: یک رشته ضروری که نشان دهنده روش استفاده شده برای دریافت فایل است. تنها مقادیر فایل، لینک و بیس ۶۴ مجاز هستند.</p>
+<p>7- required: یک بولین اختیاری که نشان می دهد آیا فایل لازم است یا خیر. اگر مشخص نشده باشد، به صورت پیش فرض به false تنظیم می شود.</p>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;851d6d91-fb0d-4e72-b5ea-b901tyutyu657b9&quot;, &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service ها را ایجاد کنند.</p>
+<p><strong>داکیومنت متد آپدیت service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: PATCH</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد service، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>name: یک رشته ضروری که نمایانگر نام سرویس است</li>
+<li>ProjectId: یک رشته ضروری که نمایانگر شناسه پروژه است.</li>
+<li>validation: یک شیء ضروری است.</li>
+<li>queue: یک رشته ضروری که نام صف را نشان می دهد.</li>
+<li>apis: یک آرایه ضروری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</li>
+<li></li>
+</ul>
+<p>1- method: یک آرایه از رشته ها که نشان دهنده متد های HTTP پشتیبانی شده توسط API است. تنها مقادیر get و post مجاز هستند.</p>
+<p>2- path: یک رشته که نشان دهنده مسیر URL API است.</p>
+<p>3- files: یک آرایه اختیاری از شیء ها، هر کدام شامل ویژگی های زیر می باشد:</p>
+<p>4- name: یک رشته ضروری که نام فایل را نشان می دهد.</p>
+<p>5- type: یک رشته ضروری که نوع فایل را نشان می دهد. تنها مقادیر تصویر، ویدئو و صدا مجاز هستند.</p>
+<p>6- howGet: یک رشته ضروری که نشان دهنده روش استفاده شده برای دریافت فایل است. تنها مقادیر فایل، لینک و بیس ۶۴ مجاز هستند.</p>
+<p>7- required: یک بولین اختیاری که نشان می دهد آیا فایل لازم است یا خیر. اگر مشخص نشده باشد، به صورت پیش فرض به false تنظیم می شود.</p>
+<p><strong>Response</strong></p>
+<p><code>{ &quot;id&quot;: &quot;851d6d91-fb0d-4e72-b5ea-b901tyutyu657b9&quot;, &quot;name&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;queue&quot;: &quot;vehicleIDCardRecognition3434&quot;, &quot;ProjectId&quot;: &quot;7670da1a-2f6d-4214-babb-8b4dd56786783a5&quot;, &quot;validation&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;required&quot;: [ &quot;imagePath&quot; ], &quot;properties&quot;: { &quot;name&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;base64&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;capacity&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;checksum&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;imagePath&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, &quot;nationalCode&quot;: { &quot;enum&quot;: [ &quot;1&quot;, &quot;true&quot;, &quot;True&quot;, true, false, 1, 0, &quot;false&quot;, &quot;False&quot;, &quot;0&quot; ] }, }, &quot;errorMessage&quot;: { &quot;type&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;, &quot;required&quot;: { &quot;imagePath&quot;: &quot;imagePath الزامی است&quot; }, &quot;properties&quot;: {} }, &quot;additionalProperties&quot;: true }, &quot;apis&quot;: [ { } ], &quot;updatedAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot;, &quot;createdAt&quot;: &quot;2023-04-08T07:19:28.331Z&quot; }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service ها را آپدیت کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه کاربری وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه کاربری وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service را دریافت کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات همه service ها</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;offs&quot;: &quot;1&quot;, &quot;limit&quot;: &quot;100&quot;, &quot;startTimeStamp&quot;: &quot;2022-12-02T08:52:04.647Z&quot;, &quot;endTimeStamp&quot;: &quot;2023-12-20T05:21:11.182Z&quot;, }</code></p>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات service ها را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات service ها را دریافت کنند.</p>
+<p><strong>داکیومنت متد حذف service</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/services/{serviceID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف service شناسه service را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف service مورد نظر باشد، این متد service با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف service مورد نظر باشد، متد service را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند service را حذف کنند.</p>
+<p><img src="diagram/apis/assets/uploads/105470c976c6df53ffb921cdaaa92e26/delete-service.jpg" alt="delete-service" /></p>
+<p><strong>داکیومنت متد ایجاد api</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apis</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;ApiKeyId&quot;: &quot;ed7f7ffe-745c-4f0a-9ce7-c859asdaa474&quot;, &quot;ServiceId&quot;: &quot;f2955049-10a3-40a7-8dda-9472asdads0a6eb&quot;, &quot;apis&quot;: [ { &quot;path&quot;: &quot;vehicleIDCardRecognition/file&quot;, &quot;method&quot;: [ &quot;post&quot; ] }, { &quot;path&quot;: &quot;vehicleIDCardRecognition/*&quot;, &quot;method&quot;: [ &quot;get&quot; ] } ], &quot;TPM&quot;: 200, &quot;policies&quot;: {} }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد api، یک شیء با ویژگی های زیر است:</p>
+<ul>
+<li>apiKeyId: یک رشته اجباری که نشان دهنده شناسه apiKey است. مقدار باید یک GUID باشد.</li>
+<li>serviceId: یک رشته اجباری که نشان دهنده شناسه سرویس است. مقدار باید یک GUID باشد.</li>
+<li>apis: یک آرایه اجباری از شیء ها که شامل ویژگی های زیر است:
+1- method: یک آرایه از رشته ها که نشان دهنده روش های HTTP است که API پشتیبانی می کند. تنها مقادیر “get” و “post” مجاز هستند.
+2- path: یک رشته که نشان دهنده مسیر URL API است.</li>
+<li>TPM: یک عدد صحیح اجباری که حداکثر تعداد تراکنش های مجاز در دقیقه را نشان می دهد.</li>
+<li>maxCount: یک عدد صحیح اختیاری که حداکثر تعداد تراکنش های مجاز را نشان می دهد.</li>
+<li>policies: یک شیء اختیاری که شامل دو خصوصیت اختیاری است:
+1- image: یک شیء که یک خصوصیت اختیاری دارد:
+2- size: یک عدد که حداکثر اندازه مجاز یک تصویر را نشان می دهد.</li>
+<li>video: یک شیء که دو خصوصیت اختیاری دارد:
+1- size: یک عدد که حداکثر اندازه مجاز یک ویدئو را نشان می دهد.
+2- duration: یک عدد که حداکثر مدت زمان مجاز یک ویدئو را نشان می دهد.</li>
+</ul>
+<p>تمامی ویژگی های فوق دارای پیام های خطای مربوط به خود هستند، در صورتی که قوانین اعتبارسنجی مربوط به آنها برآورده نشوند.</p>
+<p><strong>Return Value</strong></p>
+<p>این متد ریسپانسی به کلاینت که شامل اطلاعات api ایجاد شده است بازمیگرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند api را ایجاد کنند.</p>
+<p><strong>داکیومنت متد حذف api</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: DELETE</p>
+<p><code>{{prod}}/api/apis/{apiID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p>متد حذف api شناسه api را میگیرد از (req.params.id). 
+اگر کاربر مجاز به حذف api مورد نظر باشد، این متد api با شناسه ارائه شده را از پایگاه داده حذف کرده و سند حذف شده را به عنوان پاسخ باز می گرداند. اگر کاربر با شناسه داده شده یافت نشد یا کاربر تأیید شده مجوز حذف کاربر را ندارشته باشد، یک پیام خطا به عنوان پاسخ برگردانده می شود.</p>
+<p>درخواست با استفاده از توکن bearer در هدر Authorization تأیید می شود. اگر کاربر درخواست دهنده مجاز به حذف api مورد نظر باشد، متد api را از پایگاه داده حذف کرده و ریسپانس موفقیت آمیزی با سند حذف شده را باز می گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند api را حذف کنند.</p>
+<p><strong>داکیومنت متد دریافت اطلاعات api</strong></p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: GET</p>
+<p><code>{{prod}}/api/apis/{apiID}</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Behavior</strong></p>
+<p>ابتدا تابع بررسی می‌کند که آیا کاربر احراز هویت شده است یا نه. اگر کاربر احراز هویت نشده باشد، پیام خطای “غیرمجاز” به کلاینت ارسال می‌شود.
+سپس، تابع بررسی می‌کند که شناسه api وجود دارد یا خیر. اگر وجود نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+همچنین، تابع نقش کاربر را بررسی می‌کند و بر اساس آن، دسترسی کاربر را تأیید می‌کند یا رد می‌کند. اگر کاربر دسترسی نداشته باشد، پیام خطای مناسبی به کلاینت ارسال می‌شود.
+اگر کاربر احراز هویت شده باشد، شناسه api وجود داشته باشد و کاربر دسترسی لازم را داشته باشد، تابع اطلاعات api را از جدول دریافت کرده و به کلاینت برمی‌گرداند.</p>
+<p><strong>Restricts</strong></p>
+<p>تنها سوپر ادمین و ادمین‌ها می‌توانند اطلاعات api را دریافت کنند.</p>
+<p><img src="diagram/apis/assets/uploads/04ba7cfa3e2310f2ee98dfee61973ef4/api-getall.jpg" alt="api-getall" /></p>
+<div style="break-before: page; page-break-before: always;"></div><p>گیت‌وی یک سرویس نوشته شده با استفاده از فریم‌ورک Express بر روی محیط Node.js  است که به منظور مدیریت و پیاده‌سازی  API Gateway به کار می‌رود. این سرویس از پایگاه داده PostgreSQL برای ذخیره‌سازی اطلاعات اصلی خود استفاده می‌کند و پنج موجودیت اصلی را به نمایندگی از مفاهیم مختلف در در برنامه ی ما دارد. این موجودیت‌ها عبارتند از:</p>
+<ol>
+<li>
+<p>Users (کاربران): این موجودیت نمایانگر کاربران سیستم است. هر کاربر می‌تواند چندین کلید API (API Keys) داشته باشد.</p>
+</li>
+<li>
+<p>API Keys (کلیدهای API): این موجودیت نمایانگر کلیدهای API است که برای کاربران تولید می‌شود. هر کلید API به یک کاربر (user_id) تعلق دارد و می‌تواند به یک یا چندین سرویس (service_id) اختصاص داده شود.</p>
+</li>
+<li>
+<p>Projects (پروژه‌ها): این موجودیت نمایانگر پروژه‌های موجود در سیستم است و می‌تواند شامل چندین سرویس باشد.</p>
+</li>
+<li>
+<p>Services (سرویس‌ها): این موجودیت نمایانگر سرویس‌های موجود در پروژه‌ها است و به یک پروژه (project_id) تعلق دارد. همچنین می‌تواند به یک کلید API (apikeyId) در جدول APIs اختصاص داده شود.</p>
+</li>
+<li>
+<p>APIs: این موجودیت نمایانگر API‌هاست که به یک سرویس (service_id) و یک کلید API متعلق می‌شود. هر apiKey به یک service تعلق خواهد داشت.</p>
+</li>
+</ol>
+<p>این سرویس همچنین دارای یه موجودیت برای لاگ است که نتایج درخواست و پاسخ آن ها را ذخیره میکند.</p>
+<ul>
+<li>Gateway Logs (لاگ‌های گیت‌وی): این موجودیت نمایانگر لاگ‌های پاسخ‌های API است.</li>
+</ul>
+<p><img src="diagram/apis/../../assets/uploads/371ed5f54566e751ca593601d17ad3fe/entities.png" alt="entities" /></p>
+<p>برای استفاده از هر api که منجر به ایجاد، حذف، دریافت و یا به روز رسانی موجودیت ها میشود باید پیش از آن با استفاده از api login یک توکن دریافت کرد که با استفاده از <strong>JWT</strong> ایجاد شده و یک session expiration یک ساعته دارد. </p>
+<p><a href="https://armanriazi.github.io/js-gateway/apimarket/gateway/-/wikis/%D8%AF%D8%A7%DA%A9%DB%8C%D9%88%D9%85%D9%86%D8%AA-%DA%AF%DB%8C%D8%AA-%D9%88%DB%8C">در مستندات اصلی گیت وی</a> درخصوص تمامی api های این سرویس به تفصیل توضیح داده شده است. </p>
+<p>برای نمونه: </p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/users/login</code></p>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot; }</code></p>
+<p>نوع داده ورودی برای اعتبار سنجی ایجاد کاربر، یک شیء با ویژگی های زیر است:</p>
+<p><strong>Attributes:</strong></p>
+<ul>
+<li>username: Required. یک رشته با حداقل طول ۵ کاراکتر و حداکثر طول ۳۶ کاراکتر. این ویژگی اجباری است.</li>
+<li>password: Required. یک رشته که باید با استفاده از عبارت منظم خاصی الگویی را دنبال کند. رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ، یک رقم و یک کاراکتر ویژه باشد. رشته باید حداقل طول ۸ کاراکتر داشته باشد. این ویژگی اجباری است.</li>
+</ul>
+<p><img src="diagram/apis/../../assets/uploads/f07fa3b910078f0cd276899865c213f8/Clipboard_-_April_5__2023_4_35_PM.png" alt="Clipboard_-_April_5__2023_4_35_PM" /></p>
+<p>و پاسخ این api یک توکن است:</p>
+<pre><code>Response:
+  {
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: {
+            &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI1Y2EyNzYzLTIyYzctNDkzOC05ZGYwLTIyMTFkOTliN2U4NiIsImlhdCI6MTY5OTY4MzA4OH0.i1v0YZfKWaDZ3_uvNeelUoXPlr_qUy9UINaJTWfURP0&quot;
+        }
+    }
+</code></pre>
+<p><em><strong>پیش از هر درخواست میدل وری ابتدا وجود توکن در هدر درخواست را چک کند سپس payload آن توکن را اعتبارسنجی کرده که یک توکن معتبر باشد.</strong></em></p>
+<p>برای تعریف و تنظیم یک سرویس پشت گیت وی باید مراحل زیر را انجام داد:</p>
+<p>1- ابتدا باید user ای تعریف گردد.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/users</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;username&quot;: &quot;test&quot;, &quot;password&quot;: &quot;test123@A&quot;, &quot;role&quot;: &quot;user&quot; }</code></p>
+<p>2- سپس برای آن user یک apiKey ایجاد کرد.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apikeys</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<pre><code>{ 
+     &quot;UserId&quot;: &quot;2b721c8f-523e-4cc9-91d1-7a8eefd0c810&quot;, 
+     &quot;maxCount&quot;: 1000, 
+     &quot;expireDate&quot;: &quot;24h&quot; 
+}
+</code></pre>
+<p>3- در این مرحله یک پروژه تعریف میشود که سرویس مد نظر را به آن تخصیص داد.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/projects</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<p><code>{ &quot;name&quot;: &quot;sgw&quot; }</code></p>
+<p>4- سپس سرویس را تعریف میکنیم.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/services</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<pre><code>{
+    &quot;name&quot;: &quot;pr-speech-asr-sgw-largefile-srt&quot;,
+    &quot;ProjectId&quot;: &quot;b565741c-ec21-4463-90e0-0f7a77efe59f&quot;,
+    &quot;validation&quot;: {},
+    &quot;apis&quot;: [
+        {
+            &quot;path&quot;: &quot;pr-speech-asr-sgw-largefile-srt/largeFile&quot;,
+            &quot;files&quot;: [
+                {
+                    &quot;name&quot;: &quot;file&quot;,
+                    &quot;type&quot;: &quot;voice&quot;,
+                    &quot;howGet&quot;: &quot;file&quot;,
+                    &quot;required&quot;: true
+                }
+            ],
+            &quot;method&quot;: [
+                &quot;post&quot;
+            ]
+        },
+        {
+            &quot;path&quot;: &quot;pr-speech-asr-sgw-largefile-srt/largeFile/*&quot;,
+            &quot;method&quot;: [
+                &quot;get&quot;
+            ]
+        }
+    ],
+    &quot;type&quot;: &quot;direct&quot;,
+    &quot;host&quot;: &quot;192.168.65.1:82/backend-selfhost/service/v4-speechRecognition&quot;,
+    &quot;protocol&quot;: &quot;https&quot;,
+    &quot;rejectUnauthorized&quot;: false
+}
+
+</code></pre>
+<p>5- در نهایت apiKey را به service تعریف شده تخصیص میدهیم.</p>
+<p><strong>Route</strong></p>
+<p><em>http method</em>: POST</p>
+<p><code>{{prod}}/api/apis</code></p>
+<pre><code>Headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</code></pre>
+<p><strong>Parameters</strong></p>
+<pre><code>[
+    {
+        &quot;ApiKeyId&quot;: &quot;24b10a67-cf89-4d49-8225-8c9727caf818&quot;,
+        &quot;ServiceId&quot;: &quot;3dca6624-624c-48bc-975c-ea9bdb16dac8&quot;,
+        &quot;apis&quot;: [
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/speech-synthesys&quot;,
+                &quot;method&quot;: [
+                    &quot;post&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/*&quot;,
+                &quot;method&quot;: [
+                    &quot;get&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/download/*&quot;,
+                &quot;method&quot;: [
+                    &quot;get&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/longText&quot;,
+                &quot;method&quot;: [
+                    &quot;post&quot;
+                ]
+            },
+            {
+                &quot;path&quot;: &quot;speech-synthesys@3/trackingFile/*&quot;,
+                &quot;method&quot;: [
+                    &quot;get&quot;
+                ]
+            }
+        ],
+        &quot;maxCount&quot;: 10000,
+        &quot;TPM&quot;: 100
+    }
+]
+</code></pre>
+<p><strong>در تعریف هر apiKey باید expireDate و maxCount آن را مشخص کنیم</strong></p>
+<pre><code>{
+    &quot;UserId&quot;: &quot;a8a5e0a1-3b82-45be-9fa2-54885bf64920&quot;,
+    &quot;maxCount&quot;: 20000,
+    &quot;expireDate&quot;: &quot;90d&quot;
+}
+</code></pre>
+<p><strong>در تعریف هر سرویس باید نوع آن را مشخص کنیم</strong></p>
+<p><em><strong>نکات:</strong></em> </p>
+<p>− در شرایط فعلی ۲ نوع درخواست برای هر سرویس مشخص کردیم که میتواند <strong>direct</strong> و یا <strong>proxy</strong> باشد.</p>
+<p>− <strong>نام سرویس باید حتما با path تعریف شده در apis یکسان باشند</strong> چون این دو با هم مقایسه میشوند.</p>
+<p><img src="diagram/apis/../../assets/uploads/19e98644989d1cbd1d47726d64e44c7e/image.jpg" alt="image" /></p>
+<ul>
+<li>اگر سرویس مورد نظر مبتنی بر ارسال فایل بود باید در این بخش(files) ذکر شود که فایل آن چه نامی خواهد داشت، چه نوعی است(video, image, voice) اجباری است یا خیر، …</li>
+</ul>
+<p><img src="diagram/apis/../../assets/uploads/36f49f7251655b36ee68d719c1fd5022/image_file.jpg" alt="image_file" /></p>
+<p>در غیر اینصورت اگر سرویس nlp بود، بدون این فیلد باید سرویس را تعریف کرد.</p>
+<ul>
+<li>نوع سرویس و درخواست های آن نیز باید در تعریف سرویس ذکر گردد و این تعیین کننده نحوه ی پاسخ گیت وی به درخواست های ورودی است.</li>
+</ul>
+<p>اگر تایپ سرویس direct باشد یعنی درخواست از طریق rabbitMQ و صف با AI در ارتباط خواهد بود و باید اسم صف آن ذکر شود. در این حالت فایل از طریق <strong>busboy</strong> آپلود میشود.</p>
+<p><img src="diagram/apis/../../assets/uploads/8d97f471c5c6f6b291842bf4abf6d09c/image.png" alt="image" /></p>
+<p>و اگر proxy باشد یعنی درخواست های این سرویس به api ریموت دیگری پراکسی میشود و باید host, protocol و rejectUnauthorized(که بیانگر secure بودن/نبودن آن است) در تعریف سرویس بیان شود.</p>
+<p><img src="diagram/apis/../../assets/uploads/3558b41883a40f6b6383c90b7feb93d6/image.png" alt="image" /></p>
+<ul>
+<li>در تعریف سرویس میتوان برای آن validation ورودی آن سرویس را نیز تعریف کرد که در بکند با **ajv validator **پیاده سازی شده است.</li>
+</ul>
+<pre><code> &quot;validation&quot;: {
+                    &quot;type&quot;: &quot;object&quot;,
+                    &quot;required&quot;: [
+                        &quot;srt&quot;
+                    ],
+                    &quot;properties&quot;: {
+                        &quot;srt&quot;: {
+                            &quot;enum&quot;: [
+                                &quot;1&quot;,
+                                &quot;true&quot;,
+                                &quot;True&quot;,
+                                true,
+                                false,
+                                1,
+                                0,
+                                &quot;false&quot;,
+                                &quot;False&quot;,
+                                &quot;0&quot;
+                            ]
+                        }
+                    },
+                    &quot;errorMessage&quot;: {
+                        &quot;type&quot;: &quot;نوع ورودی نادرست است&quot;,
+                        &quot;required&quot;: {
+                            &quot;srt&quot;: &quot;srt الزامی است&quot;
+                        },
+                        &quot;properties&quot;: {
+                            &quot;srt&quot;: &quot;ورودی یکی از مقادیر روبرو میباشد ['1', 'true', 'True', true, false, 1, 0, 'false', 'False', '0']&quot;
+                        }
+                    },
+                    &quot;additionalProperties&quot;: true
+                }
+</code></pre>
+<p>گیت‌وی عملکرد خود را بر اساس نام سرویس (serviceName) که دومین المان از URL درخواستی میباشد، تعیین می‌کند. بر اساس این نام سرویس، گیت‌وی اطلاعات مربوط به سرویس مورد نظر را استخراج می‌کند تا بداند با درخواست به چه نحوی باید رفتار کند.</p>
+<p><img src="diagram/apis/../../assets/uploads/f6fa5f8ca673c637724fdd02f3044a84/image__1_.jpg" alt="image__1_" /></p>
+<p><em><strong>همه درخواست ها به سرویس ها باید حاوی apikey باشد مگر ip های استثنا</strong></em></p>
+<p><em><strong>در تعریف apis میتوان maxCount,  (transaction per minute)TPM و policies را تعریف کرد.</strong></em></p>
+<ul>
+<li>شمای تعریف policies به صورت زیر است: </li>
+</ul>
+<pre><code>{
+  &quot;image&quot;: {
+    &quot;size&quot;: 1200000
+  },
+  &quot;video&quot;: {
+    &quot;size&quot;: 100000,
+    &quot;duration&quot;: 14
+  },
+  &quot;voice&quot;: {
+    &quot;size&quot;: 16,
+    &quot;duration&quot;: 10
+  },
+  &quot;character&quot;: {
+    &quot;counter&quot;: 6000
+  }
+}
+</code></pre>
+<p><em><strong>گیت وی همچنین قابلیت استفاده از Grpc و Websocket را نیز دارد.</strong></em></p>
+<p>فرایند کامل استفاده از کنترلر های ارتباط با هوش <a href="https://armanriazi.github.io/js-gateway/apimarket/gateway/-/wikis/gateway-UML-document">در این کامیونت</a> ذکر شده است.</p>
+<div style="break-before: page; page-break-before: always;"></div><p><img src="diagram/er/../../assets/uploads/c1e00097a61988649bcb613e256c6ba8/image.png" alt="image" /></p>
+<p><strong>Users:</strong></p>
+<p><em>Description:</em> Represents the users of system. such as: sgw</p>
+<p><em>Relationships:</em></p>
+<ul>
+<li>One user can have multiple apikeys.</li>
+</ul>
+<p><strong>ApiKeys:</strong></p>
+<p><em>Description:</em> Represents the API keys generated for users.</p>
+<p><em>Relationships:</em></p>
+<ul>
+<li>Belongs to a user (user_id).</li>
+<li>Can be assigned to a service (service_id) in apis table.</li>
+</ul>
+<p><strong>Projects:</strong></p>
+<p><em>Description</em>: Represents the projects in the system.</p>
+<p><em>Relationships:</em></p>
+<ul>
+<li>Contains multiple services.</li>
+</ul>
+<p><strong>Services:</strong></p>
+<p><em>Description:</em> Represents the services within projects.</p>
+<p><em>Relationships:</em></p>
+<ul>
+<li>Belongs to a project (project_id).</li>
+<li>Can be assigned an API key(apikeyId) in apis table.</li>
+</ul>
+<p><strong>APIs:</strong></p>
+<p><em>Description:</em> Represents the APIs within services.</p>
+<p><em>Relationships:</em></p>
+<ul>
+<li>Belongs to a service (service_id) and an apikey.</li>
+</ul>
+<p><strong>gatewayLogs:</strong></p>
+<p><em>Description:</em> Represents the logs of API responses.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>Class Diagrams</p>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: services/auth
+---
+classDiagram
+    class Auth {
+    +asyncCheck(req, res, next)
+    -asyncVerifyToken(token)
+    +asyncGenerateToken( id, role)
+    -asyncCheckSession(id)
+    -asyncCheckIdInParamsWithReqUserId(req, res, next)
+    +simpleCheckRoles(roles)
+    -checkRequestRole(req, res, next)
+    -asyncCheckAdminIsAuthorized(req, res, next)
+    +asyncCheckAdminCanCreateApiKey(req, res, next)
+    -asyncCheckAdminCanNotGetAdmins(req, res, next)
+    -checkRoleIsAllowed(field)
+    }
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/Controller(all-async)
+---
+classDiagram
+    ControllerBase --&gt; service
+    ControllerBase &lt;|-- ai_controller
+    ControllerBase &lt;|-- apiKeys_controller
+    ControllerBase &lt;|-- apis_controller
+    ControllerBase &lt;|-- projects_controller
+    ControllerBase &lt;|-- services_controller
+    ControllerBase &lt;|-- users_controller
+    ControllerBase &lt;|-- gatewayLogs_controller
+    ControllerBase: +create(req, res, next)
+    ControllerBase: +index(req, res, next)
+    ControllerBase: +indexWithDeleted(req, res, next)
+    ControllerBase: +get(req, res, next)
+    ControllerBase: +remove(req, res, next)
+    ControllerBase: +restore(req, res, next)
+    class models{
+        +generateModels()
+        +associations()
+    }
+    note for ai_controller &quot;implemented methods:\n create&quot;
+    class ai_controller{
+        +get(req, res)  
+        +serveFile(originalUrl, res)
+        +proxyToServices(req, res)  
+        +createMessage( req, files)
+        +defaultNLPController(accessAiService,req, res)
+        +checkServerHealth(accessAiService, req, res)
+        +faceBlurringMorphingController(accessAiService, req, res)
+        +faceVerificationController(accessAiService, res, req)
+        +asyncBaseController( accessAiService, req, res ) 
+        +defaultController(accessAiService,req, res) 
+        +faceVerificationController(req, res, next)
+    }
+    class gatewayLogs_controller{
+    }
+    note for apiKeys_controller &quot;implemented methods:\n index\n update\n create&quot;
+    class apiKeys_controller{
+        +getApiKey(req, res, next)
+    }
+    note for apis_controller &quot;implemented methods:\n index\n create&quot;
+    class apis_controller{
+        +getApiKeyService(req, res, next)
+    }
+    note for projects_controller &quot;implemented methods:\n index&quot;
+    class projects_controller{
+        +updateProject(req, res, next)
+        +getProject(req, res, next)
+    }
+    note for services_controller &quot;implemented methods:\n index\n create&quot;
+    class services_controller{
+        +updateService(req, res, next)
+        +getService(req, res, next)
+    }
+    note for users_controller &quot;implemented methods:\n index\n create&quot;
+    class users_controller{
+        +login(req, res, next)
+        +updateUser(req, res, next)
+        +updatePassword(req, res, next)
+        +getUser(req, res, next)
+        +getAllUsers(req, res, next)
+        +removeUser(req, res, next)
+    }
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/Service(except ServiceBase all of services are async)
+---
+classDiagram
+    ServiceBase --&gt; models
+    ServiceBase &lt;|-- apiKeys_service
+    ServiceBase &lt;|-- apis_service
+    ServiceBase &lt;|-- projects_service
+    ServiceBase &lt;|-- services_service
+    ServiceBase &lt;|-- users_service
+    ServiceBase &lt;|-- gatewayLogs_service
+    ServiceBase &lt;|-- ai_service
+    ServiceBase : create(data, transaction)
+    ServiceBase : bulkCreate(data) {
+    ServiceBase : find({ where, pagination, attributes, group, order, paranoid })
+    ServiceBase : findAndCount({ where, pagination, attributes, group, order, paranoid })
+    ServiceBase : findOne(where, attributes)
+    ServiceBase : updateOne(data, where, returning, transaction)
+    ServiceBase : deleteOne({ where, returning, transaction, force })
+    ServiceBase : findOrCreate({ where, defaults })
+    class models{
+        +generateModels()
+        +associations()
+    }
+    class apiKeys_service{
+        +findApiKey(clause)
+        +findAllApiKey(clause, limit, offs)
+    }
+    class gatewayLogs_service{
+    }
+    class apis_service{
+        +findApiKeyService(clause)
+        +findAllApis(clause, limit, offs)
+        +findAiServiceForApiKey(clause)
+    }
+    class projects_service{
+        +findProjectService(clause)
+        +findAllProjects(clause, limit, offs)
+    }
+    class services_service{
+       +findProjectService(clause)
+       +findService(name)
+       +findAllServices(clause, limit, offs) 
+    }
+    class users_service{
+       +findUserApiKey(clause)
+       +findAllUsersApiKey(clause, role, limit, offs)
+       +findUserRole(id) 
+    }
+    class ai_service{
+       +checkApi(req, res, next)
+       +checkProxyApi(req, res, next)
+       +checkValidApis(apis, method, originalUrl, baseName )
+       +checkValidServices( apis )
+       +adjustServiceAndBaseName(originalUrl, method)
+       +isImageExtension(url)
+       +validateApiMethods(accessAiService, method, originalUrl, baseName)
+       +getAccessAiService(apiKey, serviceName)
+       +validateAccessAiService(accessAiService)
+       +getServiceInfo(serviceName, method)
+       +saveFile(req, res, next)
+       +saveBase64(req, type, required, name )
+       +saveLink(req, name, required, next)
+       +writeFileStream( data, fileWriter, fileName, filePath )
+       +getCountTmp(accessAiService)
+       +isFileRequest(absolutePath, serviceName)
+       +validateMaxCountTpm(accessAiService)
+       +checkIp(req, res, next)
+       +proxyRequest(req)
+       +generateRedisKey(apiId)
+       +setRedisKey(key, value)
+       +updateCounts(value, apiId)
+       +buildRequestOptions(req)
+       +handleNonFileRequest(req,res,apiId,value,gatewayLogData)
+       +handleFileRequest(req,res,apiId,value,gatewayLogData) 
+       +handleSRTProxyRequest(req,res,apiId,value,gatewayLogData)
+    }
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h2 id="flowchart-of-using-controller"><a class="header" href="#flowchart-of-using-controller">Flowchart of using controller</a></h2>
+<p><img src="diagram/flowchart/../../assets/uploads/ec219a0d888c9b1ef1a82d30144969c0/umldoc.jpg.jpg" alt="umldoc.jpg" /></p>
+<h2 id="schema-of-using-controller"><a class="header" href="#schema-of-using-controller">Schema of using controller</a></h2>
+<p><img src="diagram/flowchart/../../assets/uploads/0ce1390a643cd53e389f56b44dd5c19c/umldoc.jpg__1_.jpg" alt="umldoc.jpg__1_" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="index-of-sequential-diagram"><a class="header" href="#index-of-sequential-diagram">Index of Sequential Diagram</a></h2>
+<ul>
+<li><a href="diagram/sequential/./">Diagram with notes</a>
+<ul>
+<li><a href="diagram/sequential/./Sequential_Diagram_Auth_noted.html">aiServices_ctrl</a></li>
+</ul>
+</li>
+<li><a href="diagram/sequential/./">Diagram without notes</a>
+<ul>
+<li><a href="diagram/sequential/./Sequential_Diagram_Auth.html">aiServices_ctrl</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="sequential"><a class="header" href="#sequential">Sequential</a></h2>
+<p>In some diagrams, function names may appear. This part of functions can be converted into a status/activity diagram, but to maintain the integrity of this part of the sequential diagram, it has not been removed. This is because it was intended for other entities to be visible alongside the calls. Therefore, we have determined our standard sequential diagram for Auth and are aware of it. For example, OpenConnect also uses functions specifically and sequentially in its explanatory sections.</p>
+<h3 id="shortforms"><a class="header" href="#shortforms">Shortforms</a></h3>
+<p>R: Repeater, G: Get, P: Post, O: Object</p>
+<p>For example, ‘R’ in the auth class, we have a method called check, which is called and repeated at the beginning of all other methods.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aiservices_ctrl"><a class="header" href="#aiservices_ctrl">aiServices_ctrl</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aiservices_ctr_notedl"><a class="header" href="#aiservices_ctr_notedl">aiServices_ctr_notedl</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: services/auth
+config:
+    sequence:
+        showSequenceNumbers : true
+---
+    sequenceDiagram
+    autonumber
+    box users_route to auth
+    participant auth
+    participant users_route
+    end    
+    users_route -&gt;&gt; +auth: check | R       
+
+    alt GET/    
+    users_route -&gt;&gt; +auth: simpleCheckRoles(['superAdmin', 'admin'])
+    users_route -&gt;&gt; +auth: generalValidator(validator.index)
+    users_route -&gt;&gt; +auth: paginationHandler
+    users_route -&gt;&gt; +users_controller: index
+    end
+    opt POST /
+    users_route -&gt;&gt; +auth: simpleCheckRoles(['superAdmin', 'admin'])
+    users_route -&gt;&gt; +auth: checkRequestRole
+    users_route -&gt;&gt; +auth: generalValidator(validator.create)  
+    users_route -&gt;&gt; +users_controller: create
+    end    
+
+    alt GET/:id
+    users_route -&gt;&gt; +auth: simpleCheckRoles(['superAdmin', 'admin', 'user'])
+    users_route -&gt;&gt; +auth: checkIdInParamsWithReqUserId
+    users_route -&gt;&gt; +auth: checkAdminCanNotGetAdmins
+    users_route -&gt;&gt; +auth: generalValidator(validator.get)
+    users_route -&gt;&gt; +users_controller: getUser
+    end
+    opt DELETE/:id
+    users_route -&gt;&gt; +auth: simpleCheckRoles(['superAdmin', 'admin'])    
+    users_route -&gt;&gt; +auth: generalValidator(validator.remove)  
+    users_route -&gt;&gt; +users_controller: removeUser
+    end    
+
+    alt PATCH/info/:id
+    users_route -&gt;&gt; +auth: simpleCheckRoles(['superAdmin', 'admin', 'user'])
+    users_route -&gt;&gt; +auth: checkIdInParamsWithReqUserId
+    users_route -&gt;&gt; +auth: checkRoleIsAllowed('role')
+    users_route -&gt;&gt; +auth: generalValidator(validator.update)
+    users_route -&gt;&gt; +users_controller: updateUser
+    end
+    opt PATCH/password/:id
+    users_route -&gt;&gt; +auth: simpleCheckRoles(['superAdmin', 'admin', 'user'])
+    users_route -&gt;&gt; +auth: checkIdInParamsWithReqUserId
+    users_route -&gt;&gt; +auth: generalValidator(validator.updatePassword)  
+    users_route -&gt;&gt; +users_controller: updatePassword
+    end    
+
+    box out_of_the_box
+    participant jwt
+    participant redis
+    participant userService
+    end    
+
+    box methods of auth
+    participant check
+    participant simpleCheckRoles
+    participant verifyToken
+    participant generateToken
+    participant checkIdInParamsWithReqUserId    
+    participant checkSession
+    participant checkRequestRole
+    participant checkAdminIsAuthorized    
+    participant checkAdminCanCreateApiKey
+    participant checkAdminCanNotGetAdmins
+    participant checkRoleIsAllowed
+    end    
+    critical Check 
+        auth--&gt;check:  token =req.get('Authorization')
+    option !token
+        auth--&gt;check: 401, LOGIN_NEEDED
+    option !payload
+        auth--&gt;check: 403, ACCESS_DENIED
+    option !user
+        auth--&gt;check: 400, LOGIN_NEEDED
+    auth--&gt; verifyToken: payload
+    auth--&gt;userService: id = findOne(payload.id)
+    check--&gt;checkSession: id    
+    end
+    critical SimpleCheckRoles        
+    option !roles.includes(req.user.role)
+        auth--&gt;simpleCheckRoles: 403, ACCESS_DENIED
+    end
+    critical VerifyToken        
+    option token
+        auth--&gt; verifyToken: jwt
+        jwt --&gt; verifyToken: token
+    end
+    critical GenerateToken        
+    option object
+        auth--&gt; generateToken: token = jwt.createToken({ id, role })        
+        generateToken--&gt; redis: setex(${id}_token, Number(env('SESSION_EXPIRATION')), token)        
+    end
+    critical CheckSession        
+    option object        
+        alt is not exist
+            checkSession--&gt;redis: 401, SESSION_OVER
+        else is
+            checkSession--&gt; redis: exists(`${id}_token`)
+        end        
+    end    
+    critical CheckIdInParamsWithReqUserId 
+    option req.user == 'user' &amp;&amp; req.params.id != req.user.id
+        auth--&gt;checkIdInParamsWithReqUserId: 403, ACCESS_DENIED
+    end
+    critical CheckRequestRole
+    option req.user.role == &quot;admin&quot; &amp;&amp; req.body.role != &quot;user&quot;
+        auth--&gt;checkRequestRole: 403, NOT_ALLOW_ROLE
+    end    
+    critical CheckAdminIsAuthorized
+        checkAdminIsAuthorized--&gt;userService: doc = findUserRole(id)
+    option doc[0].dataValues.id == req.user.id || req.body.role == 'user'
+        auth--&gt;checkAdminIsAuthorized: 403, NOT_ALLOW_ROLE
+    end        
+    critical CheckAdminCanCreateApiKey
+        checkAdminCanCreateApiKey--&gt;userService: doc = findOne(id)
+    option role != 'superAdmin' || !(doc.dataValues.role == 'user' || req.user.id == doc.dataValues.id)
+        auth--&gt;checkAdminCanCreateApiKey: 403, ACCESS_DENIED
+    end     
+    critical CheckAdminCanNotGetAdmins
+        checkAdminCanNotGetAdmins--&gt;userService: doc = findOne(id)
+    option role != 'superAdmin' || !(doc.dataValues.role == 'user' || req.user.id == doc.dataValues.id)
+        auth--&gt;checkAdminCanNotGetAdmins: 403, USER_NOT_FOUND
+    end         
+    critical CheckRoleIsAllowed        
+    option req.user.role != 'superAdmin' &amp;&amp; req.body[field]
+        auth--&gt;checkRoleIsAllowed: 403, NOT_ALLOW_ROLE
+    end     
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="activity"><a class="header" href="#activity">Activity</a></h2>
+<h2 id="index-of-activity-diagram"><a class="header" href="#index-of-activity-diagram">Index of Activity Diagram</a></h2>
+<ul>
+<li><a href="diagram/activity/./.html">Diagram with notes</a>
+<ul>
+<li><a href="diagram/activity/./Activity_Diagram_aiServices_ctrl_noted.html">aiServices_ctrl</a></li>
+<li><a href="diagram/activity/./Activity_Diagram_aiServices_srv_noted.html">aiServices_srv</a></li>
+<li><a href="diagram/activity/./Activity_Diagram_Logs_noted.html">logs</a></li>
+</ul>
+</li>
+<li><a href="diagram/activity/./.html">Diagram without notes</a>
+<ul>
+<li><a href="diagram/activity/./Activity_Diagram_aiServices_ctrl.html">aiServices_ctrl</a></li>
+<li><a href="diagram/activity/./Activity_Diagram_aiServices_srv.html">aiServices_srv</a></li>
+<li><a href="diagram/activity/./Activity_Diagram_Logs.html">logs</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="shortforms-1"><a class="header" href="#shortforms-1">Shortforms</a></h3>
+<blockquote>
+<p>Srv: Service, Ctrl: Controller, Eq: Equal</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/aiServices/controller
+---
+stateDiagram            
+state if_state &lt;&lt;choice&gt;&gt;
+state if_state_nlp_ctrl &lt;&lt;choice&gt;&gt;
+state if_state_ctrl &lt;&lt;choice&gt;&gt;
+state if_state_rabbitMQ_result &lt;&lt;choice&gt;&gt;
+state if_get &lt;&lt;choice&gt;&gt;
+[*] --&gt; request
+request --&gt;IsDirectOrProxy
+IsDirectOrProxy --&gt; if_state
+if_state --&gt; Direct    
+    Direct --&gt;  if_state_ctrl
+    if_state_ctrl --&gt; baseCtrl
+    if_state_ctrl  --&gt; faceVerificationCtrl       
+    faceVerificationCtrl --&gt; createMessage
+    faceVerificationCtrl --&gt; amqp
+    faceVerificationCtrl --&gt; redis
+    if_state_ctrl  --&gt; faceBlurringMorphingCtrl
+    faceBlurringMorphingCtrl --&gt; createMessage : 1
+    faceBlurringMorphingCtrl --&gt; createReadStream : 2
+    faceBlurringMorphingCtrl --&gt; amqp    
+    faceBlurringMorphingCtrl --&gt; redis    
+    defaultNLP --&gt; amqp            
+    defaultNLP --&gt; redis
+    base --&gt; redis   
+    state baseCtrl {   
+        base --&gt; create
+        base --&gt; get             
+        get --&gt; if_get
+        if_get --&gt; proxyToServices
+        if_get --&gt; checkServerHealth        
+        if_get --&gt; serveFile
+        base --&gt; if_state_nlp_ctrl
+        if_state_nlp_ctrl --&gt; defaultNLP
+        defaultNLP --&gt; defaultNLP: isAllowedIP?                                             
+        updateCounts --&gt; result         
+        if_state_nlp_ctrl --&gt; default
+            default --&gt; filterValues            
+            default --&gt; createMessage
+    }                 
+if_state --&gt; Proxy
+    Proxy --&gt; proxyToServices
+    state if_req_srtProxy &lt;&lt;choice&gt;&gt;
+    proxyToServices --&gt; if_req_srtProxy
+    if_req_srtProxy --&gt; handleSRTProxyRequest: req.srtProxy    
+    if_req_srtProxy --&gt; handleFileRequest : (req.hasFile || req.method == 'GET') 
+    if_req_srtProxy --&gt; handleNonFileRequest: else
+state amqp {   
+rabbitMQ --&gt; rabbitMQ: getInstance              
+rabbitMQ --&gt; sendRpcMessage
+sendRpcMessage --&gt; if_state_rabbitMQ_result
+}
+if_state_rabbitMQ_result --&gt; updateCounts :result
+checkServerHealth --&gt; redis
+state redis{
+    generateRedisKey --&gt; setRedisKey : key of ApiIdPluseRandom of val New Data
+}
+result --&gt; [*] : return of Ctrls
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/aiServices/service | proxy | file
+---
+stateDiagram            
+state if_IsNotAllowedIP &lt;&lt;choice&gt;&gt;
+state if_NotExistApiKey &lt;&lt;choice&gt;&gt;
+state if_NotExistServiceName &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiService &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiApiKey &lt;&lt;choice&gt;&gt;
+state if_ApiKey_MaxCount &lt;&lt;choice&gt;&gt;
+state if_ApiKey_ExpireDate &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_Result_IsValid_APIs &lt;&lt;choice&gt;&gt;
+state if_accessAiService_maxCount &lt;&lt;choice&gt;&gt;
+state if_accessAiService_TPM &lt;&lt;choice&gt;&gt;
+state if_saveFile &lt;&lt;choice&gt;&gt;
+state if_base64 &lt;&lt;choice&gt;&gt;
+state if_link &lt;&lt;choice&gt;&gt;
+
+[*] --&gt; request
+request --&gt; Request: HandleRequestOfFile
+state ErrorBox { 
+    exceptions --&gt; if_IsNotAllowedIP: IsNotAllowedIP 
+    if_IsNotAllowedIP --&gt; API_KEY_REQUIRED 
+    if_IsNotAllowedIP --&gt; if_NotExistApiKey: IsNotAllowedIP 
+    if_NotExistApiKey --&gt; API_KEY_REQUIRED
+    exceptions --&gt; if_NotExistServiceName: NotExistServiceName 
+    if_NotExistServiceName --&gt; SERVICE_NOT_FOUND
+}
+state Handlers {
+handleFileRequest 
+handleNonFileRequest 
+handleSRTProxyRequest 
+grpcHandler
+websocketHandler
+}
+Handlers --&gt; Request
+state Request {
+    checkApi --&gt; adjustServiceAndBaseName : 1 
+    adjustServiceAndBaseName --&gt; ErrorBox: CheckUp
+    checkApi --&gt; getAccessAiService : 2 
+    getAccessAiService --&gt; validateAccessAiService : 2-1
+    validateAccessAiService --&gt; validateApiMethods : 2-2
+    validateApiMethods --&gt; checkValidApis    
+    checkValidApis --&gt; ResultOfCheckValidApis : EQ Result With isValidApi 
+        if_NotExistValidApiService --&gt; NOT_FOUND_ROUTE_ERROR : NotExistValidApiService
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiService : 2-3
+        if_NotExistValidApiApiKey --&gt; NOT_ALLOW_API : NotExistValidApiApiKey
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiApiKey : 2-4
+    checkValidApis --&gt; validateAccessAiService : 2-5
+        validateAccessAiService --&gt; ApiKey
+        ApiKey --&gt; if_ApiKey_MaxCount
+        if_ApiKey_MaxCount --&gt; COUNT_API_KEY_ZERO : maxCount&lt; 1   
+        ApiKey --&gt; if_ApiKey_ExpireDate
+        if_ApiKey_ExpireDate --&gt; API_KEY_EXPIRE  : expireDate &lt; dateNow
+        ApiKey --&gt; if_ApiKey_IsValid 
+        if_ApiKey_IsValid --&gt; API_KEY_INVALID : IsNotValid
+        checkValidApis --&gt; validateApiMethods
+        checkValidApis --&gt; checkValidApis : for(api of apis) &amp;&amp; isValidApi
+    checkApi --&gt; getServiceInfo : 3
+    getServiceInfo --&gt; checkValidServices : only POSTs 
+    checkValidServices --&gt; Files: accessAiService.files = Result of checking
+    checkApi --&gt; isFileRequest : 4
+    checkApi --&gt; validateMaxCountTpm : 5
+        validateMaxCountTpm --&gt; if_accessAiService_maxCount: 5-1    
+        validateMaxCountTpm --&gt; if_accessAiService_TPM  : 5-2      
+        if_accessAiService_maxCount --&gt; COUNT_API_MAX_COUNT_ZERO : accessAiService.maxCount == 0    
+        validateMaxCountTpm --&gt; getCountTmp
+        getCountTmp --&gt; redis : Filter count 10 of '{accessAiService.id} *' Else 0
+        getCountTmp --&gt; if_accessAiService_TPM : countTpm
+        if_accessAiService_TPM --&gt; MAX_COUNT_TPM_INVALID : countTpm &gt;= accessAiService.TPM        
+    checkApi --&gt; saveFile : 6     
+        saveFile --&gt; if_saveFile : for (file of files)
+        if_saveFile --&gt; next : req.requestType == 'proxy'
+        next --&gt; [*]
+        if_saveFile --&gt; saveFile : req.requestType == 'file'        
+        if_saveFile --&gt; if_base64 
+        if_base64 --&gt; saveBase64: howGet == base64
+        if_saveFile --&gt; if_link 
+        if_link --&gt; saveLink: howGet == link
+        saveLink --&gt; save : axios.sendRequest
+        saveBase64 --&gt; save  : Buffer.from(req.body[name], 'base64')      
+        save --&gt; assets/uploads : Write To path of assets/uploads 
+        assets/uploads --&gt; next
+} 
+handleSRTProxyRequest --&gt; proxyRequest : axios.sendRequest(config)
+handleSRTProxyRequest --&gt; Response
+handleNonFileRequest --&gt; Response
+handleFileRequest --&gt; Response
+proxyRequest --&gt; buildRequestOptions
+handleNonFileRequest --&gt; buildRequestOptions
+handleFileRequest --&gt; buildRequestOptions
+grpcHandler --&gt; RemoteService
+RemoteService --&gt; sendFileSpeech
+grpcHandler --&gt; RemoteService
+RemoteService --&gt; checkServerHealth
+websocketHandler --&gt; createMessage
+Request --&gt; Response 
+state Response {
+aiTimeProcessing --&gt;  SaveToGatewayLogData: 1 aiTimeProcessing=res-req
+updateCounts
+}
+state redis{
+    generateRedisKey --&gt; setRedisKey : key of ApiIdPluseRandom of val New Data
+}
+Response --&gt; redis
+Response --&gt; [*]
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: Logs
+---
+stateDiagram            
+state if_Srv_Or_Api&lt;&lt;choice&gt;&gt;
+[*] --&gt; Request
+Request --&gt; createLog
+createLog --&gt; if_Srv_Or_Api
+createLog --&gt; save_request_tblGatewayLogs
+if_Srv_Or_Api --&gt; service  : logType is ai
+if_Srv_Or_Api --&gt; api  : logType is gateway
+createLog --&gt; saveResultLog
+saveResultLog --&gt; update_response_tblGatewayLogs
+saveResultLog --&gt; Response
+Response --&gt; [*] 
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/aiServices/controller
+---
+stateDiagram            
+state if_state &lt;&lt;choice&gt;&gt;
+state if_state_nlp_ctrl &lt;&lt;choice&gt;&gt;
+state if_state_ctrl &lt;&lt;choice&gt;&gt;
+state if_state_rabbitMQ_result &lt;&lt;choice&gt;&gt;
+state if_get &lt;&lt;choice&gt;&gt;
+[*] --&gt; request
+request --&gt;IsDirectOrProxy
+IsDirectOrProxy --&gt; if_state
+if_state --&gt; Direct    
+    Direct --&gt;  if_state_ctrl
+    if_state_ctrl --&gt; baseCtrl
+    if_state_ctrl  --&gt; faceVerificationCtrl       
+    faceVerificationCtrl --&gt; createMessage
+    faceVerificationCtrl --&gt; amqp
+    faceVerificationCtrl --&gt; redis
+    if_state_ctrl  --&gt; faceBlurringMorphingCtrl
+    faceBlurringMorphingCtrl --&gt; createMessage : 1
+    faceBlurringMorphingCtrl --&gt; createReadStream : 2
+    faceBlurringMorphingCtrl --&gt; amqp    
+    faceBlurringMorphingCtrl --&gt; redis    
+    defaultNLP --&gt; amqp            
+    defaultNLP --&gt; redis
+    base --&gt; redis   
+    state baseCtrl {   
+        base --&gt; create
+        base --&gt; get             
+        get --&gt; if_get
+        if_get --&gt; proxyToServices
+        if_get --&gt; checkServerHealth        
+        if_get --&gt; serveFile
+        base --&gt; if_state_nlp_ctrl
+        if_state_nlp_ctrl --&gt; defaultNLP
+        defaultNLP --&gt; defaultNLP: isAllowedIP?                                             
+        updateCounts --&gt; result         
+        if_state_nlp_ctrl --&gt; default
+            default --&gt; filterValues            
+            default --&gt; createMessage
+    }                 
+if_state --&gt; Proxy
+    Proxy --&gt; proxyToServices
+    state if_req_srtProxy &lt;&lt;choice&gt;&gt;
+    proxyToServices --&gt; if_req_srtProxy
+    if_req_srtProxy --&gt; handleSRTProxyRequest: req.srtProxy    
+    if_req_srtProxy --&gt; handleFileRequest : (req.hasFile || req.method == 'GET') 
+    if_req_srtProxy --&gt; handleNonFileRequest: else
+state amqp {   
+rabbitMQ --&gt; rabbitMQ: getInstance              
+rabbitMQ --&gt; sendRpcMessage
+sendRpcMessage --&gt; if_state_rabbitMQ_result
+}
+if_state_rabbitMQ_result --&gt; updateCounts :result
+checkServerHealth --&gt; redis
+state redis{
+    generateRedisKey --&gt; setRedisKey : key of ApiIdPluseRandom of val New Data
+}
+result --&gt; [*] : return of Ctrls
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/aiServices/service | proxy | file
+---
+stateDiagram            
+state if_IsNotAllowedIP &lt;&lt;choice&gt;&gt;
+state if_NotExistApiKey &lt;&lt;choice&gt;&gt;
+state if_NotExistServiceName &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiService &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiApiKey &lt;&lt;choice&gt;&gt;
+state if_ApiKey_MaxCount &lt;&lt;choice&gt;&gt;
+state if_ApiKey_ExpireDate &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_Result_IsValid_APIs &lt;&lt;choice&gt;&gt;
+state if_accessAiService_maxCount &lt;&lt;choice&gt;&gt;
+state if_accessAiService_TPM &lt;&lt;choice&gt;&gt;
+state if_saveFile &lt;&lt;choice&gt;&gt;
+state if_base64 &lt;&lt;choice&gt;&gt;
+state if_link &lt;&lt;choice&gt;&gt;
+
+[*] --&gt; request
+request --&gt; Request: HandleRequestOfFile
+state ErrorBox { 
+    exceptions --&gt; if_IsNotAllowedIP: IsNotAllowedIP 
+    if_IsNotAllowedIP --&gt; API_KEY_REQUIRED 
+    if_IsNotAllowedIP --&gt; if_NotExistApiKey: IsNotAllowedIP 
+    if_NotExistApiKey --&gt; API_KEY_REQUIRED
+    exceptions --&gt; if_NotExistServiceName: NotExistServiceName 
+    if_NotExistServiceName --&gt; SERVICE_NOT_FOUND
+}
+state Handlers {
+handleFileRequest 
+handleNonFileRequest 
+handleSRTProxyRequest 
+grpcHandler
+websocketHandler
+}
+Handlers --&gt; Request
+state Request {
+    checkApi --&gt; adjustServiceAndBaseName : 1 
+    adjustServiceAndBaseName --&gt; ErrorBox: CheckUp
+    checkApi --&gt; getAccessAiService : 2 
+    getAccessAiService --&gt; validateAccessAiService : 2-1
+    validateAccessAiService --&gt; validateApiMethods : 2-2
+    validateApiMethods --&gt; checkValidApis    
+    checkValidApis --&gt; ResultOfCheckValidApis : EQ Result With isValidApi 
+        if_NotExistValidApiService --&gt; NOT_FOUND_ROUTE_ERROR : NotExistValidApiService
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiService : 2-3
+        if_NotExistValidApiApiKey --&gt; NOT_ALLOW_API : NotExistValidApiApiKey
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiApiKey : 2-4
+    checkValidApis --&gt; validateAccessAiService : 2-5
+        validateAccessAiService --&gt; ApiKey
+        ApiKey --&gt; if_ApiKey_MaxCount
+        if_ApiKey_MaxCount --&gt; COUNT_API_KEY_ZERO : maxCount&lt; 1   
+        ApiKey --&gt; if_ApiKey_ExpireDate
+        if_ApiKey_ExpireDate --&gt; API_KEY_EXPIRE  : expireDate &lt; dateNow
+        ApiKey --&gt; if_ApiKey_IsValid 
+        if_ApiKey_IsValid --&gt; API_KEY_INVALID : IsNotValid
+        checkValidApis --&gt; validateApiMethods
+        checkValidApis --&gt; checkValidApis : for(api of apis) &amp;&amp; isValidApi
+    checkApi --&gt; getServiceInfo : 3
+    getServiceInfo --&gt; checkValidServices : only POSTs 
+    checkValidServices --&gt; Files: accessAiService.files = Result of checking
+    checkApi --&gt; isFileRequest : 4
+    checkApi --&gt; validateMaxCountTpm : 5
+        validateMaxCountTpm --&gt; if_accessAiService_maxCount: 5-1    
+        validateMaxCountTpm --&gt; if_accessAiService_TPM  : 5-2      
+        if_accessAiService_maxCount --&gt; COUNT_API_MAX_COUNT_ZERO : accessAiService.maxCount == 0    
+        validateMaxCountTpm --&gt; getCountTmp
+        getCountTmp --&gt; redis : Filter count 10 of '{accessAiService.id} *' Else 0
+        getCountTmp --&gt; if_accessAiService_TPM : countTpm
+        if_accessAiService_TPM --&gt; MAX_COUNT_TPM_INVALID : countTpm &gt;= accessAiService.TPM        
+    checkApi --&gt; saveFile : 6     
+        saveFile --&gt; if_saveFile : for (file of files)
+        if_saveFile --&gt; next : req.requestType == 'proxy'
+        next --&gt; [*]
+        if_saveFile --&gt; saveFile : req.requestType == 'file'        
+        if_saveFile --&gt; if_base64 
+        if_base64 --&gt; saveBase64: howGet == base64
+        if_saveFile --&gt; if_link 
+        if_link --&gt; saveLink: howGet == link
+        saveLink --&gt; save : axios.sendRequest
+        saveBase64 --&gt; save  : Buffer.from(req.body[name], 'base64')      
+        save --&gt; assets/uploads : Write To path of assets/uploads 
+        assets/uploads --&gt; next
+} 
+handleSRTProxyRequest --&gt; proxyRequest : axios.sendRequest(config)
+handleSRTProxyRequest --&gt; Response
+handleNonFileRequest --&gt; Response
+handleFileRequest --&gt; Response
+proxyRequest --&gt; buildRequestOptions
+handleNonFileRequest --&gt; buildRequestOptions
+handleFileRequest --&gt; buildRequestOptions
+grpcHandler --&gt; RemoteService
+RemoteService --&gt; sendFileSpeech
+grpcHandler --&gt; RemoteService
+RemoteService --&gt; checkServerHealth
+websocketHandler --&gt; createMessage
+Request --&gt; Response 
+state Response {
+aiTimeProcessing --&gt;  SaveToGatewayLogData: 1 aiTimeProcessing=res-req
+updateCounts
+}
+state redis{
+    generateRedisKey --&gt; setRedisKey : key of ApiIdPluseRandom of val New Data
+}
+Response --&gt; redis
+Response --&gt; [*]
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="naming-service-apis-and-routing"><a class="header" href="#naming-service-apis-and-routing">Naming Service APIs and Routing</a></h2>
+<h3 id="srt"><a class="header" href="#srt">SRT</a></h3>
+<p>To use SRT services, ‘srt’ must be appended to the end of the service name, just as operations will be performed on it in the code section.</p>
+<p>‍‍‍‍‍```javascript
+req.srtProxy = serviceName.toLowerCase().includes(‘srt’)</p>
+<pre><code>
+### File
+
+The program realizes that the requested API address is intended for a file when it finds the names listed below in the specified path within this part of the address.
+
+
+`ip:port/service/imageEditing/{{X}}/ok`
+
+like:
+
+```md
+‍ip:port/service/imageEditing/file/ok
+‍ip:port/service/imageEditing/files/ok
+‍ip:port/service/imageEditing/mp3/ok
+</code></pre>
+<h4 id="servicename"><a class="header" href="#servicename">ServiceName</a></h4>
+<p>‍ip:port/service/keywordsExtraction/files/ok`</p>
+<h4 id="main-code"><a class="header" href="#main-code">Main code</a></h4>
+<p>‍‍‍‍‍```javascript
+const isFileRequest = (absolutePath, serviceName) =&gt; {
+return (
+absolutePath.toLowerCase().includes(‘mp3’) ||
+absolutePath.toLowerCase().includes(‘file’) ||
+serviceName === ‘keywordsExtraction’
+)
+}</p>
+<pre><code></code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>At a time we can use proxy requests where the destination is a service and not an API. Therefore, since the proxy will be sent to the service, a service should be chosen that has an empty queue. Finally, other proxy details such as host address and service name should be completed. Compeleted example:</p>
+<pre><code class="language-‍‍‍json">{
+    &quot;data&quot;: {
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: [
+            {
+                &quot;id&quot;: &quot;bba01470-238c-4738-83f8-b5b43ead2b68&quot;,
+                &quot;ApiKeyId&quot;: &quot;84d017d6-f239-40bf-ac7b-c76b86a281c9&quot;,
+                &quot;ServiceId&quot;: &quot;cd9abaf5-be53-43c3-b447-a336e8eb184f&quot;,
+                &quot;apis&quot;: [
+                    {
+                        &quot;path&quot;: &quot;imageEditing/files&quot;,
+                        &quot;method&quot;: [
+                            &quot;post&quot;
+                        ]
+                    },
+                    {
+                        &quot;path&quot;: &quot;imageEditing/trackingFile/*&quot;,
+                        &quot;method&quot;: [
+                            &quot;get&quot;
+                        ]
+                    },
+                    {
+                        &quot;path&quot;: &quot;imageEditing/checkServerHealth&quot;,
+                        &quot;method&quot;: [
+                            &quot;get&quot;
+                        ]
+                    },
+                    {
+                        &quot;path&quot;: &quot;imageEditing/*&quot;,
+                        &quot;method&quot;: [
+                            &quot;get&quot;
+                        ]
+                    }
+                ],
+                &quot;TPM&quot;: 500,
+                &quot;maxCount&quot;: -1,
+                &quot;policies&quot;: null,
+                &quot;createdAt&quot;: &quot;2024-05-07T14:11:18.589Z&quot;,
+                &quot;updatedAt&quot;: &quot;2024-05-07T14:11:18.589Z&quot;,
+                &quot;Service&quot;: {
+                    &quot;id&quot;: &quot;cd9abaf5-be53-43c3-b447-a336e8eb184f&quot;,
+                    &quot;name&quot;: &quot;imageEditing&quot;,
+                    &quot;ProjectId&quot;: &quot;887dab06-da3f-4504-9511-5007bd7b591b&quot;,
+                    &quot;validation&quot;: {},
+                    &quot;apis&quot;: [
+                        {
+                            &quot;path&quot;: &quot;imageEditing/files&quot;,
+                            &quot;files&quot;: [
+                                {
+                                    &quot;name&quot;: &quot;file&quot;,
+                                    &quot;type&quot;: &quot;image&quot;,
+                                    &quot;howGet&quot;: &quot;file&quot;,
+                                    &quot;required&quot;: true
+                                },
+                                {
+                                    &quot;name&quot;: &quot;mask&quot;,
+                                    &quot;type&quot;: &quot;image&quot;,
+                                    &quot;howGet&quot;: &quot;file&quot;,
+                                    &quot;required&quot;: true
+                                }
+                            ],
+                            &quot;method&quot;: [
+                                &quot;post&quot;
+                            ]
+                        },
+                        {
+                            &quot;path&quot;: &quot;imageEditing/trackingFile/*&quot;,
+                            &quot;method&quot;: [
+                                &quot;get&quot;
+                            ]
+                        },
+                        {
+                            &quot;path&quot;: &quot;imageEditing/checkServerHealth&quot;,
+                            &quot;method&quot;: [
+                                &quot;get&quot;
+                            ]
+                        },
+                        {
+                            &quot;path&quot;: &quot;imageEditing/*&quot;,
+                            &quot;method&quot;: [
+                                &quot;get&quot;
+                            ]
+                        }
+                    ],
+                    &quot;queue&quot;: &quot;null&quot;,
+                    &quot;type&quot;: &quot;proxy&quot;,
+                    &quot;host&quot;: &quot;192.168.33.21:3002/imageEditing/files&quot;,
+                    &quot;protocol&quot;: &quot;http&quot;,
+                    &quot;rejectUnauthorized&quot;: false,
+                    &quot;createdAt&quot;: &quot;2024-05-07T13:41:59.533Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2024-05-07T13:41:59.533Z&quot;
+                },
+                &quot;ApiKey&quot;: {
+                    &quot;id&quot;: &quot;84d017d6-f239-40bf-ac7b-c76b86a281c9&quot;,
+                    &quot;value&quot;: &quot;d2eac29aa79520571ff9bb031c72b790f27dce42d4e3bbd313e44fce72f40b10de351777f706f6ed55a49d636e612fee68d73f5fb32bc619e9e92cc096552ffc&quot;,
+                    &quot;UserId&quot;: &quot;59176cea-f0ed-4cbe-b2ef-c57ecfb0c021&quot;,
+                    &quot;isValid&quot;: true,
+                    &quot;maxCount&quot;: 1000000,
+                    &quot;expireDate&quot;: &quot;2029-10-28T13:44:03.000Z&quot;,
+                    &quot;createdAt&quot;: &quot;2024-05-07T13:44:03.116Z&quot;,
+                    &quot;updatedAt&quot;: &quot;2024-05-07T13:44:03.116Z&quot;
+                }
+            }
+        ]
+    },
+    &quot;meta&quot;: {
+        &quot;requestId&quot;: &quot;5afb142d-8fb6-486d-873f-0b32fe06200c&quot;
+    }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/aiServices/controller
+---
+stateDiagram            
+state if_state &lt;&lt;choice&gt;&gt;
+state if_state_nlp_ctrl &lt;&lt;choice&gt;&gt;
+state if_state_ctrl &lt;&lt;choice&gt;&gt;
+state if_state_rabbitMQ_result &lt;&lt;choice&gt;&gt;
+state if_get &lt;&lt;choice&gt;&gt;
+[*] --&gt; request
+request --&gt;IsDirectOrProxy
+IsDirectOrProxy --&gt; if_state
+if_state --&gt; Direct    
+    Direct --&gt;  if_state_ctrl
+    if_state_ctrl --&gt; baseCtrl
+    if_state_ctrl  --&gt; faceVerificationCtrl       
+    faceVerificationCtrl --&gt; createMessage
+    faceVerificationCtrl --&gt; amqp
+    faceVerificationCtrl --&gt; redis
+    if_state_ctrl  --&gt; faceBlurringMorphingCtrl
+    faceBlurringMorphingCtrl --&gt; createMessage : 1
+    faceBlurringMorphingCtrl --&gt; createReadStream : 2
+    faceBlurringMorphingCtrl --&gt; amqp    
+    faceBlurringMorphingCtrl --&gt; redis    
+    defaultNLP --&gt; amqp            
+    defaultNLP --&gt; redis
+    base --&gt; redis   
+    state baseCtrl {   
+        base --&gt; create
+        base --&gt; get             
+        get --&gt; if_get
+        if_get --&gt; proxyToServices
+        if_get --&gt; checkServerHealth        
+        if_get --&gt; serveFile
+        default --&gt; if_state_nlp_ctrl
+        if_state_nlp_ctrl --&gt; defaultNLP
+        defaultNLP --&gt; defaultNLP: isAllowedIP?                                             
+        updateCounts --&gt; result         
+        note left of updateCounts            
+                EQ: max_count - 1
+        end note    
+        if_state_nlp_ctrl --&gt; default
+            default --&gt; filterValues            
+            default --&gt; createMessage
+            note left of default            
+                { gatewayLogData, isAllowedIP, originalUrl } = req;
+                { queue } = accessAiService.Service;
+            end note
+            note right of filterValues
+                EQ:  checkTrueorFalseValue req.body[val]]?
+            end note
+            default --&gt; createMessage
+            note right of createMessage
+            EQ: { ...msg, ...filePath }
+            msg has been excepted of: 
+            file.howGet == 'base64' || file.howGet == 'link'
+            end note
+    }                 
+if_state --&gt; Proxy
+    Proxy --&gt; proxyToServices
+    state if_req_srtProxy &lt;&lt;choice&gt;&gt;
+    proxyToServices --&gt; if_req_srtProxy
+    if_req_srtProxy --&gt; handleSRTProxyRequest: req.srtProxy    
+    if_req_srtProxy --&gt; handleFileRequest : (req.hasFile || req.method == 'GET') 
+    if_req_srtProxy --&gt; handleNonFileRequest: else
+    note right of handleSRTProxyRequest
+         Params: (req, res, apiId, value, gatewayLogData)
+    end note
+state amqp {   
+rabbitMQ --&gt; rabbitMQ: getInstance              
+rabbitMQ --&gt; sendRpcMessage
+sendRpcMessage --&gt; if_state_rabbitMQ_result
+}
+if_state_rabbitMQ_result --&gt; updateCounts :result
+checkServerHealth --&gt; redis
+state redis{
+    generateRedisKey --&gt; setRedisKey : key of ApiIdPluseRandom of val New Data
+    note right of generateRedisKey            
+               EQ: ${apiId}::${randomUUID()}
+    end note
+}
+result --&gt; [*] : return of Ctrls
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-mermaid">---
+title: modules/aiServices/service | proxy | file
+---
+stateDiagram            
+state if_IsNotAllowedIP &lt;&lt;choice&gt;&gt;
+state if_NotExistApiKey &lt;&lt;choice&gt;&gt;
+state if_NotExistServiceName &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiService &lt;&lt;choice&gt;&gt;
+state if_NotExistValidApiApiKey &lt;&lt;choice&gt;&gt;
+state if_ApiKey_MaxCount &lt;&lt;choice&gt;&gt;
+state if_ApiKey_ExpireDate &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_ApiKey_IsValid &lt;&lt;choice&gt;&gt;
+state if_Result_IsValid_APIs &lt;&lt;choice&gt;&gt;
+state if_accessAiService_maxCount &lt;&lt;choice&gt;&gt;
+state if_accessAiService_TPM &lt;&lt;choice&gt;&gt;
+state if_saveFile &lt;&lt;choice&gt;&gt;
+state if_base64 &lt;&lt;choice&gt;&gt;
+state if_link &lt;&lt;choice&gt;&gt;
+
+[*] --&gt; request
+request --&gt; Request: HandleRequestOfFile
+state ErrorBox { 
+    exceptions --&gt; if_IsNotAllowedIP: IsNotAllowedIP 
+    if_IsNotAllowedIP --&gt; API_KEY_REQUIRED 
+    if_IsNotAllowedIP --&gt; if_NotExistApiKey: IsNotAllowedIP 
+    if_NotExistApiKey --&gt; API_KEY_REQUIRED
+    exceptions --&gt; if_NotExistServiceName: NotExistServiceName 
+    if_NotExistServiceName --&gt; SERVICE_NOT_FOUND
+}
+state Handlers {
+handleFileRequest 
+handleNonFileRequest 
+handleSRTProxyRequest 
+grpcHandler
+websocketHandler
+}
+Handlers --&gt; Request
+state Request {
+    checkApi --&gt; adjustServiceAndBaseName : 1 
+    note right of checkApi            
+                Proxy | Simple Api
+    end note
+    note right of adjustServiceAndBaseName            
+              { originalURL, baseName, serviceName, absolutePath }
+    end note
+    adjustServiceAndBaseName --&gt; ErrorBox: CheckUp
+    checkApi --&gt; getAccessAiService : 2 
+    getAccessAiService --&gt; validateAccessAiService : 2-1
+    validateAccessAiService --&gt; validateApiMethods : 2-2
+    validateApiMethods --&gt; checkValidApis    
+    checkValidApis --&gt; ResultOfCheckValidApis : EQ Result With isValidApi 
+        if_NotExistValidApiService --&gt; NOT_FOUND_ROUTE_ERROR : NotExistValidApiService
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiService : 2-3
+        if_NotExistValidApiApiKey --&gt; NOT_ALLOW_API : NotExistValidApiApiKey
+        ResultOfCheckValidApis --&gt; if_NotExistValidApiApiKey : 2-4
+    checkValidApis --&gt; validateAccessAiService : 2-5
+        validateAccessAiService --&gt; ApiKey
+        ApiKey --&gt; if_ApiKey_MaxCount
+        if_ApiKey_MaxCount --&gt; COUNT_API_KEY_ZERO : maxCount&lt; 1   
+        ApiKey --&gt; if_ApiKey_ExpireDate
+        if_ApiKey_ExpireDate --&gt; API_KEY_EXPIRE  : expireDate &lt; dateNow
+        ApiKey --&gt; if_ApiKey_IsValid 
+        if_ApiKey_IsValid --&gt; API_KEY_INVALID : IsNotValid
+        checkValidApis --&gt; validateApiMethods
+        checkValidApis --&gt; checkValidApis : for(api of apis) &amp;&amp; isValidApi
+    checkApi --&gt; getServiceInfo : 3
+    getServiceInfo --&gt; checkValidServices : only POSTs 
+    checkValidServices --&gt; Files: accessAiService.files = Result of checking
+    note right of checkValidServices            
+                After refactoring it could be checkValidApis
+    end note
+    checkApi --&gt; isFileRequest : 4
+    checkApi --&gt; validateMaxCountTpm : 5
+        validateMaxCountTpm --&gt; if_accessAiService_maxCount: 5-1    
+        validateMaxCountTpm --&gt; if_accessAiService_TPM  : 5-2      
+        if_accessAiService_maxCount --&gt; COUNT_API_MAX_COUNT_ZERO : accessAiService.maxCount == 0    
+        validateMaxCountTpm --&gt; getCountTmp
+        getCountTmp --&gt; redis : Filter count 10 of '{accessAiService.id} *' Else 0
+        getCountTmp --&gt; if_accessAiService_TPM : countTpm
+        if_accessAiService_TPM --&gt; MAX_COUNT_TPM_INVALID : countTpm &gt;= accessAiService.TPM        
+    checkApi --&gt; saveFile : 6     
+        saveFile --&gt; if_saveFile : for (file of files)
+        if_saveFile --&gt; next : req.requestType == 'proxy'
+        next --&gt; [*]
+        if_saveFile --&gt; saveFile : req.requestType == 'file'        
+        if_saveFile --&gt; if_base64 
+        if_base64 --&gt; saveBase64: howGet == base64
+        if_saveFile --&gt; if_link 
+        if_link --&gt; saveLink: howGet == link
+        saveLink --&gt; save : axios.sendRequest
+        saveBase64 --&gt; save  : Buffer.from(req.body[name], 'base64')      
+        saveBase64 --&gt; createWriteStream
+        save --&gt; assets/uploads : Write To path of assets/uploads 
+        assets/uploads --&gt; next
+} 
+handleSRTProxyRequest --&gt; proxyRequest : axios.sendRequest(config)
+handleSRTProxyRequest --&gt; Response
+handleNonFileRequest --&gt; Response
+handleFileRequest --&gt; Response
+proxyRequest --&gt; buildRequestOptions
+handleNonFileRequest --&gt; buildRequestOptions
+handleFileRequest --&gt; buildRequestOptions
+grpcHandler --&gt; RemoteService
+RemoteService --&gt; sendFileSpeech
+RemoteService --&gt; checkServerHealth
+note left of RemoteService            
+        rabbitMQ.sendRpcMessage({ msg, queue }))
+        rabbitMQ.messageCount(queue)
+end note
+websocketHandler --&gt; createMessage
+Request --&gt; Response 
+state Response {
+aiTimeProcessing --&gt;  SaveToGatewayLogData: 1 aiTimeProcessing=res-req
+updateCounts
+note left of updateCounts            
+            resultCode &gt;= 200 &amp;&amp; resultCode &lt; 300, max_count - = 1
+end note
+}
+state redis{
+    generateRedisKey --&gt; setRedisKey : key of ApiIdPluseRandom of val New Data
+}
+Response --&gt; redis
+Response --&gt; [*]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logs_noted"><a class="header" href="#logs_noted">logs_noted</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="middleware-logger"><a class="header" href="#middleware-logger">Middleware Logger</a></h1>
+<p>The initial settings pertain to the placement of middlewares, which must be arranged in a specific order.</p>
+<pre><code class="language-javascript">app.use(createLog)//...
+
+app.use(saveResultLog)
+
+app.use(publicMiddlewares)
+
+app.use(routers)//...
+</code></pre>
+<h2 id="winston-loger"><a class="header" href="#winston-loger">Winston Loger</a></h2>
+<p>One of the uses of this library in the gateway application is to write logs in the error.log file, which is located in the logs folder path.</p>
+<p>For example, the content of this file can include the creation of logs for the following errors:</p>
+<pre><code class="language-md"> **1403/2/25, 11:55:28 [error]:**  listen EADDRINUSE: address already in use :::3002 &quot;Error: listen EADDRINUSE: address already in use :::3002\n    at Server.setupListenHandle [as _listen2] (node:net:1817:16)\n    at listenInCluster (node:net:1865:12)\n    at Server.listen (node:net:1953:7)\n    at Object.&lt;anonymous&gt; (/home/armanriazi/gw-projects/gateway/gateway/src/index.js:9:8)\n    at Generator.next (&lt;anonymous&gt;)\n    at bl (/home/armanriazi/gw-projects/gateway/node_modules/esm/esm.js:1)\n    at kl (/home/armanriazi/gw-projects/gateway/node_modules/esm/esm.js:1)\n    at Object.u (/home/armanriazi/gw-projects/gateway/node_modules/esm/esm.js:1)\n    at Object.o (/home/armanriazi/gw-projects/gateway/node_modules/esm/esm.js:1)\n    at Object.&lt;anonymous&gt; (/home/armanriazi/gw-projects/gateway/node_modules/esm/esm.js:1)&quot;
+**1403/2/25, 13:15:18 [error]:**  ERROR OCURRED ON BROKER CONNECTION : Error: Unexpected close
+    at succeed (/home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:280:13)
+    at onOpenOk (/home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:262:5)
+    at /home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:165:32
+    at /home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:159:12
+    at Socket.recv (/home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:507:12)
+    at Object.onceWrapper (node:events:631:28)
+    at Socket.emit (node:events:517:28)
+    at Socket.emit (node:domain:489:12)
+    at emitReadable_ (node:internal/streams/readable:633:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21) &quot;Error: ERROR OCURRED ON BROKER CONNECTION : Error: Unexpected close\n    at succeed (/home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:280:13)\n    at onOpenOk (/home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:262:5)\n    at /home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:165:32\n    at /home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:159:12\n    at Socket.recv (/home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:507:12)\n    at Object.onceWrapper (node:events:631:28)\n    at Socket.emit (node:events:517:28)\n    at Socket.emit (node:domain:489:12)\n    at emitReadable_ (node:internal/streams/readable:633:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)\n    at ChannelModel.&lt;anonymous&gt; (/home/armanriazi/gw-projects/gateway/gateway/src/services/broker.js:47:15)\n    at ChannelModel.emit (node:events:517:28)\n    at ChannelModel.emit (node:domain:489:12)\n    at Connection.emit (node:events:517:28)\n    at Connection.emit (node:domain:489:12)\n    at C.onSocketError (/home/armanriazi/gw-projects/gateway/node_modules/amqplib/lib/connection.js:361:10)\n    at Socket.emit (node:events:529:35)\n    at Socket.emit (node:domain:489:12)\n    at endReadableNT (node:internal/streams/readable:1400:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)&quot;
+</code></pre>
+<h2 id="save-logs-to-the-db"><a class="header" href="#save-logs-to-the-db">Save logs to the DB</a></h2>
+<p>Depending on whether the request is an API or a service, the type of storage is determined. Always keep in mind that when debugging, the order of execution may not be clear due to the asynchronous nature of the functions. However, regarding the storage of requests and responses in the GatewayLogs table, consider…</p>
+<h2 id="using-lib-of-partbackendlogger"><a class="header" href="#using-lib-of-partbackendlogger">Using lib of partbackendlogger</a></h2>
+<p>This library is connected to an endpoint, the settings of which are done in the .env file. Therefore, with the creation of each log, you can send it to the specified server and then view its information in Grafana. For other settings, you can use the backendLogger file in the services section.</p>
+<h2 id="logger-service-file"><a class="header" href="#logger-service-file">Logger service file</a></h2>
+<p>This file utilizes the partbackendlogger library. Or it can be said to be the complement of this service in our program. Therefore, this file is the final part of the log, and the Winston library will only be used here throughout the project.</p>
+<h2 id="how-to-use"><a class="header" href="#how-to-use">How to use</a></h2>
+<pre><code class="language-javascript">import logger from './backendLogger'
+
+export default async ({ req, res, responseBody, errStack }) =&gt; {
+ try {
+   if (errStack) {
+     // send to logger service
+     logger.errorLog({ res, error: errStack })
+   }
+ }
+ catch{}
+</code></pre>
+<h2 id="log-json-structure-object"><a class="header" href="#log-json-structure-object">Log Json Structure Object</a></h2>
+<pre><code class="language-json">{
+    &quot;log&quot; : {
+       &quot;requestId&quot;:{},
+        &quot;meta&quot;: {
+          &quot;userAgent&quot;: {},
+          &quot;ip&quot;: {},
+          &quot;method&quot;: {},
+          &quot;originalUrl&quot;: {},
+          &quot;path&quot;: {},
+        },
+        &quot;data&quot;: {
+          &quot;status&quot; : {},
+          &quot;message&quot; : {},
+          &quot;request&quot; : {},
+          &quot;response&quot; : {},
+        },
+    }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p><strong>Please do not hesitate to contact me if you require to access updated codes.</strong></p>
+<ul>
+<li><a href="./AboutMe.html">Contact me</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="analyze"><a class="header" href="#analyze">Analyze</a></h1>
+<ul>
+<li><a href="analyze/./ANALYZE.html">Home</a>
+<ul>
+<li><a href="analyze/./Stress_1.html">Stress(1)</a></li>
+<li><a href="analyze/./Stress_2.html">Stress(2)</a></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p><a href="analyze/../assets/uploads/bb4aea58e9fbc7983c54fa6ad527ef75/gateway_test_result.rar">gateway_test_result.rar</a></p>
+<div style="break-before: page; page-break-before: always;"></div><p><strong>نتیجه ی استرس تست ارسال فایل (nationalCart)</strong></p>
+<p>حجم فایل:  10KB</p>
+<p><strong>10 درخواست در ثانیه:</strong>
+به طور میانگین 150 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/a6b008032eff6edac48c6da1f70d92db/image.png" alt="image" /></p>
+<p><img src="analyze/../assets/uploads/0c0ac3684e0ba1fb165ce605ee9f29d4/image.png" alt="image" /></p>
+<p>حجم فایل:  500KB</p>
+<p><strong>10 درخواست در ثانیه:</strong>
+به طور میانگین 250 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/3962e85162854f87147966402ad8d769/image.png" alt="image" /></p>
+<p><img src="analyze/../assets/uploads/9f4640bd10a26781105f84151b1e573b/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال فایل(nationalCart)</strong></p>
+<p><strong>10 درخواست در ثانیه روی ۲ threads:</strong>
+به طور میانگین 150 میلی ثانیه 
+<img src="analyze/../assets/uploads/d51b2965301894e8381bf790e8714cae/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست دریافت فایل(nationalCart)</strong></p>
+<p><strong>10 درخواست در ثانیه:</strong>
+به طور میانگین 29 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/2c3e1001db2b330bd7b004b4ae976f47/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال فایل(nationalCart)</strong></p>
+<p>حجم فایل:  10KB</p>
+<p><strong>100 درخواست در ثانیه:</strong>
+به طور میانگین 1389 میلی ثانیه </p>
+<p>تعداد درخواست های ارسالی به سرور 4300 درخواست در دقیقه</p>
+<p><img src="analyze/../assets/uploads/d66c830a8972eabe5ad37db813f98544/image.png" alt="image" /></p>
+<p><img src="analyze/../assets/uploads/1d8526f9c9d2d515ec7cb2e9945c9501/image.png" alt="image" /></p>
+<p>حجم فایل:  500KB</p>
+<p><strong>100 درخواست در ثانیه:</strong>
+به طور میانگین 2500 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/0a955fbcbe62b41b3d59390ab8de7dcc/image.png" alt="image" /></p>
+<p><img src="analyze/../assets/uploads/75a3d42d5098297043a913444b0e1246/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست دریافت فایل(nationalCart)</strong></p>
+<p>حجم فایل:  500KB</p>
+<p><strong>100 درخواست در ثانیه:</strong>
+به طور میانگین 1600 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/61543416270504b73114d98060e681e4/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال فایل(nationalCart)</strong></p>
+<p>حجم فایل:  10KB</p>
+<p><strong>500 درخواست در ثانیه:</strong>
+به طور میانگین 6300 میلی ثانیه </p>
+<p>تعداد درخواست های ارسالی به سرور 4500 درخواست در دقیقه</p>
+<p><img src="analyze/../assets/uploads/cfdebcffe163846243e05acd32b7023f/image.png" alt="image" /></p>
+<p><img src="analyze/../assets/uploads/d915b4483e508690bae86945f14f4c7a/image.png" alt="image" /></p>
+<p>حجم فایل:  500KB</p>
+<p><strong>500 درخواست در ثانیه:</strong>
+به طور میانگین 12500 میلی ثانیه 
+<img src="analyze/../assets/uploads/8d3d0098dde0f2995e5f5a55f5c4b4c6/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست دریافت فایل(nationalCart)</strong></p>
+<p>حجم فایل:  500KB</p>
+<p><strong>500 درخواست در ثانیه:</strong>
+به طور میانگین 4900 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/76ed0f85c13e2e8f6da883c6b559c447/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال فایل(nationalCart)</strong></p>
+<p>حجم فایل:  10KB</p>
+<p><strong>1000 درخواست در ثانیه:</strong>
+به طور میانگین 13000 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/1b812ec43555ff283eedcc5ff848779d/image.png" alt="image" /></p>
+<p><img src="analyze/../assets/uploads/ada5f74931d15df48abe1d5f27df52b1/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست دریافت فایل(nationalCart)</strong></p>
+<p><strong>1000 درخواست در ثانیه:</strong>
+به طور میانگین 7143 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/7b28bb9c016e058a06c8faad6e5898d2/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال متن(تبدیل فارسی به انگلیسی)</strong></p>
+<p><strong>50 درخواست در ثانیه:</strong>
+به طور میانگین 26 میلی ثانیه 
+<img src="analyze/../assets/uploads/ed0c62d0c2cef6b9132b66a7494d7246/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال متن(تبدیل فارسی به انگلیسی)</strong></p>
+<p><strong>100 درخواست در ثانیه:</strong>
+به طور میانگین 83 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/9e106d678d8295a91a9b8151d74c0445/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال متن(تبدیل فارسی به انگلیسی)</strong></p>
+<p><strong>500 درخواست در ثانیه:</strong>
+به طور میانگین 2498 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/ed8eb3a79cdc21a236fa4aa35c955dee/image.png" alt="image" /></p>
+<p><strong>نتیجه ی استرس تست ارسال متن(تبدیل فارسی به انگلیسی)</strong></p>
+<p><strong>1000 درخواست در ثانیه:</strong>
+به طور میانگین 5793 میلی ثانیه </p>
+<p><img src="analyze/../assets/uploads/b1c2a3d38ed4d332857b895a0ff48d96/image.png" alt="image" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notiations"><a class="header" href="#notiations">Notiations</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

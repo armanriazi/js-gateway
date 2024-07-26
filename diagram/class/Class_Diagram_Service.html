@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Service - API-Gateway(A.R)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../AboutMe.html"><strong aria-hidden="true">1.</strong> AboutMe</a></li><li class="chapter-item expanded "><a href="../../INTRO.html"><strong aria-hidden="true">2.</strong> Intoductory</a></li><li class="chapter-item expanded "><a href="../../configuration/docker/DOCKER.html"><strong aria-hidden="true">3.</strong> Docker_Setting</a></li><li class="chapter-item expanded "><a href="../../configuration/rabbitmq/RABBITMQ.html"><strong aria-hidden="true">4.</strong> RabbitMQ_Setting</a></li><li class="chapter-item expanded "><a href="../../diagram/DIAGRAM.html"><strong aria-hidden="true">5.</strong> Diagrams</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Chart.html"><strong aria-hidden="true">5.1.</strong> Main Flowchar</a></li><li class="chapter-item "><a href="../../diagram/apis/APIs.html"><strong aria-hidden="true">5.2.</strong> How to use APIs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/apis/Call_GW_APIs.html"><strong aria-hidden="true">5.2.1.</strong> How to use Gateway_1</a></li><li class="chapter-item "><a href="../../diagram/apis/Call_GW_APIs_2.html"><strong aria-hidden="true">5.2.2.</strong> How to use Gateway 2</a></li></ol></li><li class="chapter-item "><a href="../../diagram/er/ER.html"><strong aria-hidden="true">5.3.</strong> ER</a></li><li class="chapter-item expanded "><a href="../../diagram/class/CLASS.html"><strong aria-hidden="true">5.4.</strong> Class</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Auth.html"><strong aria-hidden="true">5.4.1.</strong> Auth</a></li><li class="chapter-item "><a href="../../diagram/class/Class_Diagram_Controller.html"><strong aria-hidden="true">5.4.2.</strong> Controller</a></li><li class="chapter-item expanded "><a href="../../diagram/class/Class_Diagram_Service.html" class="active"><strong aria-hidden="true">5.4.3.</strong> Service</a></li></ol></li><li class="chapter-item "><a href="../../diagram/flowchart/FLOWCHART.html"><strong aria-hidden="true">5.5.</strong> Flowchart</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/flowchart/Flowchart_User.html"><strong aria-hidden="true">5.5.1.</strong> User</a></li></ol></li><li class="chapter-item "><a href="../../diagram/sequential/SEQUENTIAL.html"><strong aria-hidden="true">5.6.</strong> Seuential</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/Sequential_Diagram_Auth_noted.html"><strong aria-hidden="true">5.6.2.</strong> aiServices_ctr_notedl</a></li><li class="chapter-item "><a href="../../diagram/sequential/Sequential_Diagram_Auth.html"><strong aria-hidden="true">5.6.3.</strong> Auth</a></li></ol></li><li class="chapter-item "><a href="../../diagram/activity/ACTIVITY.html"><strong aria-hidden="true">5.7.</strong> Activity</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.1.</strong> aiServices_ctrl</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.2.</strong> aiServices_srv</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_Logs.html"><strong aria-hidden="true">5.7.3.</strong> logs</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl.html"><strong aria-hidden="true">5.7.4.</strong> aiServices controller</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv.html"><strong aria-hidden="true">5.7.5.</strong> aiServices service</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_naming.html"><strong aria-hidden="true">5.7.6.</strong> aiServices serviceNaming</a></li><li class="chapter-item "><a href="../../service/aiServices_srv_type.html"><strong aria-hidden="true">5.7.7.</strong> Type of service</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_ctrl_noted.html"><strong aria-hidden="true">5.7.8.</strong> aiServices_ctrl_noted</a></li><li class="chapter-item "><a href="../../diagram/activity/Activity_Diagram_aiServices_srv_noted.html"><strong aria-hidden="true">5.7.9.</strong> aiServices_srv_noted</a></li><li class="chapter-item "><a href="../../diagram/Activity_Diagram_Logs_notes.html"><strong aria-hidden="true">5.7.10.</strong> logs_noted</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../logs/logs.html"><strong aria-hidden="true">6.</strong> Logs</a></li><li class="chapter-item expanded "><a href="../../ClientCode.html"><strong aria-hidden="true">7.</strong> Codes</a></li><li class="chapter-item expanded "><a href="../../analyze/ANALYZE.html"><strong aria-hidden="true">8.</strong> Analysis</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../analyze/Stress_1.html"><strong aria-hidden="true">8.1.</strong> Stress(1)</a></li><li class="chapter-item "><a href="../../analyze/Stress_2.html"><strong aria-hidden="true">8.2.</strong> Stress(2)</a></li></ol></li><li class="chapter-item expanded "><a href="../../GLOSSARY.html"><strong aria-hidden="true">9.</strong> Glossery</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">API-Gateway(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/armanriazi/js-gateway/edit/main/workspace/./workspace//diagram/class/Class_Diagram_Service.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <pre><code class="language-mermaid">---
+title: modules/Service(except ServiceBase all of services are async)
+---
+classDiagram
+    ServiceBase --&gt; models
+    ServiceBase &lt;|-- apiKeys_service
+    ServiceBase &lt;|-- apis_service
+    ServiceBase &lt;|-- projects_service
+    ServiceBase &lt;|-- services_service
+    ServiceBase &lt;|-- users_service
+    ServiceBase &lt;|-- gatewayLogs_service
+    ServiceBase &lt;|-- ai_service
+    ServiceBase : create(data, transaction)
+    ServiceBase : bulkCreate(data) {
+    ServiceBase : find({ where, pagination, attributes, group, order, paranoid })
+    ServiceBase : findAndCount({ where, pagination, attributes, group, order, paranoid })
+    ServiceBase : findOne(where, attributes)
+    ServiceBase : updateOne(data, where, returning, transaction)
+    ServiceBase : deleteOne({ where, returning, transaction, force })
+    ServiceBase : findOrCreate({ where, defaults })
+    class models{
+        +generateModels()
+        +associations()
+    }
+    class apiKeys_service{
+        +findApiKey(clause)
+        +findAllApiKey(clause, limit, offs)
+    }
+    class gatewayLogs_service{
+    }
+    class apis_service{
+        +findApiKeyService(clause)
+        +findAllApis(clause, limit, offs)
+        +findAiServiceForApiKey(clause)
+    }
+    class projects_service{
+        +findProjectService(clause)
+        +findAllProjects(clause, limit, offs)
+    }
+    class services_service{
+       +findProjectService(clause)
+       +findService(name)
+       +findAllServices(clause, limit, offs) 
+    }
+    class users_service{
+       +findUserApiKey(clause)
+       +findAllUsersApiKey(clause, role, limit, offs)
+       +findUserRole(id) 
+    }
+    class ai_service{
+       +checkApi(req, res, next)
+       +checkProxyApi(req, res, next)
+       +checkValidApis(apis, method, originalUrl, baseName )
+       +checkValidServices( apis )
+       +adjustServiceAndBaseName(originalUrl, method)
+       +isImageExtension(url)
+       +validateApiMethods(accessAiService, method, originalUrl, baseName)
+       +getAccessAiService(apiKey, serviceName)
+       +validateAccessAiService(accessAiService)
+       +getServiceInfo(serviceName, method)
+       +saveFile(req, res, next)
+       +saveBase64(req, type, required, name )
+       +saveLink(req, name, required, next)
+       +writeFileStream( data, fileWriter, fileName, filePath )
+       +getCountTmp(accessAiService)
+       +isFileRequest(absolutePath, serviceName)
+       +validateMaxCountTpm(accessAiService)
+       +checkIp(req, res, next)
+       +proxyRequest(req)
+       +generateRedisKey(apiId)
+       +setRedisKey(key, value)
+       +updateCounts(value, apiId)
+       +buildRequestOptions(req)
+       +handleNonFileRequest(req,res,apiId,value,gatewayLogData)
+       +handleFileRequest(req,res,apiId,value,gatewayLogData) 
+       +handleSRTProxyRequest(req,res,apiId,value,gatewayLogData)
+    }
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../diagram/class/Class_Diagram_Controller.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../diagram/flowchart/FLOWCHART.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../diagram/class/Class_Diagram_Controller.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../diagram/flowchart/FLOWCHART.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
